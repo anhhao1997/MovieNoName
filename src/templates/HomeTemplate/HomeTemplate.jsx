@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { Route } from 'react-router-dom';
 import Header from "./Layout/Header/Header";
+import Footer from "./Layout/Footer/Footer";
 
 export const HomeTemplate = (props) => {
 
@@ -16,9 +17,7 @@ export const HomeTemplate = (props) => {
 
                 <Component {...propsRoute} />
 
-                <footer>
-                    Đây là footer
-                </footer>
+                <Footer></Footer>
 
             </Fragment>
         )
