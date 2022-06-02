@@ -13,7 +13,7 @@ export const getCarouselAction = () => {
 
             dispatch({
                 type: SET_CAROUSEL,
-                arrBanner: result.content.data
+                arrBanner: result.data.content
             })
 
         } catch (error) {

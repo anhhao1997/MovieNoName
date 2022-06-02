@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export default function HomeService(prop) {
-    return (
-        <div>HomeService</div>
-    )
+  return <div>Home Service</div>;
 }

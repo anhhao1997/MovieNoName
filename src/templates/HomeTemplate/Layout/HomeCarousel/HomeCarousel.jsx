@@ -11,7 +11,7 @@ export default function HomeCarousel(props) {
     useEffect(() => {
         try {
 
-            let action = getCarouselAction;
+            const action = getCarouselAction;
 
             dispatch(action);
 
