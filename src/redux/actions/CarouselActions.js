@@ -1,13 +1,13 @@
 
 import { SET_CAROUSEL } from "../types/CarouselTypes";
-import { quanLyPhim } from "../../services/QuanLyPhimService";
+import { quanLyBanner } from "../../services/QuanLyBannerService";
 
 
 export const getCarouselAction = () => {
     return async (dispatch) => {
         try {
 
-            const result = await quanLyPhim.layDanhSachBanner();
+            const result = await quanLyBanner.layDanhSachBanner();
 
             const action = {
                 type: SET_CAROUSEL,
