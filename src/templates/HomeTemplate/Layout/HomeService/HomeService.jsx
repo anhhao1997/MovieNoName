@@ -1,5 +1,12 @@
-import React from "react";
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+export default function HomeService() {
 
-export default function HomeService(prop) {
-  return <div>Home Service</div>;
+    const { QuanLyPhimReducer } = useSelector(state => state.QuanLyPhimReducer)
+
+    return (
+        <div>HomeService</div>
+    )
 }
+
+
