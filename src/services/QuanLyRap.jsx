@@ -2,12 +2,12 @@ import { baseService } from "./baseService";
 import { GROUPID } from "../util/settings/config";
 
 export class QuanLyRapService extends baseService {
-    constructor(){
+    constructor() {
         super();
 
     }
     layThongTinHeThongRap = () => {
-        return this.get(`/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=${GROUPID}`)
+        return this.get(`api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=${GROUPID}`)
     }
 }
 

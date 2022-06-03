@@ -2,12 +2,13 @@ import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
 import thunk from 'redux-thunk'
 import { CarouselReducer } from "./reducers/CarouselReducer";
 import { QuanLyRapReducer } from './reducers/QuanLyRapReducer';
+import { QuanLyPhimReducer } from './reducers/QuanLyPhimReducer';
 
 const rootReducer = combineReducers({
     // state ứng dụng
     CarouselReducer,
     QuanLyRapReducer,
-
+    QuanLyPhimReducer
 })
 
 

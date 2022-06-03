@@ -5,6 +5,8 @@ import HomeTheater from "./../../templates/HomeTemplate/Layout/HomeTheater/HomeT
 
 export default function Home(props) {
 
+
+
     return (
 
         <div>

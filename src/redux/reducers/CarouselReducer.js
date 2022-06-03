@@ -16,7 +16,15 @@ export const CarouselReducer = (state = stateDefault, action) => {
     switch (action.type) {
 
         case SET_CAROUSEL: {
-            state.arrBanner = action.arrBanner
+
+            let arrBanner = [...state.arrBanner];
+
+            arrBanner = action.arrBanner;
+
+            state.arrBanner = arrBanner;
+
+            return { ...state };
+
         }
         default:
             return { ...state }

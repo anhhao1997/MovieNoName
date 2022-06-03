@@ -1,33 +1,79 @@
 import React, { useEffect } from "react";
-import { Tabs, Radio, Space } from "antd";
+import { Tabs } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { layDanhSachHeThongRap } from "../../../../redux/actions/QuanLyRapActions";
+import { NavLink } from "react-router-dom";
+import moment from "moment";
 
 export default function HomeTheater(props) {
   const { TabPane } = Tabs;
+
   const { heThongRapChieu } = useSelector((state) => state.QuanLyRapReducer);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
+    //khi mà trang vừa load lên thì sẽ gọi action layDanhSachHeThongRap()
     const action = layDanhSachHeThongRap();
     dispatch(action);
   }, []);
 
-  console.log("htr", heThongRapChieu);
+  const renderHeThongRap = () => {
+    return heThongRapChieu.map((heThongRap, index) => {
+      return (
+        //render logo heThongRap
+        <TabPane key={index} tab={<img src={heThongRap.logo} className="rounded-full" width="50" />}>
+          <Tabs tabPosition={"left"}>
+            {/* render tiep cumRap từ lstCumRap */}
+            {heThongRap.lstCumRap?.slice(0, 5).map((cumRap, index) => {
+              return (
+                <TabPane
+                  key={index}
+                  tab={
+                    <div className="w-56 text-left">
+                      <div className="flex gap-2 items-center">
+                        <img src={heThongRap.logo} className="rounded-full" width="40" />
+                        <div className=" uppercase font-semibold">{cumRap.tenCumRap}</div>
+                      </div>
+
+                      <p className="w-60 mt-1">Địa chỉ: {cumRap.diaChi.length > 50 ? cumRap.diaChi.slice(0, 45) + " ..." : cumRap.diaChi}</p>
+                    </div>
+                  }
+                >
+                  {/* render danhSachPhim tuong ứng */}
+                  {cumRap.danhSachPhim.slice(0, 5).map((phim, index) => {
+                    return (
+                      <div className="mb-2" style={{ border: "1px solid gray" }} key={index}>
+                        <div className="flex m-1 gap-2 text-xs font-semibold">
+                          <img src={phim.hinhAnh} alt={phim.tenPhim} width="100" />
+                          <div>
+                            <h1 className=" border-l-8 border-black p-1 bg-red-500 text-white">{phim.tenPhim}</h1>
+                            <div className="grid grid-cols-4 gap-2">
+                              {phim.lstLichChieuTheoPhim?.slice(0, 12).map((lichChieu, index) => {
+                                return (
+                                  <NavLink className='text-black bg-gray-50 border-2 p-1 hover:text-red-500 hover:border-red-500' to="/" key={index}>
+                                    {moment(lichChieu.ngayChieuGioChieu).format("hh:mm A")}
+                                  </NavLink>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </TabPane>
+              );
+            })}
+          </Tabs>
+        </TabPane>
+      );
+    });
+  };
 
   return (
-    <div className="container lg:mx-10 my-10 text-sm md:mx-5">
-      <Tabs tabPosition={"left"}>
-        <TabPane tab={<img src="https://picsum.photos/200" className="rounded-full" width="50" />} key="1">
-          Content of Tab 1
-        </TabPane>
-        <TabPane tab={<img src="https://picsum.photos/200" className="rounded-full" width="50" />} key="2">
-          Content of Tab 2
-        </TabPane>
-        <TabPane tab={<img src="https://picsum.photos/200" className="rounded-full" width="50" />} key="3">
-          Content of Tab 3
-        </TabPane>
-      </Tabs>
+    <div className="container my-5 w-3/4">
+      <Tabs tabPosition={"left"}>{renderHeThongRap()}</Tabs>
     </div>
   );
 }
