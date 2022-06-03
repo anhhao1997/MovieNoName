@@ -1,0 +1,37 @@
+.slick-prev:before,
+.slick-next:before {
+    font-family: 'slick';
+    font-size: 40px;
+    line-height: 0.5;
+    opacity: 0.5;
+    color: red;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-prev:before {
+    position: relative;
+    right: 30px;
+}
+
+.slick-next:before {
+    position: relative;
+    left: 15px;
+}
+
+.card-film {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    position: relative;
+
+    .card-item .btn-trailer {
+        display: none;
+    }
+
+    .card-item:hover .btn-trailer {
+        display: block;
+        position: absolute;
+        top: 35%;
+        left: 37%;
+    }
+}

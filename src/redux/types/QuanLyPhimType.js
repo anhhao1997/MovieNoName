@@ -1,0 +1,1 @@
+export const SET_ARRFILM = 'SET_ARRFILM';

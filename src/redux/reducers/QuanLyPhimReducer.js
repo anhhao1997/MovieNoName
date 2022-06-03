@@ -1,7 +1,8 @@
+import { SET_ARRFILM } from "./../types/QuanLyPhimType";
+
 const stateDefault = {
     arrFilm: [
         {
-
             "maPhim": 8708,
             "tenPhim": "RỪNG THẾ MẠNGG",
             "biDanh": "rung-the-mangg",
@@ -21,7 +22,15 @@ const stateDefault = {
 
 export const QuanLyPhimReducer = (state = stateDefault, action) => {
     switch (action.type) {
+        case SET_ARRFILM: {
+            let arrFilm = [...state.arrFilm];
 
+            arrFilm = action.arrFilm;
+
+            state.arrFilm = arrFilm;
+
+            return { ...state };
+        }
         default:
             return { ...state }
     }

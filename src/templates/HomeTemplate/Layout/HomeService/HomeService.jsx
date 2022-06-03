@@ -1,11 +1,14 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-export default function HomeService() {
+import HomeServiceSlick from './HomeServiceSlick'
+export default function HomeService(props) {
 
-    const { QuanLyPhimReducer } = useSelector(state => state.QuanLyPhimReducer)
-
+    const { arrFilm } = useSelector(state => state.QuanLyPhimReducer)
+    console.log('film', arrFilm);
     return (
-        <div>HomeService</div>
+        <div className='container mx-auto'>
+            <HomeServiceSlick />
+        </div>
     )
 }
 

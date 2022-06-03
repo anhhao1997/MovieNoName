@@ -45,7 +45,7 @@ export default function HomeTheater(props) {
                     return (
                       <div className="mb-2" key={index}>
                         <div className="flex m-1 gap-2 pb-2 text-xs font-semibold border-b-2 border-gray-200 justify-around">
-                          <img src={phim.hinhAnh} alt={phim.tenPhim} width="120" style={{height:'100%'}} />
+                          <img src={phim.hinhAnh} alt={phim.tenPhim} width="120" style={{ height: '100%' }} />
                           <div>
                             <h1 className="w-full border-l-8 border-black p-1 bg-red-500 text-white">{phim.tenPhim}</h1>
                             <div className="grid grid-cols-5 gap-2">
