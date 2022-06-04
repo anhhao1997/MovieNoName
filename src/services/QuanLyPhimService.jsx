@@ -8,7 +8,7 @@ export class QuanLyPhimService extends baseService {
     }
 
     layDanhSachPhim = () => {
-        return this.get(`https://movienew.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=${GROUPID}`)
+        return this.get(`api/QuanLyPhim/LayDanhSachPhim?maNhom=${GROUPID}`)
     }
 }
 

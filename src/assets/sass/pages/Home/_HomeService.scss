@@ -1,37 +1,86 @@
+.service-slick .title {
+    font-size: 30px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    outline: none;
+    text-align: center;
+}
+
+button.slick-arrow.slick-next,
+button.slick-arrow.slick-prev {
+    text-align: center;
+    background-color: #ef4444 !important;
+    height: 50px;
+    width: 60px;
+    border: 2px solid;
+    border-radius: 15px 0px;
+}
+
+button.slick-arrow.slick-prev {
+    border-radius: 0px 15px;
+}
+
+.slick-list {
+    margin-left: 50px;
+    margin-right: 50px;
+    overflow: hidden;
+}
+
 .slick-prev:before,
 .slick-next:before {
-    font-family: 'slick';
-    font-size: 40px;
-    line-height: 0.5;
-    opacity: 0.5;
-    color: red;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.slick-prev:before {
-    position: relative;
-    right: 30px;
-}
-
-.slick-next:before {
-    position: relative;
-    left: 15px;
+    color: #fff;
+    font-size: 30px;
+    opacity: 1;
 }
 
 .card-film {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    position: relative;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
 
-    .card-item .btn-trailer {
-        display: none;
+    .card-item .img-film {
+        position: relative;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        width: 100%;
+        height: 350px;
+        border: 1px solid black;
+        box-shadow: 5px 5px gray;
+
+        .btn-trailer {
+            position: absolute;
+            width: 100%;
+            top: 25%;
+            display: none;
+
+            i {
+                font-size: 80px;
+                color: #ef4444;
+            }
+        }
+
+        .info-film {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            background-color: #ef4444;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-radius: 20px 0 20px 0;
+            display: none;
+        }
     }
 
-    .card-item:hover .btn-trailer {
-        display: block;
-        position: absolute;
-        top: 35%;
-        left: 37%;
+    .card-item .img-film:hover {
+        .btn-trailer {
+            display: block;
+        }
+
+        .info-film {
+            display: block;
+        }
     }
 }
