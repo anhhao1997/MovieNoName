@@ -1,7 +1,7 @@
 .service-slick .title {
     font-size: 30px;
     padding-top: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 25px;
     outline: none;
     text-align: center;
 }
@@ -11,13 +11,9 @@ button.slick-arrow.slick-prev {
     text-align: center;
     background-color: #ef4444 !important;
     height: 50px;
-    width: 60px;
+    width: 50px;
     border: 2px solid;
-    border-radius: 15px 0px;
-}
-
-button.slick-arrow.slick-prev {
-    border-radius: 0px 15px;
+    border-radius: 5px 5px;
 }
 
 .slick-list {
