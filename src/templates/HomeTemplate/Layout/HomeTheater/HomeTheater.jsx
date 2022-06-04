@@ -30,7 +30,7 @@ export default function HomeTheater(props) {
                 <TabPane
                   key={index}
                   tab={
-                    <div className="w-full text-left">
+                    <div className="text-left" style={{ width: "380px" }}>
                       <div className="flex gap-2 items-center">
                         <img src={heThongRap.logo} className="rounded-full" width="40" />
                         <div className=" uppercase font-semibold">{cumRap.tenCumRap}</div>
@@ -44,19 +44,27 @@ export default function HomeTheater(props) {
                   {cumRap.danhSachPhim.slice(0, 5).map((phim, index) => {
                     return (
                       <div className="mb-2" key={index}>
-                        <div className="flex m-1 gap-2 pb-2 text-xs font-semibold border-b-2 border-gray-200 justify-around">
-                          <img src={phim.hinhAnh} alt={phim.tenPhim} width="120" style={{ height: '100%' }} />
-                          <div>
-                            <h1 className="w-full border-l-8 border-black p-1 bg-red-500 text-white">{phim.tenPhim}</h1>
-                            <div className="grid grid-cols-5 gap-2">
+                        <div className="flex m-1 gap-2 py-2 text-xs font-semibold border-b-2 border-gray-200 transition ease-in-out delay-150 hover:shadow-md shadow-black hover:scale-110 duration-300 hover:border-2 ">
+                          {/* hinhAnhPhim */}
+                          <div className="shadow-md shadow-black border-8 border-white">
+                            <img src={phim.hinhAnh} alt={phim.tenPhim} width="150" style={{ height: "100%" }} />
+                          </div>
+                          {/* tenPhim */}
+                          <div className="relative">
+                            <h1 className="w-fit uppercase border-l-8 border-black p-1 bg-red-500 text-white">{phim.tenPhim}</h1>
+
+                            {/* render lstLichChieuTheoPhim */}
+                            <div className="grid grid-cols-6 gap-2">
                               {phim.lstLichChieuTheoPhim?.slice(0, 10).map((lichChieu, index) => {
                                 return (
-                                  <NavLink className="text-black bg-gray-50 border-2 p-1 hover:text-red-500 hover:border-red-500" to="/" key={index}>
-                                    {moment(lichChieu.ngayChieuGioChieu).format("hh:mm A")}
+                                  <NavLink className="text-black bg-gray-50 border-2 p-2 hover:text-white hover:bg-red-500" to="/" key={index}>
+                                    {moment(lichChieu.ngayChieuGioChieu).format("hh:mm")}
                                   </NavLink>
                                 );
                               })}
                             </div>
+
+                            <button className="bg-orange-500 text-white px-3 py-2 mt-3 absolute bottom-2">Đặt vé ngay</button>
                           </div>
                         </div>
                       </div>

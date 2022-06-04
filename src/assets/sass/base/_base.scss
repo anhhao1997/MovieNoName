@@ -1,15 +1,16 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 .container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 10px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 10px;
 }
