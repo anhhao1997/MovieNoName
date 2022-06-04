@@ -38,12 +38,13 @@ export default class HomeServiceSlick extends Component {
                     breakpoint: 768,
                     settings: {
                         slidesToShow: 2,
-                        slidesToScroll: 2
+                        slidesToScroll: 2,
                     }
                 },
                 {
                     breakpoint: 480,
                     settings: {
+                        dots: false,
                         slidesToShow: 1,
                         slidesToScroll: 1
                     }
@@ -57,14 +58,14 @@ export default class HomeServiceSlick extends Component {
             return arrFilm.map((itemFilm, index) => {
                 return (
                     <div className='card-film' key={index}>
-                        <div className='card-item '>
+                        <div className='card-item shadow-md shadow-black'>
                             <div className='img-film' style={{ backgroundImage: `url(${itemFilm.hinhAnh})` }}>
-                                <div className='btn-trailer'>
+                                <div className='btn-trailer shadow-md'>
                                     <button className='btn'>
                                         <i class="fa fa-play-circle"></i>
                                     </button>
                                 </div>
-                                <div className='info-film'>
+                                <div className='info-film shadow-md'>
                                     <a href="#">CHI TIẾT PHIM</a>
                                 </div>
                             </div>
