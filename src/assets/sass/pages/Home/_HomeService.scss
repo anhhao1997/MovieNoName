@@ -1,3 +1,11 @@
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: #ef4444;
+}
+
+.ant-tabs-tab:hover .ant-tabs-tab-btn {
+    color: hsla(0, 84%, 60%, 0.8);
+}
+
 .service-slick .title {
     font-size: 30px;
     padding-top: 50px;
@@ -93,4 +101,12 @@ button.slick-arrow.slick-prev {
     :hover .card-content {
         transform: scale(1);
     }
+}
+
+.modal-dialog {
+    max-width: 800px;
+}
+
+.modal-content {
+    height: 550px;
 }

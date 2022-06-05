@@ -3,6 +3,10 @@ import Slider from "react-slick";
 import { Tabs } from 'antd';
 export default class HomeServiceSlick extends Component {
 
+    state = {
+        tenPhim: '',
+        trailerFilm: '',
+    }
 
     render() {
 
@@ -64,7 +68,12 @@ export default class HomeServiceSlick extends Component {
                                 </div>
                                 <div className='card-content'>
                                     <div className='btn-trailer'>
-                                        <button type="button" className="btn btn-modal" data-toggle="modal" data-target="#exampleModalCenter">
+                                        <button type="button" className="btn btn-modal" data-toggle="modal" data-target="#exampleModalCenter" onClick={() => {
+                                            this.setState({
+                                                tenPhim: itemFilm.tenPhim,
+                                                trailerFilm: itemFilm.trailer
+                                            })
+                                        }}>
                                             <i class="fa fa-play-circle"></i>
                                         </button>
                                     </div>
@@ -84,7 +93,12 @@ export default class HomeServiceSlick extends Component {
                                 </div>
                                 <div className='card-content'>
                                     <div className='btn-trailer'>
-                                        <button type="button" className="btn btn-modal" data-toggle="modal" data-target="#exampleModalCenter">
+                                        <button type="button" className="btn btn-modal" data-toggle="modal" data-target="#exampleModalCenter" onClick={() => {
+                                            this.setState({
+                                                tenPhim: itemFilm.tenPhim,
+                                                trailerFilm: itemFilm.trailer
+                                            })
+                                        }}>
                                             <i class="fa fa-play-circle"></i>
                                         </button>
                                     </div>
@@ -117,23 +131,23 @@ export default class HomeServiceSlick extends Component {
                     </TabPane>
                 </Tabs>
 
-
-                <div className="modal fade" id="exampleModalCenter" tabIndex={-1} role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div className="modal fade bd-example-modal" id="exampleModalCenter" tabIndex={-1} role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div className="modal-dialog modal-dialog-centered" role="document">
-                        <div className="modal-content">
+                        <div className="modal-content modal-trailer">
                             <div className="modal-header">
-                                <h5 className="modal-title" id="exampleModalLongTitle">Trailer Film</h5>
+                                <h5 className="modal-title" id="exampleModalLongTitle">{this.state.tenPhim}</h5>
                                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
                             </div>
                             <div className="modal-body">
-                                video
+                                <iframe className='h-full w-full' src={this.state.trailerFilm}>
+                                </iframe>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
         );
     }
 }
