@@ -7,7 +7,7 @@ export default function Home(props) {
 
     return (
 
-        <div style={{ overflow: 'clip' }}>
+        <div >
 
             <HomeCarousel></HomeCarousel>
 

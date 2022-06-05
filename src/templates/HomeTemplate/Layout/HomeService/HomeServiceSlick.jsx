@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Slider from "react-slick";
-
-
+import { Tabs } from 'antd';
 export default class HomeServiceSlick extends Component {
+
 
     render() {
 
@@ -54,34 +54,85 @@ export default class HomeServiceSlick extends Component {
 
         let { arrFilm } = this.props
 
-        const renderFilm = () => {
+        const renderFilm = (checkFilm) => {
             return arrFilm.map((itemFilm, index) => {
-                return (
-                    <div className='card-film' key={index}>
-                        <div className='card-item shadow-md shadow-black'>
-                            <div className='img-film' style={{ backgroundImage: `url(${itemFilm.hinhAnh})` }}>
-                                <div className='btn-trailer shadow-md'>
-                                    <button className='btn'>
-                                        <i class="fa fa-play-circle"></i>
-                                    </button>
+                if (itemFilm.dangChieu == true && checkFilm == 'dangChieu') {
+                    return (
+                        <div className='card-film' key={index}>
+                            <div className='card-item shadow-md shadow-black'>
+                                <div className='img-film' style={{ backgroundImage: `url(${itemFilm.hinhAnh})` }}>
                                 </div>
-                                <div className='info-film shadow-md'>
-                                    <a href="#">CHI TIẾT PHIM</a>
+                                <div className='card-content'>
+                                    <div className='btn-trailer'>
+                                        <button type="button" className="btn btn-modal" data-toggle="modal" data-target="#exampleModalCenter">
+                                            <i class="fa fa-play-circle"></i>
+                                        </button>
+                                    </div>
+                                    <div className='info-film'>
+                                        <a href="#">CHI TIẾT PHIM</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                )
+                    )
+                }
+                if (itemFilm.sapChieu == true && checkFilm == 'sapChieu') {
+                    return (
+                        <div className='card-film' key={index}>
+                            <div className='card-item shadow-md shadow-black'>
+                                <div className='img-film' style={{ backgroundImage: `url(${itemFilm.hinhAnh})` }}>
+                                </div>
+                                <div className='card-content'>
+                                    <div className='btn-trailer'>
+                                        <button type="button" className="btn btn-modal" data-toggle="modal" data-target="#exampleModalCenter">
+                                            <i class="fa fa-play-circle"></i>
+                                        </button>
+                                    </div>
+                                    <div className='info-film'>
+                                        <a href="#">CHI TIẾT PHIM</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                }
             })
         }
 
+        const { TabPane } = Tabs;
         return (
 
             <div className='container service-slick'>
                 <h2 className='title'> DANH SÁCH PHIM </h2>
-                <Slider {...settings}>
-                    {renderFilm()}
-                </Slider>
+                <Tabs defaultActiveKey="1" centered className='tabs'>
+                    <TabPane tab="Phim đang chiếu" key="1" className='tabPane'>
+                        <Slider {...settings}>
+                            {renderFilm('dangChieu')}
+                        </Slider>
+                    </TabPane>
+                    <TabPane tab="Phim sắp chiếu" key="2" className='tabPane'>
+                        <Slider {...settings}>
+                            {renderFilm('sapChieu')}
+                        </Slider>
+                    </TabPane>
+                </Tabs>
+
+
+                <div className="modal fade" id="exampleModalCenter" tabIndex={-1} role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div className="modal-dialog modal-dialog-centered" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="exampleModalLongTitle">Trailer Film</h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div className="modal-body">
+                                video
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }

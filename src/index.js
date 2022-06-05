@@ -7,8 +7,9 @@ import { store } from './redux/configStore';
 import 'antd/dist/antd.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import './index.scss';
 import './index.css';
+import './index.scss';
+
 
 ReactDOM.render(
 

@@ -19,14 +19,14 @@ button.slick-arrow.slick-prev {
 .slick-list {
     margin-left: 50px;
     margin-right: 50px;
-    overflow: hidden;
 }
 
 .slick-prev:before,
 .slick-next:before {
     color: #fff;
-    font-size: 30px;
+    font-size: 40px;
     opacity: 1;
+    line-height: 52px;
 }
 
 .card-film {
@@ -34,46 +34,63 @@ button.slick-arrow.slick-prev {
     margin-top: 30px;
     margin-bottom: 30px;
     text-align: center;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
 
-    .card-item .img-film {
-        position: relative;
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
+
+    .card-item {
         width: 100%;
-        height: 350px;
+        position: relative;
 
-        .btn-trailer {
-            position: absolute;
+        .img-film {
+            position: relative;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
             width: 100%;
-            top: 25%;
-            display: none;
-
-            i {
-                font-size: 80px;
-                color: #ef4444;
-            }
+            height: 320px;
         }
 
-        .info-film {
+        .card-content {
             position: absolute;
+            background-color: rgba(0, 0, 0, 0.5);
             width: 100%;
-            bottom: 0;
-            background-color: #ef4444;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            display: none;
+            top: 0;
+            height: 100%;
+            transform: scale(0);
+            transition: all 0.6s ease-in;
+
+            .btn-trailer {
+                position: absolute;
+                width: 100%;
+                top: 25%;
+                opacity: 1;
+
+                i {
+                    font-size: 80px;
+                    color: #ef4444;
+                    opacity: 1;
+                }
+            }
+
+            .info-film {
+                position: absolute;
+                width: 100%;
+                bottom: 0;
+                background-color: #ef4444;
+                padding: 8px 0;
+                ;
+
+                a {
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: #fff;
+                }
+            }
         }
     }
 
-    .card-item .img-film:hover {
-        .btn-trailer {
-            display: block;
-        }
-
-        .info-film {
-            display: block;
-        }
+    :hover .card-content {
+        transform: scale(1);
     }
 }
