@@ -5,15 +5,19 @@ import HomeTheater from "./../../templates/HomeTemplate/Layout/HomeTheater/HomeT
 
 export default function Home(props) {
 
+    // Thay đổi bg-dark darkMode
+
     return (
 
         <div >
 
             <HomeCarousel></HomeCarousel>
 
-            <HomeService></HomeService>
+            <div className='bg-dark'>
+                <HomeService></HomeService>
 
-            <HomeTheater></HomeTheater>
+                <HomeTheater></HomeTheater>
+            </div>
 
         </div>
 

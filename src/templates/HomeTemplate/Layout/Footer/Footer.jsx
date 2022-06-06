@@ -19,7 +19,7 @@ export default function Footer(props) {
               Logo
             </NavLink>
 
-            <div className="container grid lg:grid-cols-4 py-10 uppercase sm:grid-cols-2 gap-2">
+            <div className="container grid xl:grid-cols-4 py-10 uppercase sm:grid-cols-2 gap-2">
               <div>
                 <div className="tracking-wide font-semibold text-lg glassmorphism-white w-fit px-2 mb-3 ">No name</div>
                 <ul>
