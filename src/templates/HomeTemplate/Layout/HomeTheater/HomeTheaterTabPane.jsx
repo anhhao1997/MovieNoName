@@ -17,13 +17,13 @@ export default function HomeTheaterTabPane(props) {
                 <TabPane
                   key={index}
                   tab={
-                    <div className="text-left" style={{ width: "380px" }}>
+                    <div className="text-left" style={{ width: "400px" }}>
                       <div className="flex gap-2 items-center">
                         <img src={heThongRap.logo} className="rounded-full" width="40" />
                         <div className=" uppercase font-semibold">{cumRap.tenCumRap}</div>
                       </div>
 
-                      <p className="mt-1">Địa chỉ: {cumRap.diaChi.length > 50 ? cumRap.diaChi.slice(0, 45) + " ..." : cumRap.diaChi}</p>
+                      <p className="mt-1">Địa chỉ: {cumRap.diaChi.length > 50 ? cumRap.diaChi.slice(0, 30) + " ..." : cumRap.diaChi}</p>
                     </div>
                   }
                 >
@@ -69,7 +69,7 @@ export default function HomeTheaterTabPane(props) {
   console.log("heThongRapChieu", props);
   return (
     <div className="my-10">
-      <h2 className="uppercase text-center text-3xl font-semibold my-3">HỆ THỐNG RẠP CHIẾU</h2>
+      <h2 className="uppercase text-center text-xl font-semibold my-3">HỆ THỐNG RẠP CHIẾU</h2>
       <Tabs centered tabPosition={"top"}>{renderHeThongRap()}</Tabs>
     </div>
   );
