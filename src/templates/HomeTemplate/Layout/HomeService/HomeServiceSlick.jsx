@@ -48,7 +48,7 @@ export default class HomeServiceSlick extends Component {
                 {
                     breakpoint: 480,
                     settings: {
-                        dots: false,
+                        dots: true,
                         slidesToShow: 1,
                         slidesToScroll: 1
                     }

@@ -13,11 +13,11 @@ export const HomeTemplate = (props) => {
 
             <Fragment>
 
-                <Header></Header>
+                <Header {...propsRoute}></Header>
 
                 <Component {...propsRoute} />
 
-                <Footer></Footer>
+                <Footer {...propsRoute}></Footer>
 
             </Fragment>
         )

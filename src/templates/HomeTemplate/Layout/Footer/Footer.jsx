@@ -15,13 +15,13 @@ export default function Footer(props) {
       <div className="glassmorphism glassmorphism-black ">
         <div className="container pt-4 divide-y-2">
           <div>
-            <NavLink className="flex justify-center uppercase text-xl mb-2" rel="noopener noreferrer" to="/">
+            <NavLink className="flex justify-center uppercase text-xl mb-4 mt-2" rel="noopener noreferrer" to="/">
               Logo
             </NavLink>
 
             <div className="container grid lg:grid-cols-4 py-10 uppercase sm:grid-cols-2 gap-2">
               <div>
-                <div className="tracking-wide font-semibold text-lg glassmorphism-white w-fit px-2 mb-1 ">No name</div>
+                <div className="tracking-wide font-semibold text-lg glassmorphism-white w-fit px-2 mb-3 ">No name</div>
                 <ul>
                   <li>
                     <NavLink to="/">Phim sắp chiếu</NavLink>
@@ -39,7 +39,7 @@ export default function Footer(props) {
               </div>
 
               <div>
-                <div className="tracking-wide font-semibold text-lg glassmorphism-white w-fit px-2 mb-1 ">Thông tin</div>
+                <div className="tracking-wide font-semibold text-lg glassmorphism-white w-fit px-2 mb-3 ">Thông tin</div>
                 <ul>
                   <li>
                     <NavLink to="/">Giới thiệu</NavLink>
@@ -57,7 +57,7 @@ export default function Footer(props) {
               </div>
 
               <div>
-                <div className="tracking-wide font-semibold text-lg glassmorphism-white w-fit px-2 mb-1 ">Hệ Thống Rạp</div>
+                <div className="tracking-wide font-semibold text-lg glassmorphism-white w-fit px-2 mb-3 ">Hệ Thống Rạp</div>
                 <div className="mb-2 ">
                   {arrHeThongRap.map((htr, index) => {
                     return (
@@ -83,7 +83,7 @@ export default function Footer(props) {
               </div>
 
               <div className="">
-                <div className="dark:text-coolGray-50 font-semibold text-lg glassmorphism-white w-fit px-2 mb-1">Liên Kết</div>
+                <div className="dark:text-coolGray-50 font-semibold text-lg glassmorphism-white w-fit px-2 mb-3">Liên Kết</div>
                 <div className="grid grid-cols-6 gap-2 mr-2">
                   <i class="fa fa-facebook"></i>
                   <i class="fa fa-instagram" aria-hidden="true"></i>
@@ -93,7 +93,9 @@ export default function Footer(props) {
               </div>
             </div>
           </div>
-          <div className="mt-2 text-sm text-center text-gray-400">© 2022 Company Co. All rights reserved.</div>
+          <div className="mt-3 text-sm text-center text-gray-400">
+            <div className="mt-3 mb-3">© 2022 Company Co. All rights reserved.</div>
+          </div>
         </div>
       </div>
     </footer>
