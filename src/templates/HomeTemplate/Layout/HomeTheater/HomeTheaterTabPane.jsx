@@ -28,7 +28,7 @@ export default function HomeTheaterTabPane(props) {
                   }
                 >
                   {/* render danhSachPhim tuong ứng */}
-                  <div className="grid lg:grid-cols-2 sm:grid-cols-1">
+                  <div className="grid xl:grid-cols-2 sm:grid-cols-1">
                   {cumRap.danhSachPhim.slice(0, 10).map((phim, index) => {
                     return (
                       <div
