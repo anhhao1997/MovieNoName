@@ -22,9 +22,24 @@ html {
     border-radius: 10px;
     backdrop-filter: blur(3px);
   }
-  &-white{
+  &-white {
     background: rgba(255, 255, 255, 0.287);
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    border: 1px solid rgba(255, 255, 255, 0.18);
     backdrop-filter: blur(0px);
+  }
+}
+.btn {
+  &-dat-ve {
+    background-color: #f32424;
+    color: white;
+    width: fit-content;
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 0;
+  }
+  &-dat-ve:hover {
+    background-color: white;
+    color: #f32424;
+    border: 1px solid #f32424
   }
 }
