@@ -1,6 +1,8 @@
+@import "../../themes/variable";
+
 .ant-tabs-ink-bar {
   position: absolute;
-  background: #ef4444;
+  background: $mainColor;
   pointer-events: none;
 }
 

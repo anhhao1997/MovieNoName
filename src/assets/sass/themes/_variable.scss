@@ -1,0 +1,51 @@
+$mainColor: #f32424;
+$textXl: 30px;
+$textMd: 18px;
+$textBase: 16px;
+
+//button
+.custom-btn {
+  background: transparent;
+  height: 40px;
+  padding: 10px 25px;
+  border: 2px solid $mainColor;
+  color: white;
+  width: 130px;
+  font-size: $textBase;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  display: inline-block;
+  &.btn-main {
+    background: $mainColor;
+    color: #fff;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+    &:hover {
+      background-color: white;
+      color: $mainColor;
+      border: 1px solid $mainColor;
+    }
+    & span {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+//glassmorphism
+.glassmorphism {
+    &-black {
+      background: rgba(3, 3, 3, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 10px;
+      backdrop-filter: blur(3px);
+    }
+    &-white {
+      background: rgba(255, 255, 255, 0.287);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(0px);
+    }
+  }

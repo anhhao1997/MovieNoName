@@ -11,7 +11,7 @@ export default function Footer(props) {
 
   console.log("arrHeThongRap", arrHeThongRap);
   return (
-    <footer style={{ backgroundImage: `url(${image})` }} className=" text-white font-semibold bg-cover bg-no-repeat bg-center">
+    <footer style={{ backgroundImage: `url(${image})` }} className="text-white font-semibold bg-cover bg-no-repeat bg-center">
       <div className="glassmorphism glassmorphism-black ">
         <div className="container pt-4 divide-y-2">
           <div>
