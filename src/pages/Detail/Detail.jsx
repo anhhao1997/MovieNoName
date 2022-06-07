@@ -19,10 +19,29 @@ export default function Detail(props) {
   }, []);
 
   return (
-    <div style={{ backgroundImage: `url(${filmDetail.hinhAnh})`, minHeight: "100vh" }} className="bg-cover bg-center bg-no-repeat w-full">
-      <div className="glassmorphism glassmorphism-black pt-10" style={{ minHeight: "100vh" }}>
-        <DetailInfoFilm filmDetail={filmDetail}></DetailInfoFilm>
-        <DetailTheater filmDetail={filmDetail}></DetailTheater>
+    <div>
+      <div style={{ backgroundImage: `url(${filmDetail.hinhAnh})`, minHeight: "100vh" }} className="bg-cover bg-center bg-no-repeat w-full">
+        <div className="glassmorphism glassmorphism-black pt-10" style={{ minHeight: "100vh" }}>
+          <DetailInfoFilm filmDetail={filmDetail}></DetailInfoFilm>
+          <DetailTheater filmDetail={filmDetail}></DetailTheater>
+        </div>
+      </div>
+      <div className="modal fade bd-example-modal" id="exampleModalCenter" tabIndex={-1} role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered" role="document">
+          <div className="modal-content modal-trailer">
+            <div className="modal-header ">
+              <h2 className="modal-title font-semibold text-lg " id="exampleModalLongTitle">
+                {filmDetail.tenPhim}
+              </h2>
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              <iframe className="h-full w-full" src={filmDetail.trailer}></iframe>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

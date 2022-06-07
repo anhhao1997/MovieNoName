@@ -47,10 +47,11 @@ $textBase: 16px;
 
 //glassmorphism
 .glassmorphism {
+
   &-black {
-    background: rgba(3, 3, 3, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    backdrop-filter: blur(3px);
+    background: rgba(0, 0, 0, 0.68);
+    // border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(4px);
   }
 
   &-white {
