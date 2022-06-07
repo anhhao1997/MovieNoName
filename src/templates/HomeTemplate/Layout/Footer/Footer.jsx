@@ -9,9 +9,8 @@ export default function Footer(props) {
 
   const arrHeThongRap = _.map(heThongRapChieu, (heThongRap) => _.pick(heThongRap, ["tenHeThongRap", "logo"]));
 
-  console.log("arrHeThongRap", arrHeThongRap);
   return (
-    <footer style={{ backgroundImage: `url(${image})` }} className="text-white font-semibold bg-cover bg-no-repeat bg-center">
+    <footer style={{ backgroundImage: `url(${image})` }} className="w-full text-white font-semibold bg-cover bg-no-repeat bg-center">
       <div className="glassmorphism glassmorphism-black ">
         <div className="container pt-4 divide-y-2">
           <div>
@@ -84,12 +83,31 @@ export default function Footer(props) {
 
               <div className="">
                 <div className="dark:text-coolGray-50 font-semibold text-lg glassmorphism-white w-fit px-2 mb-3">Liên Kết</div>
-                <div className="grid grid-cols-6 gap-2 mr-2">
-                  <i class="fa fa-facebook"></i>
-                  <i class="fa fa-instagram" aria-hidden="true"></i>
-                  <i class="fa fa-linkedin" aria-hidden="true"></i>
-                  <i class="fa fa-pinterest" aria-hidden="true"></i>
-                </div>
+                
+                  <section className="contact">
+                    <ul className="icon-list">
+                      <li className="icon-item">
+                        <a href="#" className="icon-link">
+                          <i className="fab fa-instagram" />
+                        </a>
+                      </li>
+                      <li className="icon-item">
+                        <a href="#" className="icon-link">
+                          <i className="fab fa-facebook-f" />
+                        </a>
+                      </li>
+                      <li className="icon-item">
+                        <a href="#" className="icon-link">
+                          <i className="fab fa-youtube" />
+                        </a>
+                      </li>
+                      <li className="icon-item">
+                        <a href="#" className="icon-link">
+                          <i className="fab fa-linkedin-in" />
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
               </div>
             </div>
           </div>
