@@ -1,0 +1,32 @@
+.card-item-detail {
+  position: relative;
+  width: 100%;
+  img {
+    position: relative;
+    width: 300px;
+  }
+
+  .card-content-detail {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    top: 0%;
+    height: 100%;
+
+    .btn-trailer-detail {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 1;
+      i {
+        font-size: 60px;
+        color: white;
+        opacity: 1;
+        &:hover {
+          font-size: 70px;
+        }
+      }
+    }
+  }
+}
