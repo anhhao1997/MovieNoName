@@ -1,0 +1,58 @@
+.navbar-nav {
+    flex-grow: calc(1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 100px;
+
+    .nav-content {
+        .content-item {
+            margin-left: 15px;
+            margin-right: 15px;
+            padding: 12.5px 10px;
+            color: white;
+        }
+
+        :hover {
+            background-color: red;
+        }
+    }
+
+    .nav-mode {
+        .mode {
+            display: inline-block;
+            background-color: white;
+            color: gray;
+        }
+
+        .mode:hover {
+            cursor: pointer;
+            background-color: red;
+        }
+
+        .light-mode {
+            border-radius: 2px 0 0 2px;
+        }
+
+        .dark-mode {
+            border-radius: 0 2px 2px 0;
+        }
+
+        i {
+            font-size: 30px;
+            padding: 5px 5px;
+        }
+    }
+
+
+    .nav-login {
+        .login-item {
+            padding: 12.5px 10px;
+            color: white;
+        }
+
+        .login-item:hover {
+            background-color: red;
+        }
+    }
+}
