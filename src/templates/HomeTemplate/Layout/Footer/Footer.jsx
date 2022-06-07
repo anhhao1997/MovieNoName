@@ -41,7 +41,7 @@ export default function Footer(props) {
                 <div className="tracking-wide font-semibold text-lg glassmorphism-white w-fit px-2 mb-3 ">Thông tin</div>
                 <ul>
                   <li>
-                    <NavLink to="/">Giới thiệu</NavLink>
+                    <NavLink to='/' >Giới thiệu</NavLink>
                   </li>
                   <li>
                     <NavLink to="/">Khuyến Mãi</NavLink>
@@ -62,7 +62,7 @@ export default function Footer(props) {
                     return (
                       <ul key={index}>
                         <li>
-                          <NavLink className="uppercase" to="/">
+                          <NavLink to='/' className="uppercase" >
                             {htr.tenHeThongRap}
                           </NavLink>
                         </li>
@@ -83,31 +83,31 @@ export default function Footer(props) {
 
               <div className="">
                 <div className="dark:text-coolGray-50 font-semibold text-lg glassmorphism-white w-fit px-2 mb-3">Liên Kết</div>
-                
-                  <section className="contact">
-                    <ul className="icon-list">
-                      <li className="icon-item">
-                        <a href="#" className="icon-link">
-                          <i className="fab fa-instagram" />
-                        </a>
-                      </li>
-                      <li className="icon-item">
-                        <a href="#" className="icon-link">
-                          <i className="fab fa-facebook-f" />
-                        </a>
-                      </li>
-                      <li className="icon-item">
-                        <a href="#" className="icon-link">
-                          <i className="fab fa-youtube" />
-                        </a>
-                      </li>
-                      <li className="icon-item">
-                        <a href="#" className="icon-link">
-                          <i className="fab fa-linkedin-in" />
-                        </a>
-                      </li>
-                    </ul>
-                  </section>
+
+                <section className="contact">
+                  <ul className="icon-list">
+                    <li className="icon-item">
+                      <a href="/" className="icon-link">
+                        <i className="fab fa-instagram" />
+                      </a>
+                    </li>
+                    <li className="icon-item">
+                      <a href="/" className="icon-link">
+                        <i className="fab fa-facebook-f" />
+                      </a>
+                    </li>
+                    <li className="icon-item">
+                      <a href="/" className="icon-link">
+                        <i className="fab fa-youtube" />
+                      </a>
+                    </li>
+                    <li className="icon-item">
+                      <a href="/" className="icon-link">
+                        <i className="fab fa-linkedin-in" />
+                      </a>
+                    </li>
+                  </ul>
+                </section>
               </div>
             </div>
           </div>

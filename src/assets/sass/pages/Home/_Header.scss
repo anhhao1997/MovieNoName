@@ -4,6 +4,8 @@
     justify-content: space-between;
     align-items: center;
     margin-left: 100px;
+    font-size: $textMd;
+    padding: 8px 0;
 
     .nav-content {
         .content-item {
@@ -14,7 +16,7 @@
         }
 
         :hover {
-            background-color: red;
+            background-color: $mainColor;
         }
     }
 
@@ -27,7 +29,7 @@
 
         .mode:hover {
             cursor: pointer;
-            background-color: red;
+            background-color: $mainColor;
         }
 
         .light-mode {
@@ -52,7 +54,56 @@
         }
 
         .login-item:hover {
-            background-color: red;
+            background-color: $mainColor;
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .navbar-nav {
+        display: block;
+        align-items: center;
+        margin-left: 0;
+
+        .nav-content {
+            margin-top: 20px;
+
+            .content-item {
+                padding-top: 10px;
+                padding-bottom: 10px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                display: block;
+            }
+
+            :hover {
+                background-color: rgba(255, 0, 0, 0.3);
+            }
+        }
+
+        .nav-mode {
+            padding-top: 10px;
+            padding-bottom: 20px;
+            margin: 10px 15px;
+            padding-left: 10px;
+            padding-right: 10px;
+
+            .mode:hover {
+                cursor: pointer;
+                background-color: rgba(255, 0, 0, 0.3);
+            }
+        }
+
+        .nav-login {
+            margin: 10px 15px;
+
+            .login-item {
+                display: block;
+            }
+
+            .login-item:hover {
+                background-color: rgba(255, 0, 0, 0.3);
+            }
         }
     }
 }

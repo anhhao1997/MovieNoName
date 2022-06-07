@@ -1,5 +1,9 @@
+.ant-tabs-tab-btn {
+    font-size: $textMd;
+}
+
 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
-    color: #ef4444;
+    color: $mainColor;
 }
 
 .ant-tabs-tab:hover .ant-tabs-tab-btn {
@@ -7,7 +11,7 @@
 }
 
 .service-slick .title {
-    font-size: 30px;
+    font-size: $textXl;
     padding-top: 50px;
     padding-bottom: 25px;
     outline: none;
@@ -17,7 +21,7 @@
 button.slick-arrow.slick-next,
 button.slick-arrow.slick-prev {
     text-align: center;
-    background-color: #ef4444 !important;
+    background-color: $mainColor !important;
     height: 50px;
     width: 50px;
     border: 2px solid;
@@ -76,7 +80,7 @@ button.slick-arrow.slick-prev {
 
                 i {
                     font-size: 80px;
-                    color: #ef4444;
+                    color: $mainColor;
                     opacity: 1;
                 }
             }
@@ -85,12 +89,12 @@ button.slick-arrow.slick-prev {
                 position: absolute;
                 width: 100%;
                 bottom: 0;
-                background-color: #ef4444;
+                background-color: $mainColor;
                 padding: 8px 0;
                 ;
 
                 a {
-                    font-size: 18px;
+                    font-size: $textMd;
                     font-weight: bold;
                     color: #fff;
                 }
@@ -104,9 +108,17 @@ button.slick-arrow.slick-prev {
 }
 
 .modal-dialog {
+    padding: 0;
     max-width: 800px;
 }
 
 .modal-content {
+    padding: 0;
     height: 550px;
+    margin: 0;
+}
+
+.modal-title {
+    font-size: $textMd;
+    color: black;
 }

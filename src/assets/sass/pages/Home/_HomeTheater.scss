@@ -1,5 +1,3 @@
-@import "../../themes/variable";
-
 .ant-tabs-ink-bar {
   position: absolute;
   background: $mainColor;
@@ -11,6 +9,7 @@
   transition: all 0.3s;
   width: 100%;
 }
+
 // .ant-tabs{
 //   &-nav{
 //     &-wrap{

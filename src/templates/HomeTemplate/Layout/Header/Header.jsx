@@ -10,7 +10,7 @@ export default function Header(props) {
         <div className='fixed w-full text-white glassmorphism-black drop-shadow-2xl top-0 z-10'>
             <header className='container mx-auto'>
                 <nav className="navbar navbar-expand-lg navbar-dark">
-                    <NavLink to="#">Logo</NavLink>
+                    <NavLink to="/">Logo</NavLink>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon" />
                     </button>
