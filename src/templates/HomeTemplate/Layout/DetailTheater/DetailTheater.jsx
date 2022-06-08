@@ -31,12 +31,12 @@ export default function DetailTheater(props) {
                           <img className='img-Rap' src={cumRap.hinhAnh} alt={cumRap.tenCumRap} width="180px" style={{ height: "300px" }} />
                         </div>
                         {/* tenPhim */}
-                        <div className="relative pr-1">
-                          <h1 className="w-fit uppercase p-1 mb-2 text-md font-semibold">{cumRap.tenCumRap}</h1>
-                          <h1 className="w-fit text-md font-semibold">{cumRap.diaChi.substr(0, 65)}</h1>
-                          <h1 className="w-fit mb-2 text-md font-semibold">{cumRap.diaChi.substr(65, cumRap.diaChi.length)}</h1>
+                        <div className="detail-theater relative">
+                          <p className="w-fit uppercase p-1 mb-2 text-md font-semibold">{cumRap.tenCumRap}</p>
+                          <p className="w-fit text-md font-semibold">{cumRap.diaChi.substr(0, 65)}</p>
+                          <p className="w-fit mb-2 text-md font-semibold">{cumRap.diaChi.substr(65, cumRap.diaChi.length)}</p>
                           {/* render lstLichChieuTheoRap */}
-                          <div className="grid xl:grid-cols-5 xl:gap-2 sm:grid-cols-4 sm:gap-2 grid-cols-3 gap-2 text-center">
+                          <div className="pb-1 grid xl:grid-cols-5 xl:gap-2 sm:grid-cols-4 sm:gap-2 grid-cols-3 gap-2 text-center">
                             {cumRap.lichChieuPhim.slice(0, 12).map((lichChieu, indexLichChieu) => {
                               return (
                                 <NavLink className="text-black bg-gray-50 border-2 p-2 hover:text-white hover:bg-red-500" to="/" key={indexLichChieu}>
@@ -45,7 +45,7 @@ export default function DetailTheater(props) {
                               )
                             })}
                           </div>
-                          <button className="custom-btn btn-main absolute bottom-1">
+                          <button className="custom-btn btn-main absolute bottom-0">
                             <span>Đặt vé ngay</span>
                           </button>
                         </div>
