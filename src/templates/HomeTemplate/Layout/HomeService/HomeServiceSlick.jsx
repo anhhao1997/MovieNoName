@@ -115,7 +115,7 @@ export default class HomeServiceSlick extends Component {
                     {/* hoặc là dùng onClick={()=>{
                       history.push(`/detail/${itemFilm.maPhim}`)
                     }} */}
-                    <NavLink to={`/detail/${itemFilm.maPhim}`}>CHI TIẾT PHIM</NavLink>
+                    <NavLink to={`/detail/${itemFilm.maPhim}`} >CHI TIẾT PHIM</NavLink>
                   </div>
                 </div>
               </div>

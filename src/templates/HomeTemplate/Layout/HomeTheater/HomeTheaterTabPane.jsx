@@ -48,7 +48,7 @@ export default function HomeTheaterTabPane(props) {
                               {phim.lstLichChieuTheoPhim?.slice(0, 10).map((lichChieu, index) => {
                                 return (
                                   <NavLink className="text-black bg-gray-50 border-2 p-2 hover:text-white hover:bg-red-500" to="/" key={index}>
-                                    {moment(lichChieu.ngayChieuGioChieu).format("hh:mm")}
+                                    {moment(lichChieu.ngayChieuGioChieu).format("hh:mm:A")}
                                   </NavLink>
                                 );
                               })}

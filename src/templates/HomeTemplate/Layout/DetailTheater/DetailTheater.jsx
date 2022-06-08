@@ -1,101 +1,62 @@
 import React, { useState } from 'react'
 import { Tabs } from 'antd';
-
-
-const TabInfo = ({ color }) => {
-  const [openTab, setOpenTab] = React.useState(1);
-  return (
-    <>
-      <div className="flex flex-wrap">
-        <div className="w-full">
-          <ul
-            className="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row"
-            role="tablist"
-          >
-            <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
-              <a
-                className={
-                  "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
-                  (openTab === 1
-                    ? "text-white bg-" + color + "-600"
-                    : "text-" + color + "-600 bg-white")
-                }
-                onClick={e => {
-                  e.preventDefault();
-                  setOpenTab(1);
-                }}
-                data-toggle="tab"
-                href="#link1"
-                role="tablist"
-              >
-                <i className="fas fa-space-shuttle text-base mr-1"></i> Profile
-              </a>
-            </li>
-            <li className="-mb-px last:mr-0 flex-auto text-center">
-              <a
-                className={
-                  "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
-                  (openTab === 2
-                    ? "text-white bg-" + color + "-600"
-                    : "text-" + color + "-600 bg-white")
-                }
-                onClick={e => {
-                  e.preventDefault();
-                  setOpenTab(2);
-                }}
-                data-toggle="tab"
-                href="#link2"
-                role="tablist"
-              >
-                <i className="fas fa-cog text-base mr-1"></i>  Settings
-              </a>
-            </li>
-          </ul>
-
-          <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
-            <div className="px-4 py-5 flex-auto">
-              <div className="tab-content tab-space">
-                <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                  <p>
-                    Collaboratively administrate empowered markets via
-                    plug-and-play networks. Dynamically procrastinate B2C users
-                    after installed base benefits.
-                    <br />
-                    <br /> Dramatically visualize customer directed convergence
-                    without revolutionary ROI.
-                  </p>
-                </div>
-                <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                  <p>
-                    Completely synergize resource taxing relationships via
-                    premier niche markets. Professionally cultivate one-to-one
-                    customer service with robust ideas.
-                    <br />
-                    <br />
-                    Dynamically innovate resource-leveling customer service for
-                    state of the art customer service.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-};
-
+import { NavLink } from 'react-router-dom';
+import moment from "moment";
 export default function DetailTheater(props) {
 
   const filmDetail = props.filmDetail;
   const { TabPane } = Tabs;
   const renderHeThongRap = () => {
-    return filmDetail.heThongRapChieu.map((film, index) => {
+    return filmDetail.heThongRapChieu.map((heThongRap, indexHTR) => {
       return (
-        <TabPane key={index} tab={<img src={film.logo} className="rounded-full" width="50" />}>
-          <>
-            <TabInfo color="red" />;
-          </>
+        <TabPane key={indexHTR} tab={<img src={heThongRap.logo} className="rounded-full" width="50" />}>
+          <div>
+            <nav>
+              <div className="nav nav-tabs d-flex justify-around" id="nav-tab" role="tablist">
+                <a className="nav-item nav-link active w-1/2 text-center pt-2 pb-2" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Cụm rạp</a>
+                <a className="nav-item nav-link w-1/2 text-center pt-2 pb-2" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Thông tin rạp</a>
+              </div>
+            </nav>
+            <div className="tab-content bg-white" id="nav-tabContent">
+              <div className="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div className="grid xl:grid-cols-2 sm:grid-cols-1">
+                  {heThongRap.cumRapChieu.map((cumRap, indexCumRap) => {
+                    return (
+                      <div
+                        className="flex m-1 p-2 gap-2 text-xs font-semibold border-b-2 border-gray-200 transition ease-in-out delay-150 hover:shadow-md shadow-black hover:scale-105 duration-300 hover:border-2 "
+                        key={indexCumRap}
+                      >
+                        {/* hinhAnhPhim */}
+                        <div className="shadow-md shadow-black" >
+                          <img className='img-Rap' src={cumRap.hinhAnh} alt={cumRap.tenCumRap} width="180px" style={{ height: "300px" }} />
+                        </div>
+                        {/* tenPhim */}
+                        <div className="relative pr-1">
+                          <h1 className="w-fit uppercase p-1 mb-2 text-md font-semibold">{cumRap.tenCumRap}</h1>
+                          <h1 className="w-fit text-md font-semibold">{cumRap.diaChi.substr(0, 65)}</h1>
+                          <h1 className="w-fit mb-2 text-md font-semibold">{cumRap.diaChi.substr(65, cumRap.diaChi.length)}</h1>
+                          {/* render lstLichChieuTheoRap */}
+                          <div className="grid xl:grid-cols-5 xl:gap-2 sm:grid-cols-4 sm:gap-2 grid-cols-3 gap-2 text-center">
+                            {cumRap.lichChieuPhim.slice(0, 12).map((lichChieu, indexLichChieu) => {
+                              return (
+                                <NavLink className="text-black bg-gray-50 border-2 p-2 hover:text-white hover:bg-red-500" to="/" key={indexLichChieu}>
+                                  {moment(lichChieu.ngayChieuGioChieu).format("hh:mm:A")}
+                                </NavLink>
+                              )
+                            })}
+                          </div>
+                          <button className="custom-btn btn-main absolute bottom-1">
+                            <span>Đặt vé ngay</span>
+                          </button>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              <div className="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+            </div>
+          </div>
         </TabPane>
       )
     });
@@ -103,10 +64,10 @@ export default function DetailTheater(props) {
   console.log('phim', filmDetail);
   return (
     <div className='container'>
-
       <Tabs centered>
         {renderHeThongRap()}
       </Tabs>
     </div>
+
   )
 }
