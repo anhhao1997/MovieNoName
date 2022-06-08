@@ -13,13 +13,13 @@ export default function DetailTheater(props) {
           <div>
             <nav>
               <div className="nav nav-tabs d-flex justify-around" id="nav-tab" role="tablist">
-                <a className="nav-item nav-link active w-1/2 text-center pt-2 pb-2" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Cụm rạp</a>
-                <a className="nav-item nav-link w-1/2 text-center pt-2 pb-2" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Thông tin rạp</a>
+                <a className="nav-item nav-detail nav-link active w-1/2 text-center pt-2 pb-2" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Cụm rạp</a>
+                <a className="nav-item nav-detail nav-link w-1/2 text-center pt-2 pb-2" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Thông tin rạp</a>
               </div>
             </nav>
             <div className="tab-content bg-white" id="nav-tabContent">
               <div className="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                <div className="grid xl:grid-cols-2 sm:grid-cols-1">
+                <div className="grid xl:grid-cols-2 sm:grid-cols-1 p-3">
                   {heThongRap.cumRapChieu.map((cumRap, indexCumRap) => {
                     return (
                       <div
