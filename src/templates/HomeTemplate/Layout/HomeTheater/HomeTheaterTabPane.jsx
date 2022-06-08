@@ -17,10 +17,10 @@ export default function HomeTheaterTabPane(props) {
                 <TabPane
                   key={index}
                   tab={
-                    <div className="text-left" style={{ width: "400px" }}>
-                      <div className="flex gap-2 items-center">
+                    <div className="text-left" style={{ width: "430px", fontSize: "16px" }}>
+                      <div className="flex gap-2 items-center ">
                         <img src={heThongRap.logo} className="rounded-full" width="40" />
-                        <div className=" uppercase font-semibold">{cumRap.tenCumRap}</div>
+                        <div className="uppercase font-semibold">{cumRap.tenCumRap}</div>
                       </div>
 
                       <p className="mt-1">Địa chỉ: {cumRap.diaChi.length > 50 ? cumRap.diaChi.slice(0, 30) + " ..." : cumRap.diaChi}</p>
@@ -41,7 +41,7 @@ export default function HomeTheaterTabPane(props) {
                           </div>
                           {/* tenPhim */}
                           <div className="relative">
-                            <h1 className="w-fit uppercase p-1 mb-2 text-md font-semibold">{phim.tenPhim}</h1>
+                            <h2 className="w-fit uppercase p-1 mb-2 text-md font-semibold">{phim.tenPhim}</h2>
 
                             {/* render lstLichChieuTheoPhim */}
                             <div className="grid grid-cols-5 gap-2">
@@ -55,7 +55,7 @@ export default function HomeTheaterTabPane(props) {
                             </div>
 
                             <button className="custom-btn btn-main absolute bottom-1">
-                              <span>Đặt vé ngay</span>
+                              <span className="spanStyle">Đặt vé ngay</span>
                             </button>
                           </div>
                         </div>
@@ -73,7 +73,7 @@ export default function HomeTheaterTabPane(props) {
   console.log("heThongRapChieu", props);
   return (
     <div className="pb-10">
-      <h2 className="uppercase text-center text-xl font-semibold my-3 pt-3">HỆ THỐNG RẠP CHIẾU</h2>
+      <h1 className="uppercase text-center mt-5 pt-3">HỆ THỐNG RẠP CHIẾU</h1>
       <Tabs centered tabPosition={"top"}>
         {renderHeThongRap()}
       </Tabs>

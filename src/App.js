@@ -12,9 +12,8 @@ function App() {
   return (
     <BrowserRouter history={history}>
       <Switch>
-        <HomeTemplate path="/home" exact Component={Home} />
         <HomeTemplate path="/detail/:id" exact Component={Detail} />
-        <HomeTemplate path="/" exact Component={Home} />
+        <HomeTemplate path="/" Component={Home} />
       </Switch>
     </BrowserRouter>
   );

@@ -9,7 +9,7 @@
 
   .card-content-detail {
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.397);
     width: 100%;
     top: 0%;
     height: 100%;
@@ -23,7 +23,7 @@
 
       i {
         font-size: 60px;
-        color: white;
+        color: $mainColor;
         opacity: 1;
 
         &:hover {
@@ -32,4 +32,21 @@
       }
     }
   }
+}
+
+.custom-detail {
+  padding: 10px 25px;
+  color: white;
+  // background-color: $secondaryColor;
+  border: 2px solid white;
+  border-radius: 25px;
+  margin-right: 10px;
+  margin-top: 10px;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  display: inline-block;
+  font-size: $textBase;
 }
