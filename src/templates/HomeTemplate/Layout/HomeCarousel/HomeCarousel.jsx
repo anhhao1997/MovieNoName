@@ -9,7 +9,6 @@ const contentBanner = {
     backgroundSize: '100% 100%',
     backgroundPosition: 'center',
     width: '100%',
-    height: '650px',
 }
 
 export default function HomeCarousel(props) {
@@ -38,8 +37,8 @@ export default function HomeCarousel(props) {
     const renderBanner = () => {
         return arrBanner.map((itemBanner, index) => {
             return (
-                <div key={index} style={{ height: '650px' }}>
-                    <div style={{ ...contentBanner, backgroundImage: `url(${itemBanner.hinhAnh})` }}>
+                <div key={index} className="Carousel">
+                    <div className='Carousel-img' style={{ ...contentBanner, backgroundImage: `url(${itemBanner.hinhAnh})` }}>
                         <img src={itemBanner.hinhAnh} className="w-full h-full" />
                     </div>
                 </div >
