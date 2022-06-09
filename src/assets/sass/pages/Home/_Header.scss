@@ -1,109 +1,120 @@
 .navbar-nav {
-    flex-grow: calc(1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 100px;
-    font-size: $textMd;
-    padding: 8px 0;
+  flex-grow: calc(1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 100px;
+  font-size: $textMd;
+  padding: 8px 0;
 
-    .nav-content {
-        .content-item {
-            margin-left: 15px;
-            margin-right: 15px;
-            padding: 12.5px 10px;
-            color: white;
-        }
+  .nav-content {
+    .content-item {
+      position: relative;
+      margin-left: 15px;
+      margin-right: 15px;
+      padding: 0px 10px;
+      color: #a0a0a0;
 
-        :hover {
-            background-color: $mainColor;
+      &::after {
+        content: "";
+        position: absolute;
+        background-color: $mainColor;
+        height: 3px;
+        width: 0;
+        left: 0;
+        bottom: -10px;
+        transition: 0.3s;
+      }
+      &:hover {
+        color: #fff;
+        &::after {
+          width: 100%;
         }
+      }
+    }
+  }
+
+  .nav-mode {
+    .mode {
+      display: inline-block;
+      background-color: white;
+      color: gray;
     }
 
-    .nav-mode {
-        .mode {
-            display: inline-block;
-            background-color: white;
-            color: gray;
-        }
-
-        .mode:hover {
-            cursor: pointer;
-            background-color: $mainColor;
-        }
-
-        .light-mode {
-            border-radius: 2px 0 0 2px;
-        }
-
-        .dark-mode {
-            border-radius: 0 2px 2px 0;
-        }
-
-        i {
-            font-size: 30px;
-            padding: 5px 5px;
-        }
+    .mode:hover {
+      cursor: pointer;
+      background-color: $mainColor;
     }
 
-
-    .nav-login {
-        .login-item {
-            padding: 12.5px 10px;
-            color: white;
-        }
-
-        .login-item:hover {
-            background-color: $mainColor;
-        }
+    .light-mode {
+      border-radius: 2px 0 0 2px;
     }
+
+    .dark-mode {
+      border-radius: 0 2px 2px 0;
+    }
+
+    i {
+      font-size: 30px;
+      padding: 5px 5px;
+    }
+  }
+
+  .nav-login {
+    .login-item {
+      padding: 12.5px 10px;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .login-item:hover {
+      background-color: $mainColor;
+    }
+  }
 }
 
 @media screen and (max-width: 992px) {
-    .navbar-nav {
+  .navbar-nav {
+    display: block;
+    align-items: center;
+    margin-left: 0;
+
+    .nav-content {
+      margin-top: 20px;
+
+      .content-item {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
         display: block;
-        align-items: center;
-        margin-left: 0;
+      }
 
-        .nav-content {
-            margin-top: 20px;
-
-            .content-item {
-                padding-top: 10px;
-                padding-bottom: 10px;
-                margin-top: 10px;
-                margin-bottom: 10px;
-                display: block;
-            }
-
-            :hover {
-                background-color: rgba(255, 0, 0, 0.3);
-            }
-        }
-
-        .nav-mode {
-            padding-top: 10px;
-            padding-bottom: 20px;
-            margin: 10px 15px;
-            padding-left: 10px;
-            padding-right: 10px;
-
-            .mode:hover {
-                cursor: pointer;
-                background-color: rgba(255, 0, 0, 0.3);
-            }
-        }
-
-        .nav-login {
-            margin: 10px 15px;
-
-            .login-item {
-                display: block;
-            }
-
-            .login-item:hover {
-                background-color: rgba(255, 0, 0, 0.3);
-            }
-        }
     }
+
+    .nav-mode {
+      padding-top: 10px;
+      padding-bottom: 20px;
+      margin: 10px 15px;
+      padding-left: 10px;
+      padding-right: 10px;
+
+      .mode:hover {
+        cursor: pointer;
+        background-color: rgba(255, 0, 0, 0.3);
+      }
+    }
+
+    .nav-login {
+      margin: 10px 15px;
+
+      .login-item {
+        display: block;
+      }
+
+      .login-item:hover {
+        background-color: rgba(255, 0, 0, 0.3);
+      }
+    }
+  }
 }
