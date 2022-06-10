@@ -46,7 +46,7 @@ export default function DetailInfoFilm(props) {
 
               <div className="xl:w-3/4 sm:w-full mt-4">
                 <h3 className="w-fit uppercase mb-2 pb-2 text-white border-b-2">Nội dung phim</h3>
-                <p className="text-white">{filmDetail.moTa}</p>
+                <p className="text-white">{filmDetail.moTa.length > 400 ? filmDetail.moTa.slice(0,400) + "...": filmDetail.moTa }</p>
               </div>
             </div>
           </div>

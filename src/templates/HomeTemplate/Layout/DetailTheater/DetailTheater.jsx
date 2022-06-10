@@ -28,7 +28,7 @@ export default function DetailTheater(props) {
                       <p className="w-fit mb-2 text-md font-semibold">{cumRap.diaChi.substr(65, cumRap.diaChi.length)}</p>
                       {/* render lstLichChieuTheoRap */}
 
-                      <div className="grid md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-4 gap-1">
+                      <div className="grid sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-4 gap-1">
                         {cumRap.lichChieuPhim.slice(0, 12).map((lichChieu, indexLichChieu) => {
                           return (
                             <NavLink className="btn-lich-chieu" to="/" key={indexLichChieu}>
