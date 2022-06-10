@@ -42,7 +42,7 @@ export default function Header(props) {
                                 </span>
                             </div>
                             <div className="nav-login">
-                                <NavLink to="/" className="login-item">
+                                <NavLink to="/login" className="login-item">
                                     <i className="fa fa-user pr-2" />
                                     Đăng kí / Đăng nhập
                                 </NavLink>
