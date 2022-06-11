@@ -1,22 +1,20 @@
 import { Fragment } from "react";
-import { Route } from 'react-router-dom';
+import { Route } from "react-router-dom";
 import UserLogin from "./Layout/UserLogin";
 
 export const UserTemplate = (props) => {
+  const { Component, ...restProps } = props;
 
-    const { Component, ...restProps } = props;
-
-    return <Route {...restProps} render={(propsRoute) => {
-
+  return (
+    <Route
+      {...restProps}
+      render={(propsRoute) => {
         return (
-
-            <Fragment>
-
-            <UserLogin/>
-
-            </Fragment>
-        )
-
-    }} />
-
-}
+          <Fragment>
+            <Component {...propsRoute} />
+          </Fragment>
+        );
+      }}
+    />
+  );
+};

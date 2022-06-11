@@ -1,7 +1,10 @@
 import React from 'react'
+import UserLogin from '../../templates/UserTemplate/Layout/UserLogin'
 
 export default function Login() {
   return (
-    <div>Login</div>
+    <div>
+        <UserLogin/>
+    </div>
   )
 }

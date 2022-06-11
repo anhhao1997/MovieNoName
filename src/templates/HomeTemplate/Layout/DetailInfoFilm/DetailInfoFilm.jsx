@@ -7,7 +7,7 @@ export default function DetailInfoFilm(props) {
   return (
     <div className="container w-full">
       <div className="m-3" style={{ padding: "30px 30px" }}>
-        <div className="grid xl:grid-cols-3 gap-2 sm:grid-cols-1">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 ">
           <div className="justify-self-center">
             <div className="card-item-detail shadow-md shadow-black sm:mb-2">
               <img src={filmDetail.hinhAnh} alt={filmDetail.biDanh} />
