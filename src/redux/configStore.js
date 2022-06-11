@@ -1,22 +1,21 @@
-import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
-import thunk from 'redux-thunk'
+import { applyMiddleware, combineReducers, compose, createStore } from "redux";
+import thunk from "redux-thunk";
 import { CarouselReducer } from "./reducers/CarouselReducer";
-import { QuanLyRapReducer } from './reducers/QuanLyRapReducer';
-import { QuanLyPhimReducer } from './reducers/QuanLyPhimReducer';
+import { QuanLyRapReducer } from "./reducers/QuanLyRapReducer";
+import { QuanLyPhimReducer } from "./reducers/QuanLyPhimReducer";
+import { QuanLyNguoiDungReducer } from "./reducers/QuanLyNguoiDungReducer";
 
 const rootReducer = combineReducers({
-    // state ứng dụng
-    CarouselReducer,
-    QuanLyRapReducer,
-    QuanLyPhimReducer
-})
-
+  // state ứng dụng
+  CarouselReducer,
+  QuanLyRapReducer,
+  QuanLyPhimReducer,
+  QuanLyNguoiDungReducer,
+});
 
 // Cấu hình thunk
-const middleWare = applyMiddleware(thunk)
+const middleWare = applyMiddleware(thunk);
 
-
-const customCompose = compose(middleWare, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-
+const customCompose = compose(middleWare, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 export const store = createStore(rootReducer, customCompose);

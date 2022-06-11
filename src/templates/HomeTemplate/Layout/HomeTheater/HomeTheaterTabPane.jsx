@@ -28,24 +28,24 @@ export default function HomeTheaterTabPane(props) {
                   }
                 >
                   {/* render danhSachPhim tuong ứng */}
-                  <div className="grid xl:grid-cols-2 sm:grid-cols-1">
+                  <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 ">
                     {cumRap.danhSachPhim.slice(0, 10).map((phim, index) => {
                       return (
                         <div
-                          className="flex m-1 p-2 gap-2 text-xs font-semibold border-b-2 border-gray-200 transition ease-in-out delay-150 hover:shadow-md shadow-black hover:scale-105 duration-300 hover:border-2 "
+                          className="grid grid-cols-3 w-full h-full m-1 p-2 gap-2 text-xs font-semibold border-b-2 border-gray-200 transition ease-in-out delay-150 hover:shadow-md shadow-black hover:scale-105 duration-300 hover:border-2 relative"
                           key={index}
                         >
                           {/* hinhAnhPhim */}
                           <div className="shadow-md shadow-black">
-                            <img src={phim.hinhAnh} alt={phim.tenPhim} width="180" style={{ height: "100%" }} />
+                            <img src={phim.hinhAnh} alt={phim.tenPhim} className='w-full h-full'/>
                           </div>
                           {/* tenPhim */}
-                          <div className="relative">
+                          <div className="col-span-2">
                             <h2 className="w-fit uppercase p-1 mb-2 text-md font-semibold">{phim.tenPhim}</h2>
 
                             {/* render lstLichChieuTheoPhim */}
-                            <div className="grid md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-4 gap-1">
-                              {phim.lstLichChieuTheoPhim?.slice(0, 10).map((lichChieu, index) => {
+                            <div className="grid grid-cols-3 gap-y-0 gap-x-1 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4">
+                              {phim.lstLichChieuTheoPhim?.slice(0, 6).map((lichChieu, index) => {
                                 return (
                                   <NavLink className="btn-lich-chieu" to="/" key={index}>
                                     {moment(lichChieu.ngayChieuGioChieu).format("hh:mm A")}
@@ -54,7 +54,7 @@ export default function HomeTheaterTabPane(props) {
                               })}
                             </div>
 
-                            <button className="custom-btn btn-main absolute bottom-1">
+                            <button className="custom-btn btn-main absolute bottom-3">
                               <span className="spanStyle">Đặt vé ngay</span>
                             </button>
                           </div>

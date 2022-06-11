@@ -18,9 +18,9 @@ export default function Footer(props) {
               Logo
             </NavLink>
 
-            <div className="container grid xl:grid-cols-4 py-10 uppercase sm:grid-cols-2 gap-2">
+            <div className="container grid grid-cols-2 lg:grid-cols-4 py-10 uppercase gap-2 ">
               <div>
-                <div className="tracking-wide font-semibold text-lg glassmorphism-white w-fit px-2 mb-3 ">No name</div>
+                <h3 className="tracking-wide font-semibold glassmorphism-white w-fit p-2 mb-3 text-white ">No name</h3>
                 <ul>
                   <li>
                     <NavLink to="/">Phim sắp chiếu</NavLink>
@@ -38,7 +38,7 @@ export default function Footer(props) {
               </div>
 
               <div>
-                <div className="tracking-wide font-semibold text-lg glassmorphism-white w-fit px-2 mb-3 ">Thông tin</div>
+                <h3 className="tracking-wide font-semibold  glassmorphism-white w-fit p-2 mb-3 text-white ">Thông tin</h3>
                 <ul>
                   <li>
                     <NavLink to='/' >Giới thiệu</NavLink>
@@ -56,7 +56,7 @@ export default function Footer(props) {
               </div>
 
               <div>
-                <div className="tracking-wide font-semibold text-lg glassmorphism-white w-fit px-2 mb-3 ">Hệ Thống Rạp</div>
+                <h3 className="tracking-wide font-semibold glassmorphism-white w-fit p-2 mb-3 text-white">Hệ Thống Rạp</h3>
                 <div className="mb-2 ">
                   {arrHeThongRap.map((htr, index) => {
                     return (
@@ -82,7 +82,7 @@ export default function Footer(props) {
               </div>
 
               <div className="">
-                <div className="dark:text-coolGray-50 font-semibold text-lg glassmorphism-white w-fit px-2 mb-3">Liên Kết</div>
+                <h3 className="font-semibold glassmorphism-white w-fit p-2 mb-3 text-white">Liên Kết</h3>
 
                 <section className="contact">
                   <ul className="icon-list">

@@ -7,7 +7,7 @@ export default function DetailInfoFilm(props) {
   return (
     <div className="container w-full">
       <div className="m-3" style={{ padding: "30px 30px" }}>
-        <div className="grid xl:grid-cols-3 gap-2 sm:grid-cols-1">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 ">
           <div className="justify-self-center">
             <div className="card-item-detail shadow-md shadow-black sm:mb-2">
               <img src={filmDetail.hinhAnh} alt={filmDetail.biDanh} />
@@ -46,7 +46,7 @@ export default function DetailInfoFilm(props) {
 
               <div className="xl:w-3/4 sm:w-full mt-4">
                 <h3 className="w-fit uppercase mb-2 pb-2 text-white border-b-2">Nội dung phim</h3>
-                <p className="text-white">{filmDetail.moTa}</p>
+                <p className="text-white">{filmDetail.moTa.length > 400 ? filmDetail.moTa.slice(0,400) + "...": filmDetail.moTa }</p>
               </div>
             </div>
           </div>
