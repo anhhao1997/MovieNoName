@@ -5,7 +5,7 @@
   align-items: center;
   margin-left: 100px;
   font-size: $textMd;
-  padding: 8px 0;
+  height: 54px;
 
   .nav-content {
     .content-item {
@@ -25,8 +25,10 @@
         bottom: -10px;
         transition: 0.3s;
       }
+
       &:hover {
         color: #fff;
+
         &::after {
           width: 100%;
         }
@@ -35,10 +37,14 @@
   }
 
   .nav-mode {
+    padding-top: 0px;
+    padding-bottom: 0px;
+
     .mode {
       display: inline-block;
       background-color: white;
       color: gray;
+
     }
 
     .mode:hover {
@@ -75,80 +81,76 @@
 
 @media screen and (max-width: 992px) {
 
-    header.container {
-        padding: 8px 0;
-    }
+  header.container {
+    padding: 8px 0;
+  }
 
-    .navbar-nav {
-        display: block;
-      }
+  .navbar-nav {
+    display: block;
+  }
 
 
-        .nav-content {
-            margin-top: 20px;
+  .nav-content {
+    margin-top: 20px;
 
-            .content-item {
-                padding-top: 10px;
-                padding-bottom: 10px;
-                margin-top: 10px;
-                margin-bottom: 10px;
-                display: block;
-            }
-
-            :hover {
-                background-color: rgba(255, 0, 0, 0.3);
-            }
-        }
-
-        .nav-mode {
-            padding-top: 10px;
-            padding-bottom: 20px;
-            margin: 10px 15px;
-            padding-left: 10px;
-            padding-right: 10px;
-
-            .mode:hover {
-                cursor: pointer;
-                background-color: rgba(255, 0, 0, 0.3);
-            }
-        }
-
-        .nav-login {
-            margin: 10px 15px;
-
-            .login-item {
-                display: block;
-            }
-
-            .login-item:hover {
-                background-color: rgba(255, 0, 0, 0.3);
-            }
-        }
-    }
-
-    .nav-mode {
+    .content-item {
       padding-top: 10px;
-      padding-bottom: 20px;
-      margin: 10px 15px;
-      padding-left: 10px;
-      padding-right: 10px;
-
-      .mode:hover {
-        cursor: pointer;
-        background-color: rgba(255, 0, 0, 0.3);
-      }
+      padding-bottom: 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      display: block;
     }
 
-    .nav-login {
-      margin: 10px 15px;
-
-      .login-item {
-        display: block;
-      }
-
-      .login-item:hover {
-        background-color: rgba(255, 0, 0, 0.3);
-      }
+    :hover {
+      background-color: rgba(255, 0, 0, 0.3);
     }
-  
+  }
 
+  .nav-mode {
+    margin: 10px 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    .mode:hover {
+      cursor: pointer;
+      background-color: rgba(255, 0, 0, 0.3);
+    }
+  }
+
+  .nav-login {
+    margin: 10px 15px;
+
+    .login-item {
+      display: block;
+    }
+
+    .login-item:hover {
+      background-color: rgba(255, 0, 0, 0.3);
+    }
+  }
+}
+
+.nav-mode {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  margin: 10px 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  .mode:hover {
+    cursor: pointer;
+    background-color: rgba(255, 0, 0, 0.3);
+  }
+}
+
+.nav-login {
+  margin: 10px 15px;
+
+  .login-item {
+    display: block;
+  }
+
+  .login-item:hover {
+    background-color: rgba(255, 0, 0, 0.3);
+  }
+}

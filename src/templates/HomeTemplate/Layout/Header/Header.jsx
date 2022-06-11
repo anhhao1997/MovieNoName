@@ -5,7 +5,7 @@ export default function Header(props) {
     return (
         //Có chỉnh sửa phần header
 
-        <div className="fixed w-full text-white glassmorphism-black drop-shadow-2xl top-0 z-10">
+        <div className="header-home fixed w-full text-white glassmorphism-black drop-shadow-2xl top-0 z-10">
             <header className="container mx-auto">
                 <nav className="navbar navbar-expand-lg navbar-dark ">
                     <NavLink to="#">Logo</NavLink>
