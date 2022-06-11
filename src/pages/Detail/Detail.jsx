@@ -21,7 +21,7 @@ export default function Detail(props) {
   return (
     <div>
       <div style={{ backgroundImage: `url(${filmDetail.hinhAnh})`, minHeight: "100vh" }} className="bg-cover bg-center bg-no-repeat w-full">
-        <div className="glassmorphism glassmorphism-black pt-10" style={{ minHeight: "100vh" }}>
+        <div className="glassmorphism glassmorphism-black pt-14" style={{ minHeight: "100vh" }}>
           <DetailInfoFilm filmDetail={filmDetail}></DetailInfoFilm>
           <DetailTheater filmDetail={filmDetail}></DetailTheater>
         </div>

@@ -128,7 +128,7 @@ export default class HomeServiceSlick extends Component {
     const { TabPane } = Tabs;
     return (
       <div className="container service-slick">
-        <h2 className="title"> DANH SÁCH PHIM </h2>
+        <h1 className="uppercase text-center mt-5 pt-3"> DANH SÁCH PHIM </h1>
         <Tabs defaultActiveKey="1" centered className="tabs">
           <TabPane tab="Phim đang chiếu" key="1" className="tabPane">
             <Slider {...settings}>{renderFilm("dangChieu")}</Slider>

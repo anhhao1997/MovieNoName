@@ -47,16 +47,34 @@ $textBase: 16px;
 
 //glassmorphism
 .glassmorphism {
-
   &-black {
-    background: rgba(0, 0, 0, 0.68);
+    background: rgba(0, 0, 0, 0.649);
     // border: 1px solid rgba(255, 255, 255, 0.18);
     backdrop-filter: blur(4px);
   }
 
   &-white {
-    background: rgba(255, 255, 255, 0.287);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.082); //0.31 
+    // border: 1px solid rgba(255, 255, 255, 0.18);
     backdrop-filter: blur(0px);
+  }
+}
+
+.btn-lich-chieu {
+  padding: 4px 4px;
+  border: 2px solid rgb(177, 177, 177);
+  margin: 4px 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-size: 16px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  transition: all 0.2s;
+
+  &:hover {
+    border: 2px solid $mainColor;
+    color: $mainColor;
   }
 }

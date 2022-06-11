@@ -44,11 +44,11 @@ export default function HomeTheaterTabPane(props) {
                             <h2 className="w-fit uppercase p-1 mb-2 text-md font-semibold">{phim.tenPhim}</h2>
 
                             {/* render lstLichChieuTheoPhim */}
-                            <div className="grid grid-cols-5 gap-2">
+                            <div className="grid md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-4 gap-1">
                               {phim.lstLichChieuTheoPhim?.slice(0, 10).map((lichChieu, index) => {
                                 return (
-                                  <NavLink className="text-black bg-gray-50 border-2 p-2 hover:text-white hover:bg-red-500" to="/" key={index}>
-                                    {moment(lichChieu.ngayChieuGioChieu).format("hh:mm:A")}
+                                  <NavLink className="btn-lich-chieu" to="/" key={index}>
+                                    {moment(lichChieu.ngayChieuGioChieu).format("hh:mm A")}
                                   </NavLink>
                                 );
                               })}
