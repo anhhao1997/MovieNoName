@@ -5,7 +5,6 @@
   align-items: center;
   margin-left: 100px;
   font-size: $textMd;
-  height: 54px;
 
   .nav-content {
     .content-item {
@@ -87,11 +86,13 @@
 
   .navbar-nav {
     display: block;
+    margin-left: 0;
   }
 
 
   .nav-content {
     margin-top: 20px;
+    margin-bottom: 20px;
 
     .content-item {
       padding-top: 10px;
