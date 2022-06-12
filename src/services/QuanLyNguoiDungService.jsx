@@ -6,7 +6,7 @@ export class QuanLyNguoiDungService extends baseService {
   }
   //tạo service layThongTinDangNhap với para thongTinDangNhap
   layThongTinDangNhap = (thongTinDangNhap) => {
-    //{taiKhoanr:'', matKhau:''}
+    //{taiKhoan:'', matKhau:''}
     return this.post(`api/QuanLyNguoiDung/DangNhap`, thongTinDangNhap);
   };
 }

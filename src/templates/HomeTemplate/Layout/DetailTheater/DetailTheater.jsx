@@ -34,7 +34,7 @@ export default function DetailTheater(props) {
                         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-rows-3  md:grid-cols-4 gap-x-1">
                           {cumRap.lichChieuPhim.slice(0, 12).map((lichChieu, indexLichChieu) => {
                             return (
-                              <NavLink className="btn-lich-chieu" to="/" key={indexLichChieu}>
+                              <NavLink className="btn-lich-chieu" to={`/checkout/${lichChieu.maLichChieu}`} key={indexLichChieu}>
                                 {moment(lichChieu.ngayChieuGioChieu).format("hh:mm:A")}
                               </NavLink>
                             );

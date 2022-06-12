@@ -37,7 +37,7 @@ export default function HomeTheaterTabPane(props) {
                         >
                           {/* hinhAnhPhim */}
                           <div className="shadow-md shadow-black">
-                            <img src={phim.hinhAnh} alt={phim.tenPhim} className='w-full h-full'/>
+                            <img src={phim.hinhAnh} alt={phim.tenPhim} className='w-full h-full' />
                           </div>
                           {/* tenPhim */}
                           <div className="col-span-2">
@@ -47,7 +47,7 @@ export default function HomeTheaterTabPane(props) {
                             <div className="grid grid-cols-3 gap-y-0 gap-x-1 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4">
                               {phim.lstLichChieuTheoPhim?.slice(0, 6).map((lichChieu, index) => {
                                 return (
-                                  <NavLink className="btn-lich-chieu" to="/" key={index}>
+                                  <NavLink className="btn-lich-chieu" to={`checkout/${lichChieu.maLichChieu}`} key={index}>
                                     {moment(lichChieu.ngayChieuGioChieu).format("hh:mm A")}
                                   </NavLink>
                                 );

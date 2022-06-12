@@ -1,0 +1,152 @@
+.glassmorphism-blue {
+    background-color: rgba(4, 25, 46, 0.8);
+}
+
+.checkout {
+    background-color: #04192e;
+    color: #fff;
+
+    .header-checkout {
+        font-size: $textMd;
+        z-index: 10;
+
+        .info-user {
+            button {
+                color: rgba(148, 148, 148, 1);
+                background-color: #004181;
+                border-radius: 0 0 0 0;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            button:hover {
+                color: #fff;
+                background-color: rgb(230, 0, 0);
+            }
+        }
+    }
+
+    .bg-film {
+        background-position: center;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        width: 100%;
+
+        .film {
+            padding-top: 110px;
+            padding-bottom: 40px;
+
+            .img-film {
+                img {
+                    width: 100%;
+                    height: 450px;
+                }
+            }
+
+            .info-film {
+                .name-film {
+                    font-size: $textXl;
+                    padding-bottom: 10px;
+                }
+
+                .date-film,
+                .time-film {
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    padding: 10px 10px;
+                    font-size: $textMd;
+                    display: inline-block;
+                    border: 2px solid #fff;
+                    border-radius: 200px 200px;
+                }
+
+                .date-film {
+                    margin-right: 20px;
+                }
+            }
+        }
+
+    }
+
+    .bulkhead {
+        width: 100%;
+        background-color: #03213b;
+        height: 100px;
+    }
+
+    .booking {
+        padding: 40px 0;
+    }
+
+    .info-booking {
+        font-size: $textBase;
+        padding: 15px 10px;
+        border: 1px solid #004181;
+        border-radius: 5px 5px;
+        box-shadow: 0px 0px 5px 5px rgba(0, 65, 129, 0.575);
+
+        div {
+            padding: 10px 0;
+        }
+
+        .info-chair {
+            padding-top: 20px;
+            padding-bottom: 100px;
+        }
+
+        .amount {
+            border-top: 1px solid #004181;
+        }
+
+        .button-ticket {
+
+            button {
+                color: rgb(128, 128, 128);
+                background-color: #004181;
+                font-size: $textMd;
+            }
+
+            button:hover {
+                color: #fff;
+                background-color: rgb(230, 0, 0);
+            }
+        }
+    }
+
+    .chair-booking {
+        .screen {
+            position: relative;
+
+            .screen-red {
+                background-color: #a80a0a;
+                filter: brightness(120%);
+            }
+
+            .screen-box {
+                position: absolute;
+                top: 25%;
+                width: 100%;
+                z-index: 1;
+                height: 70px;
+                border-radius: 100% 100% 0 0;
+                background-color: #04192e;
+            }
+
+            .screen-box::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                top: 0;
+                z-index: 1;
+                height: 70px;
+                border-radius: 100% 100% 0 0;
+                background-color: rgba(255, 0, 0, 0.6);
+                filter: blur(50px);
+            }
+        }
+
+        .chair {
+            margin-top: 70px;
+        }
+    }
+}
