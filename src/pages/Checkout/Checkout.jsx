@@ -22,7 +22,7 @@ export default function Checkout(props) {
   console.log('chiTietPhongVe', chiTietPhongVe);
   return (
     <div className="checkout">
-      <div className="header-checkout fixed-top p-3">
+      <div className="header-checkout .glassmorphism-blue fixed-top p-3">
         <div className="container d-flex align-items-center justify-content-between text-white">
           <div className="logo text-center">
             Logo
@@ -53,7 +53,7 @@ export default function Checkout(props) {
               <div className="detailed-movie">
                 <div className="btn-detailed" onClick={() => {
                   props.history.push(`/home`)
-                }}>Xem chi thêm phim</div>
+                }}>Xem thêm phim</div>
               </div>
             </div>
           </div>
