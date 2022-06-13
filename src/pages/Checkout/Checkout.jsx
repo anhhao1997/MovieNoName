@@ -22,34 +22,60 @@ export default function Checkout(props) {
   console.log('chiTietPhongVe', chiTietPhongVe);
   return (
     <div className="checkout">
-      <div className="header-checkout glassmorphism-blue p-3 fixed w-full">
+      {/* Tách component 1 */}
+      <div className="header-checkout fixed-top p-3">
         <div className="container d-flex align-items-center justify-content-between text-white">
           <div className="logo text-center">
             Logo
           </div>
           <div className="info-user text-center">
-            <span className="mr-3"><i className="fa fa-user pr-2" />{userLogin.hoTen}</span>
-            <button className="ml-3 btn">Đăng xuất</button>
+            <div className="dropdown show">
+              <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span className="mr-3"><i className="fa fa-user pr-2" />{userLogin.hoTen}</span>
+              </a>
+              <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a className="item-drop-1" href="#">Lịch sử </a>
+                <a className="item-drop-2" href="#">Đăng xuất</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      {/* Tách component 2 */}
       <div className="bg-film " style={{ backgroundImage: `url(${chiTietPhongVe.thongTinPhim?.hinhAnh})` }}>
-        <div className="glassmorphism-blue h-full">
-          <div className="film  container grid grid-cols-12 ">
+        <div className="glassmorphism-blue">
+          <div className="film glassmorphism-white container grid grid-cols-12">
             <div className="img-film shadow-inner col-span-3">
               <img src={chiTietPhongVe.thongTinPhim?.hinhAnh} alt="..." />
             </div>
             <div className="info-film shadow-inner col-span-9 pl-5">
-              <div className="name-film">{chiTietPhongVe.thongTinPhim.tenPhim}</div>
-              <div className="date-film">Ngày chiếu: {chiTietPhongVe.thongTinPhim.ngayChieu}</div>
-              <div className="time-film">Giờ chiếu: {chiTietPhongVe.thongTinPhim.gioChieu}</div>
+              <div className="name-film">{chiTietPhongVe.thongTinPhim?.tenPhim}</div>
+              <div className="date-film">Ngày chiếu: {chiTietPhongVe.thongTinPhim?.ngayChieu}</div>
+              <div className="time-film">Giờ chiếu: {chiTietPhongVe.thongTinPhim?.gioChieu}</div>
+              <div className="detailed-movie">
+                <div className="btn-detailed" onClick={() => {
+                  props.history.push(`/detail/${chiTietPhongVe.thongTinPhim?.maPhim}`)
+                }}>Xem chi tiết phim tại đây</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div className="bulkhead"></div>
-      <div className="container">
+      {/* Tách component 3 */}
+      <div className="container glassmorphism-white">
         <div className="booking grid grid-cols-12">
+          <div className="chair-booking col-span-9 mr-3">
+            <div className="screen w-full">
+              <div className="screen-red pt-5">
+              </div>
+              <div className="screen-box"></div>
+            </div>
+            <div className="chair">
+              {/*render danh sách ghế */}
+              Ghế
+            </div>
+          </div>
           <div className="info-booking col-span-3">
             <div>Địa điểm: {chiTietPhongVe.thongTinPhim?.tenCumRap}</div>
             <div>Địa chỉ: {chiTietPhongVe.thongTinPhim?.diaChi}</div>
@@ -62,18 +88,6 @@ export default function Checkout(props) {
               <button className="btn w-full">Đặt vé</button>
             </div>
           </div>
-          <div className="chair-booking col-span-9 ml-4">
-            <div className="screen w-full">
-              <div className="screen-red pt-5">
-              </div>
-              <div className="screen-box"></div>
-            </div>
-            <div className="chair">
-              {/*render danh sách ghế */}
-              Ghế
-            </div>
-          </div>
-
         </div>
       </div>
     </div>
