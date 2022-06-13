@@ -22,7 +22,6 @@ export default function Checkout(props) {
   console.log('chiTietPhongVe', chiTietPhongVe);
   return (
     <div className="checkout">
-      {/* Tách component 1 */}
       <div className="header-checkout fixed-top p-3">
         <div className="container d-flex align-items-center justify-content-between text-white">
           <div className="logo text-center">
@@ -41,7 +40,6 @@ export default function Checkout(props) {
           </div>
         </div>
       </div>
-      {/* Tách component 2 */}
       <div className="bg-film " style={{ backgroundImage: `url(${chiTietPhongVe.thongTinPhim?.hinhAnh})` }}>
         <div className="glassmorphism-blue">
           <div className="film glassmorphism-white container grid grid-cols-12">
@@ -54,43 +52,43 @@ export default function Checkout(props) {
               <div className="time-film">Giờ chiếu: {chiTietPhongVe.thongTinPhim?.gioChieu}</div>
               <div className="detailed-movie">
                 <div className="btn-detailed" onClick={() => {
-                  props.history.push(`/detail/${chiTietPhongVe.thongTinPhim?.maPhim}`)
-                }}>Xem chi tiết phim tại đây</div>
+                  props.history.push(`/home`)
+                }}>Xem chi thêm phim</div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div className="bulkhead"></div>
-      {/* Tách component 3 */}
-      <div className="container glassmorphism-white">
-        <div className="booking grid grid-cols-12">
-          <div className="chair-booking col-span-9 mr-3">
-            <div className="screen w-full">
-              <div className="screen-red pt-5">
+          <div className="container glassmorphism-white">
+            <div className="booking grid grid-cols-12">
+              <div className="chair-booking col-span-9 mr-3">
+                <div className="screen w-full">
+                  <div className="screen-red pt-5">
+                  </div>
+                  <div className="screen-box"></div>
+                </div>
+                <div className="chair">
+                  {/*render danh sách ghế */}
+                  Ghế
+                </div>
               </div>
-              <div className="screen-box"></div>
-            </div>
-            <div className="chair">
-              {/*render danh sách ghế */}
-              Ghế
-            </div>
-          </div>
-          <div className="info-booking col-span-3">
-            <div>Địa điểm: {chiTietPhongVe.thongTinPhim?.tenCumRap}</div>
-            <div>Địa chỉ: {chiTietPhongVe.thongTinPhim?.diaChi}</div>
-            <div className="info-chair">Ghế đã chọn:</div>
-            <div className="amount d-flex justify-between align-items-center">
-              <div>Tổng tiền:</div>
-              <div>Số tiền</div>
-            </div>
-            <div className="button-ticket">
-              <button className="btn w-full">Đặt vé</button>
+              <div className="info-booking col-span-3">
+                <div>Địa điểm: {chiTietPhongVe.thongTinPhim?.tenCumRap}</div>
+                <div>Địa chỉ: {chiTietPhongVe.thongTinPhim?.diaChi}</div>
+                <div className="info-chair">Ghế đã chọn:</div>
+                <div className="amount d-flex justify-between align-items-center">
+                  <div>Tổng tiền:</div>
+                  <div>Số tiền</div>
+                </div>
+                <div className="button-ticket">
+                  <button className="btn w-full">Đặt vé</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+
   );
 }
 

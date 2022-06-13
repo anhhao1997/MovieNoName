@@ -83,7 +83,7 @@
                     bottom: 0;
                     font-size: $textMd;
                     border-radius: 200px 200px;
-                    background-color: #004181;
+                    background-color: rgba(0, 65, 129, 0.5);
                     border: 2px solid #004181;
                     box-shadow: 0px 0px 5px 5px rgba(0, 65, 129, 0.575);
                 }
@@ -99,89 +99,85 @@
             }
         }
 
-    }
-
-    .bulkhead {
-        width: 100%;
-        background-color: #03213b;
-        height: 100px;
-    }
-
-    .booking {
-        padding: 40px 0;
-    }
-
-    .info-booking {
-        font-size: $textBase;
-        padding: 15px 10px;
-        border: 1px solid #004181;
-        box-shadow: 0px 0px 5px 5px rgba(0, 65, 129, 0.575);
-
-        div {
-            padding: 10px 0;
+        .booking {
+            padding: 40px 0;
         }
 
-        .info-chair {
-            padding-top: 20px;
-            padding-bottom: 100px;
-        }
+        .info-booking {
+            font-size: $textBase;
+            padding: 15px 10px;
+            border: 1px solid #004181;
+            box-shadow: 0px 0px 5px 5px rgba(0, 65, 129, 0.575);
 
-        .amount {
-            border-top: 1px solid #004181;
-        }
-
-        .button-ticket {
-            button {
-                color: #fff;
-                background-color: #004181;
-                font-size: $textMd;
-                border-radius: 0;
-                border: 2px solid #004181;
-                box-shadow: 0px 0px 5px 5px rgba(0, 65, 129, 0.575);
+            div {
+                padding: 10px 0;
             }
 
-            button:hover {
-                background-color: rgb(230, 0, 0);
-                border: 2px solid #810000;
-                box-shadow: 0px 0px 5px 5px rgba(129, 0, 0, 0.575);
-            }
-        }
-    }
-
-    .chair-booking {
-        .screen {
-            position: relative;
-
-            .screen-red {
-                background-color: #a80a0a;
-                filter: brightness(120%);
+            .info-chair {
+                padding-top: 20px;
+                padding-bottom: 100px;
             }
 
-            .screen-box {
-                position: absolute;
-                top: 40%;
-                width: 100%;
-                z-index: 1;
-                height: 50px;
-                border-radius: 100% 100% 0 0;
-                background-color: #192c3f;
+            .amount {
+                border-top: 1px solid #004181;
             }
 
-            .screen-box::after {
-                content: '';
-                position: absolute;
-                width: 100%;
-                top: 0;
-                z-index: 1;
-                height: 70px;
-                border-radius: 100% 100% 0 0;
-                background-color: rgba(255, 0, 0, 1);
-                filter: blur(60px);
+            .button-ticket {
+                button {
+                    color: #fff;
+                    background-color: rgba(0, 65, 129, 0.5);
+                    font-size: $textMd;
+                    border-radius: 0;
+                    border: 2px solid #004181;
+                    box-shadow: 0px 0px 5px 5px rgba(0, 65, 129, 0.575);
+                }
+
+                button:hover {
+                    background-color: rgb(230, 0, 0);
+                    border: 2px solid #810000;
+                    box-shadow: 0px 0px 5px 5px rgba(129, 0, 0, 0.575);
+                }
             }
         }
 
-        .chair {
-            margin-top: 70px;
+        .chair-booking {
+            .screen {
+                position: relative;
+
+                .screen-red {
+                    background-color: #a80a0a;
+                    filter: brightness(120%);
+                }
+
+                .screen-box {
+                    position: absolute;
+                    top: 40%;
+                    width: 100%;
+                    z-index: 1;
+                    height: 50px;
+                    border-radius: 100% 100% 0 0;
+                    border: 1px solid #1c2c3d;
+                    background-color: #1c2c3d;
+                    box-shadow: 0px 5px 5px 5px #1c2c3d;
+                }
+
+                .screen-box::after {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    top: 0;
+                    z-index: 1;
+                    height: 70px;
+                    border-radius: 100% 100% 0 0;
+                    background-color: #ff0000;
+                    box-shadow: 0px 5px 5px 5px #ff0000;
+                    filter: blur(50px);
+                }
+            }
+
+            .chair {
+                margin-top: 70px;
+            }
         }
     }
 }
