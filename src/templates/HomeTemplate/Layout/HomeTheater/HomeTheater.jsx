@@ -4,7 +4,6 @@ import { layDanhSachHeThongRap } from "../../../../redux/actions/QuanLyRapAction
 import HomeTheaterTabPane from "./HomeTheaterTabPane";
 
 export default function HomeTheater(props) {
-  
   const { heThongRapChieu } = useSelector((state) => state.QuanLyRapReducer);
 
   const dispatch = useDispatch();
@@ -15,11 +14,11 @@ export default function HomeTheater(props) {
     dispatch(action);
   }, []);
 
- 
+  console.log("heThongRapChieu", heThongRapChieu);
 
   return (
     <div className="container">
-      <HomeTheaterTabPane heThongRapChieu={heThongRapChieu}/>
+      <HomeTheaterTabPane heThongRapChieu={heThongRapChieu} />
     </div>
   );
 }

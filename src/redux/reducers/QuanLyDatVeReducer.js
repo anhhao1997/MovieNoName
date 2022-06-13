@@ -1,7 +1,8 @@
 
+import { ThongTinLichChieu } from "../../_core/models/ThongTinPhongVe";
 import { SET_CHI_TIET_PHONG_VE } from "./../types/QuanLyDatVeType";
 const stateDefault = {
-    chiTietPhongVe: {}
+    chiTietPhongVe: new ThongTinLichChieu(),
 }
 
 
