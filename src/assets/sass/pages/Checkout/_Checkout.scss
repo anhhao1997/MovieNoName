@@ -148,66 +148,86 @@
   width: 80%;
   margin: 15px 0;
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
-  border-radius: 35px ;
+  border-radius: 35px;
 }
-  // .screen-red {
-  //   // background-color: $mainColor;
-  //   // // #04d9ff
-  //   // height:15px;
-  //   // filter: brightness(200%);
-  //   // border-radius: 25px;
+// .screen-red {
+//   // background-color: $mainColor;
+//   // // #04d9ff
+//   // height:15px;
+//   // filter: brightness(200%);
+//   // border-radius: 25px;
 
-  //   background: #fff;
-  //   height: 70px;
-  //   width: 70%;
-  //   margin: 15px 0;
-  //   transform: rotateX(-45deg);
-  //   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
-  // }
+//   background: #fff;
+//   height: 70px;
+//   width: 70%;
+//   margin: 15px 0;
+//   transform: rotateX(-45deg);
+//   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+// }
 
-  // .screen-box {
-  //   position: absolute;
-  //   top: 40%;
-  //   width: 100%;
-  //   z-index: 1;
-  //   height: 30px;
-  //   // border: 1px solid #1c2c3d;
-  //   // background-color: #1c2c3d;
-  //   // box-shadow: 0px 5px 5px 5px #1c2c3d;
-  // }
+// .screen-box {
+//   position: absolute;
+//   top: 40%;
+//   width: 100%;
+//   z-index: 1;
+//   height: 30px;
+//   // border: 1px solid #1c2c3d;
+//   // background-color: #1c2c3d;
+//   // box-shadow: 0px 5px 5px 5px #1c2c3d;
+// }
 
-  // .screen-box::after {
-  //   content: "";
-  //   position: absolute;
-  //   width: 100%;
-  //   top: 0;
-  //   z-index: 1;
-  //   height: 70px;
-  //   border-radius: 100% 100% 0 0;
-  //   // background-color: #ff0000;
-  //   // box-shadow: 0px 5px 5px 5px #ff0000;
-  //   // filter: blur(50px);
-  // }
+// .screen-box::after {
+//   content: "";
+//   position: absolute;
+//   width: 100%;
+//   top: 0;
+//   z-index: 1;
+//   height: 70px;
+//   border-radius: 100% 100% 0 0;
+//   // background-color: #ff0000;
+//   // box-shadow: 0px 5px 5px 5px #ff0000;
+//   // filter: blur(50px);
+// }
 
-.seat{
-    .seat1 {
-        background-color: white;
-        height: 30px;
-        width: 40px;
-        margin: 3px;
-        border-radius:10px;
-    
+.ghe {
+  background-color: rgb(130, 130, 130);
+  width: 30px;
+  height: 24px;
+  border-radius: 5px;
+  margin: 7px;
+  color: white;
+  text-align: center;
+  &::after {
+    content: "";
+    display: block;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 6px;
+    border-radius: 5px;
+    background-color: rgb(130, 130, 130);
+    margin-top: 6px;
+  }
+  &.gheVip {
+    background-color: #ff9800;
+    &::after {
+      background-color: #ff9800;
     }
-    .seat2{
-        background-color: white;
-        height: 10px;
-        width: 40px;
-        margin: 3px;
-        border-radius:8px;
+  }
+  &.gheDaDat {
+    background-color: #810000;
+    cursor: no-drop;
+    &::after {
+      background-color: #810000;
     }
-   
+  }
+  &.gheDangDat {
+    background-color: green !important;
+    &::after {
+      background-color: green !important;
+    }
+  }
 }
-
 
 .wsk-cp-product {
   //   background: rgb(0, 0, 0);

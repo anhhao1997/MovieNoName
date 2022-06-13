@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { layChiTietPhongVeAction } from "./../../redux/actions/QuanLyDatVeActions";
@@ -20,7 +20,24 @@ export default function Checkout(props) {
   }, []);
 
   console.log("chiTietPhongVe", chiTietPhongVe);
-  const { danhSachGhe,thongTinPhim } = chiTietPhongVe;
+  const { danhSachGhe, thongTinPhim } = chiTietPhongVe;
+
+  const renderGhe = () => {
+    return danhSachGhe.slice(0,120).map((ghe, index) => {
+      let classGheVip = ghe.loaiGhe === "Vip" ? "gheVip" : "";
+      let classGheDaDat = ghe.daDat === true ? "gheDaDat" : "";
+      return (
+        <Fragment key={index}>
+          <button disabled={ghe.daDat} key={index} className={`ghe ${classGheVip} ${classGheDaDat}`}>
+            {ghe.stt}
+          </button>
+
+          {/* {(index + 1) % 12 === 0 ? <br /> : ""} */}
+        </Fragment>
+      );
+    });
+  };
+
   return (
     <div className="checkout">
       {/* //header checkout */}
@@ -53,7 +70,7 @@ export default function Checkout(props) {
           <div className="container">
             {" "}
             <div className="grid grid-cols-1 md:grid-cols-7 gap-1 mt-5">
-              <div className="col-span-2 justify-self-start">
+              <div className="col-start-1 lg:col-span-2 justify-self-center">
                 <div className="wsk-cp-product glassmorphism-black">
                   <div className="wsk-cp-img">
                     <img src={thongTinPhim.hinhAnh} className="img-responsive" style={{ height: "400px" }} />
@@ -85,16 +102,15 @@ export default function Checkout(props) {
                 </div>
               </div>
               {/* //đặt vé */}
-              <div className=" col-start-3 col-span-5">
-                <div className="booking grid grid-flow-row">
-                  <div className="screen justify-self-center"></div>
+              <div className=" col-start-1 lg:col-start-3 col-span-5">
+                <div className=" grid grid-flow-row glassmorphism-black rounded-tr-md rounded-tl-md">
+                  <div className="screen justify-self-center "></div>
                   <h3 className="text-center text-white">Màn hình</h3>
                   {/* //render ghe */}
-                  <div className="seat">
-                    {/*render danh sách ghế */}
-                    <div className="seat1"></div>
-                    <div className="seat2"></div>
-                  </div>
+                  <div className="text-center p-3">
+                    <div className="grid grid-cols-12 gap-1 justify-items-center lg:px-16">{renderGhe()}</div>
+                    
+                    </div>
                 </div>
               </div>
             </div>
