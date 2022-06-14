@@ -150,6 +150,7 @@
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
   border-radius: 35px;
 }
+
 // .screen-red {
 //   // background-color: $mainColor;
 //   // // #04d9ff
@@ -197,6 +198,7 @@
   margin: 7px;
   color: white;
   text-align: center;
+
   &::after {
     content: "";
     display: block;
@@ -208,23 +210,39 @@
     background-color: rgb(130, 130, 130);
     margin-top: 6px;
   }
+
   &.gheVip {
     background-color: #ff9800;
+
     &::after {
       background-color: #ff9800;
     }
   }
+
   &.gheDaDat {
     background-color: #810000;
     cursor: no-drop;
+
     &::after {
       background-color: #810000;
     }
   }
+
+  // bỏ important vì bị đè css
   &.gheDangDat {
-    background-color: green !important;
+    background-color: green;
+
     &::after {
-      background-color: green !important;
+      background-color: green;
+    }
+  }
+
+  // ghế được mình đặt
+  &.gheDuocDat {
+    background-color: #00aeff !important;
+
+    &::after {
+      background-color: #00aeff !important;
     }
   }
 }
@@ -237,6 +255,7 @@
   position: relative;
   width: 320px;
 }
+
 .wsk-cp-img {
   position: absolute;
   top: 5px;
@@ -251,6 +270,7 @@
   padding: 15px;
   transition: all 0.2s ease-in-out;
 }
+
 .wsk-cp-img img {
   width: 100%;
   transition: all 0.2s ease-in-out;
@@ -268,7 +288,8 @@
   padding: 5px;
   transition: all 0.2s ease-in-out;
 }
-.wsk-cp-text .category > * {
+
+.wsk-cp-text .category>* {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -278,7 +299,8 @@
   -o-transform: translate(-50%, -50%);
   -khtml-transform: translate(-50%, -50%);
 }
-.wsk-cp-text .category > span {
+
+.wsk-cp-text .category>span {
   padding: 12px 30px;
   border: 1px solid #313131;
   background: $mainColor;
@@ -287,11 +309,13 @@
   border-radius: 27px;
   transition: all 0.05s ease-in-out;
 }
-.wsk-cp-product:hover .wsk-cp-text .category > span {
+
+.wsk-cp-product:hover .wsk-cp-text .category>span {
   border-color: #ddd;
   box-shadow: none;
   padding: 11px 28px;
 }
+
 .wsk-cp-product:hover .wsk-cp-text .category {
   margin-top: 0px;
 }
@@ -306,9 +330,11 @@
   width: 100%;
   color: white;
 }
+
 .wsk-cp-text .description-prod p {
   margin: 0;
 }
+
 /* Truncate */
 .wsk-cp-text .description-prod {
   text-align: left;
@@ -319,15 +345,18 @@
   -webkit-box-orient: vertical;
   margin-bottom: 15px;
 }
+
 .card-footer {
   padding: 5px 0 0px;
   border-top: 1px solid #ddd;
 }
+
 .card-footer:after,
 .card-footer:before {
   content: "";
   display: table;
 }
+
 .card-footer:after {
   clear: both;
 }
@@ -357,6 +386,7 @@ a.buy-btn {
   border: 1px solid #212121;
   transition: all 0.2s ease-in-out;
 }
+
 a.buy-btn:hover,
 a.buy-btn:active,
 a.buy-btn:focus {
@@ -365,6 +395,7 @@ a.buy-btn:focus {
   color: #fff;
   text-decoration: none;
 }
+
 .wsk-btn {
   display: inline-block;
   color: #212121;
@@ -377,12 +408,14 @@ a.buy-btn:focus {
   border-radius: 27px;
   margin: 0 5px;
 }
+
 .wsk-btn:hover,
 .wsk-btn:focus,
 .wsk-btn:active {
   text-decoration: none;
   color: #fff;
 }
+
 .red {
   color: #f44336;
   font-size: 22px;
@@ -396,37 +429,45 @@ a.buy-btn:focus {
     width: 100%;
     padding-bottom: 70px;
   }
+
   .wsk-cp-img {
     width: 100%;
     left: 0px;
     transform: translate(0px);
   }
+
   .wsk-cp-img img {
     width: 20%;
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   }
+
   .wsk-cp-text {
     padding-left: 30%;
   }
-  .wsk-cp-product .wsk-cp-text .category > span {
+
+  .wsk-cp-product .wsk-cp-text .category>span {
     border-color: #ddd;
     box-shadow: none;
     padding: 11px 28px;
   }
+
   .wsk-cp-product .wsk-cp-text .category {
     margin-top: 0px;
   }
+
   a.buy-btn {
     border-color: #ff9800;
     background: #ff9800;
     color: #fff;
   }
 }
+
 @media screen and (max-width: 768px) {
-  
+
   .wsk-cp-img img {
     width: 25%;
   }
+
   .wsk-cp-text {
     padding-left: 30%;
   }
@@ -437,6 +478,7 @@ a.buy-btn:focus {
   .wsk-cp-img img {
     width: 30%;
   }
+
   .wsk-cp-text {
     padding-left: 40%;
   }
@@ -446,6 +488,7 @@ a.buy-btn:focus {
   .wsk-cp-product {
     padding-bottom: 40px;
   }
+
   .wsk-cp-img img {
     width: 35%;
   }

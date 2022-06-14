@@ -5,6 +5,7 @@ import { QuanLyRapReducer } from "./reducers/QuanLyRapReducer";
 import { QuanLyPhimReducer } from "./reducers/QuanLyPhimReducer";
 import { QuanLyNguoiDungReducer } from "./reducers/QuanLyNguoiDungReducer";
 import { QuanLyDatVeReducer } from "./reducers/QuanLyDatVeReducer";
+import { LoadingReducer } from "./reducers/LoadingReducer";
 
 const rootReducer = combineReducers({
   // state ứng dụng
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   QuanLyPhimReducer,
   QuanLyNguoiDungReducer,
   QuanLyDatVeReducer,
+  LoadingReducer,
 });
 
 // Cấu hình thunk
