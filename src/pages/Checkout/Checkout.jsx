@@ -69,14 +69,14 @@ export default function Checkout(props) {
         <div className="glassmorphism glassmorphism-black pt-14" style={{ minHeight: "100vh" }}>
           <div className="container ">
             {" "}
-            <div className="grid grid-cols-1 mt-5 pb-7 gap-3 md:grid-cols-1 lg:grid-cols-7 lg:gap-1  ">
+            <div className="grid grid-cols-1 mt-5 pb-7 gap-3 xl:grid-cols-7 xl:gap-1  ">
               {/* card item phim */}
               <div className="order-2 col-span-7 md:order-1 lg:justify-self-center lg:col-span-2 ">
                 <div className="wsk-cp-product glassmorphism-black">
                   <div className="wsk-cp-img">
-                    <img className='sm:h-full md:h-full lg:h-[400px] img-responsive' src={thongTinPhim.hinhAnh} />
+                    <img className='sm:h-full md:h-full lg:h-full img-responsive' src={thongTinPhim.hinhAnh} />
                   </div>
-                  <div className="wsk-cp-text lg:pt-[150%] ">
+                  <div className="wsk-cp-text xl:pt-[150%] ">
                     <div className="category">
                       <span>{thongTinPhim.tenRap}</span>
                     </div>
