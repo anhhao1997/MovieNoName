@@ -67,15 +67,16 @@ export default function Checkout(props) {
 
       <div className="bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${thongTinPhim.hinhAnh})`, minHeight: "100vh" }}>
         <div className="glassmorphism glassmorphism-black pt-14" style={{ minHeight: "100vh" }}>
-          <div className="container">
+          <div className="container ">
             {" "}
-            <div className="grid grid-cols-1 md:grid-cols-7 gap-1 mt-5">
-              <div className="col-start-1 lg:col-span-2 justify-self-center">
+            <div className="grid grid-cols-1 mt-5 pb-7 gap-3 md:grid-cols-1 lg:grid-cols-7 lg:gap-1  ">
+              {/* card item phim */}
+              <div className="order-2 col-span-7 md:order-1 lg:justify-self-center lg:col-span-2 ">
                 <div className="wsk-cp-product glassmorphism-black">
                   <div className="wsk-cp-img">
-                    <img src={thongTinPhim.hinhAnh} className="img-responsive" style={{ height: "400px" }} />
+                    <img className='sm:h-full md:h-full lg:h-[400px] img-responsive' src={thongTinPhim.hinhAnh} />
                   </div>
-                  <div className="wsk-cp-text pt-[140%] lg:pt-[150%] ">
+                  <div className="wsk-cp-text lg:pt-[150%] ">
                     <div className="category">
                       <span>{thongTinPhim.tenRap}</span>
                     </div>
@@ -102,13 +103,13 @@ export default function Checkout(props) {
                 </div>
               </div>
               {/* //đặt vé */}
-              <div className=" col-start-1 lg:col-start-3 col-span-5">
-                <div className=" grid grid-flow-row glassmorphism-black rounded-tr-md rounded-tl-md">
+              <div className="order-1 col-span-7 md:order-2 lg:col-start-3 lg:mx-4 col-span-5">
+                <div className=" grid grid-flow-row glassmorphism-black rounded-tr-md rounded-tl-md ">
                   <div className="screen justify-self-center "></div>
                   <h3 className="text-center text-white">Màn hình</h3>
                   {/* //render ghe */}
-                  <div className="text-center p-3">
-                    <div className="grid grid-cols-12 gap-1 justify-items-center lg:px-16">{renderGhe()}</div>
+                  <div className="text-center p-2 lg:p-3">
+                    <div className="grid grid-cols-12 gap-1 justify-items-center lg:px-16 lg:py-5">{renderGhe()}</div>
                     
                     </div>
                 </div>
