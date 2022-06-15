@@ -39,6 +39,7 @@ export default function Checkout(props) {
   const renderGhe = () => {
     return danhSachGhe.slice(0, 96).map((ghe, index) => {
       let classGheVip = ghe.loaiGhe === "Vip" ? "gheVip" : "";
+
       let classGheDaDat = ghe.daDat === true ? "gheDaDat" : "";
       let classGheDangDat = "";
       let classGheDaDuocDat = "";
