@@ -25,11 +25,11 @@ export const QuanLyDatVeReducer = (state = stateDefault, action) => {
                 danhSachGheCapNhat.push(action.gheDuocChon);
             }
             state.danhSachGheDangDat = danhSachGheCapNhat;
-            console.log('id', action.id)
-            console.log('malichchieu', state.chiTietPhongVe.thongTinPhim.maLichChieu)
-            if (action.id != state.chiTietPhongVe.thongTinPhim.maLichChieu) {
-                state.danhSachGheDangDat = [];
-            }
+            // console.log('id', action.id)
+            // console.log('malichchieu', state.chiTietPhongVe.thongTinPhim.maLichChieu)
+            // if (action.id != state.chiTietPhongVe.thongTinPhim.maLichChieu) {
+            //     state.danhSachGheDangDat = [];
+            // }
 
             return { ...state }
         }
