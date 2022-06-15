@@ -37,7 +37,7 @@ export default function HomeTheaterTabPane(props) {
                         >
                           {/* hinhAnhPhim */}
                           <div className="shadow-md shadow-black">
-                            <img src={phim.hinhAnh} alt={phim.tenPhim} className='w-full h-full' />
+                            <img src={phim.hinhAnh} alt={phim.tenPhim} className="w-full h-full" />
                           </div>
                           {/* tenPhim */}
                           <div className="col-span-2">
@@ -53,10 +53,11 @@ export default function HomeTheaterTabPane(props) {
                                 );
                               })}
                             </div>
-
-                            <button className="custom-btn btn-main absolute bottom-3">
-                              <span className="spanStyle">Đặt vé ngay</span>
-                            </button>
+                            <div className="w-[150px] absolute bottom-3">
+                              <button className="custom-btn btn-main ">
+                                <span className="spanStyle">Đặt vé ngay</span>
+                              </button>
+                            </div>
                           </div>
                         </div>
                       );

@@ -1,15 +1,29 @@
 import React, { Fragment } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { layChiTietPhongVeAction } from "./../../redux/actions/QuanLyDatVeActions";
+import { UserOutlined } from "@ant-design/icons";
+import { datVeAction, layChiTietPhongVeAction } from "./../../redux/actions/QuanLyDatVeActions";
+import { DAT_VE } from "../../redux/types/QuanLyDatVeType";
 import moment from "moment";
+import _ from "lodash";
+import { ThongTinDatVe } from "../../_core/models/ThongTinDatVe";
+
+/**
+ *1. Tạo mảng danhSachDangDat [] bên reducer QuanLyDatVe
+ *2. Dùng useSelector để lấy danhSachGheDangDat về Checkout Component {danhSachGheDangDat}
+ *3.Tại ghe trong renderGhe() dùng sự kiện onClick để dispatch action với type: DAT_VE và dữ liệu gửi lên reducer là gheduocChon : ghe
+ *4. Tạo type bên file type
+ *5. Bắt case type bên reducer và tiến hành so sánh
+ *6. Tại lúc render ra từng ghế sẽ tiến hành kiểm tra xem cái ghế đó có đang trong danhSachGheDangDat trên reducer hay không, nếu có thì add classGheDangDat, nếu kh thì kh add classGheDangDat
+ */
 
 export default function Checkout(props) {
   //Lấy thông tin người dùng
   const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
   console.log(userLogin);
   //Lấy thông tin phòng vé
-  const { chiTietPhongVe } = useSelector((state) => state.QuanLyDatVeReducer);
+  const { chiTietPhongVe, danhSachGheDangDat } = useSelector((state) => state.QuanLyDatVeReducer);
+  const { danhSachGhe, thongTinPhim } = chiTietPhongVe;
 
   const dispatch = useDispatch();
 
@@ -20,16 +34,37 @@ export default function Checkout(props) {
   }, []);
 
   console.log("chiTietPhongVe", chiTietPhongVe);
-  const { danhSachGhe, thongTinPhim } = chiTietPhongVe;
+  console.log("danhSachGheDangDat", danhSachGheDangDat);
 
   const renderGhe = () => {
-    return danhSachGhe.slice(0,96).map((ghe, index) => {
+    return danhSachGhe.slice(0, 96).map((ghe, index) => {
       let classGheVip = ghe.loaiGhe === "Vip" ? "gheVip" : "";
       let classGheDaDat = ghe.daDat === true ? "gheDaDat" : "";
+      let classGheDangDat = "";
+      let classGheDaDuocDat = "";
+
+      let indexGheDangDat = danhSachGheDangDat.findIndex((gheDangDat) => gheDangDat.maGhe === ghe.maGhe);
+
+      if (indexGheDangDat != -1) {
+        classGheDangDat = "gheDangDat";
+      }
+      if (userLogin.taiKhoan === ghe.taiKhoanNguoiDat) {
+        classGheDaDuocDat = "gheDaDuocDat";
+      }
       return (
         <Fragment key={index}>
-          <button disabled={ghe.daDat} key={index} className={`ghe ${classGheVip} ${classGheDaDat}`}>
-            {ghe.stt}
+          <button
+            onClick={() => {
+              dispatch({
+                type: DAT_VE,
+                gheDuocChon: ghe,
+              });
+            }}
+            disabled={ghe.daDat}
+            key={index}
+            className={`ghe ${classGheVip} ${classGheDaDat} ${classGheDangDat} ${classGheDaDuocDat}`}
+          >
+            {classGheDaDuocDat != "" ? <UserOutlined /> : ghe.stt}
           </button>
 
           {/* {(index + 1) % 12 === 0 ? <br /> : ""} */}
@@ -74,7 +109,7 @@ export default function Checkout(props) {
               <div className="order-2 col-span-7 md:order-1 lg:justify-self-center lg:col-span-2 ">
                 <div className="wsk-cp-product glassmorphism-black">
                   <div className="wsk-cp-img">
-                    <img className='sm:h-full md:h-full lg:h-full img-responsive' src={thongTinPhim.hinhAnh} />
+                    <img className="sm:h-full md:h-full lg:h-[400px] img-responsive" src={thongTinPhim.hinhAnh} />
                   </div>
                   <div className="wsk-cp-text lg:pt-[150%] ">
                     <div className="category">
@@ -85,33 +120,89 @@ export default function Checkout(props) {
                     </div>
                     <div className="description-prod">
                       <p>Rạp:{thongTinPhim.tenCumRap} </p>
-                      <p>Ngày chiếu: {moment(thongTinPhim.ngayChieu).format("D/M/YYYY")}</p>
+                      <p>Ngày chiếu: {moment(thongTinPhim.ngayChieu).format("DD/MM/YYYY")}</p>
                       <p>Suất chiếu: {thongTinPhim.gioChieu}</p>
-                      <p>Chỗ ngồi</p>
-                    </div>
-                    <div className="card-footer">
-                      <div className="wcf-left">
-                        <span className="price">Tạm tính: 500.000</span>
+                      <div className="flex flex-col">
+                        <p>Chỗ ngồi: </p>
+                        <div className="flex flex-row flex-wrap">
+                          {_.sortBy(danhSachGheDangDat, ["stt"]).map((gheDangDat, index) => {
+                            return (
+                              <div className="ghe gheDangDat mt-2" key={index}>
+                                {gheDangDat.stt}
+                              </div>
+                            );
+                          })}
+                        </div>
                       </div>
-                      <div className="wcf-right">
-                        <a href="#" className="buy-btn">
-                          <i className="fas fa-shopping-basket"></i>
-                        </a>
+                    </div>
+
+                    <div className="card-footer">
+                      <div className="flex justify-between items-center">
+                        <div style={{ fontSize: "18px" }}>Tạm tính: </div>
+                        <div className="wcf-right text-lg font-semibold">
+                          {danhSachGheDangDat
+                            .reduce((tongTien, ghe, index) => {
+                              return (tongTien += ghe.giaVe);
+                            }, 0)
+                            .toLocaleString()}
+                          đ
+                        </div>
+                      </div>
+
+                      <div className="flex">
+                        <button
+                          onClick={() => {
+                            const thongTinDatVe = new ThongTinDatVe();
+                            thongTinDatVe.maLichChieu = props.match.params.id;
+                            thongTinDatVe.danhSachVe = danhSachGheDangDat;
+
+                            // console.log(thongTinDatVe);
+                            dispatch(datVeAction(thongTinDatVe));
+                          }}
+                          className="custom-btn btn-main"
+                        >
+                          MUA VÉ <i className="fas fa-shopping-basket"></i>
+                        </button>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
               {/* //đặt vé */}
-              <div className="order-1 col-span-7 md:order-2 lg:col-start-3 lg:mx-4 col-span-5">
-                <div className=" grid grid-flow-row glassmorphism-black rounded-tr-md rounded-tl-md ">
+              <div className="order-1 col-span-7 md:order-2 lg:col-start-3 lg:mx-4 lg:col-span-5 ">
+                <div className=" grid grid-flow-row rounded-md glassmorphism-black">
                   <div className="screen justify-self-center "></div>
                   <h3 className="text-center text-white">Màn hình</h3>
                   {/* //render ghe */}
-                  <div className="text-center p-2 lg:p-3">
+                  <div className="text-center px-3 lg:px-3">
                     <div className="grid grid-cols-12 gap-1 justify-items-center lg:px-16 lg:py-5">{renderGhe()}</div>
-                    
+                  </div>
+                  <div className="grid grid-cols-5 justify-items-center lg:grid-cols-5 lg:px-16  bg-black mt-3">
+                    <div className="m-2 flex flex-col items-center">
+                      <div className="ghe gheDaDat"></div>
+                      <div className="mt-3">Ghế đã đặt</div>
                     </div>
+
+                    <div className="m-2 flex flex-col items-center">
+                      <div className="ghe gheDangDat"></div>
+                      <div className="mt-3">Ghế đang đặt</div>
+                    </div>
+
+                    <div className="m-2 flex flex-col items-center">
+                      <div className="ghe gheDaDuocDat"></div>
+                      <div className="mt-3">Ghế của bạn</div>
+                    </div>
+
+                    <div className="m-2 flex flex-col items-center">
+                      <div className="ghe gheVip mr-2"></div>
+                      <div className="mt-3">Ghế Vip</div>
+                    </div>
+
+                    <div className="m-2 flex flex-col items-center">
+                      <div className="ghe mr-2"></div>
+                      <div className="mt-3">Ghế thường</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

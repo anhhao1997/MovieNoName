@@ -40,9 +40,11 @@ export default function DetailTheater(props) {
                             );
                           })}
                         </div>
-                        <button className="custom-btn btn-main mt-1">
-                          <span>Đặt vé ngay</span>
-                        </button>
+                        <div className="w-[150px]">
+                          <button className="custom-btn btn-main mt-1">
+                            <span>Đặt vé ngay</span>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
