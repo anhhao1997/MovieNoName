@@ -59,6 +59,7 @@ export default function Checkout(props) {
               dispatch({
                 type: DAT_VE,
                 gheDuocChon: ghe,
+                id: props.match.params.id,
               });
             }}
             disabled={ghe.daDat}
