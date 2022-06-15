@@ -8,6 +8,7 @@ import moment from "moment";
 import _ from "lodash";
 import { ThongTinDatVe } from "../../_core/models/ThongTinDatVe";
 
+
 /**
  *1. Tạo mảng danhSachDangDat [] bên reducer QuanLyDatVe
  *2. Dùng useSelector để lấy danhSachGheDangDat về Checkout Component {danhSachGheDangDat}
@@ -178,7 +179,7 @@ export default function Checkout(props) {
                   <div className="text-center px-3 lg:px-3">
                     <div className="grid grid-cols-12 gap-1 justify-items-center lg:px-16 lg:py-5">{renderGhe()}</div>
                   </div>
-                  <div className="grid grid-cols-5 justify-items-center lg:grid-cols-5 lg:px-16  bg-black mt-3">
+                  <div className="grid grid-cols-3 justify-items-center sm:grid-cols-6 lg:px-16  bg-black mt-3">
                     <div className="m-2 flex flex-col items-center">
                       <div className="ghe gheDaDat"></div>
                       <div className="mt-3">Ghế đã đặt</div>
@@ -186,12 +187,12 @@ export default function Checkout(props) {
 
                     <div className="m-2 flex flex-col items-center">
                       <div className="ghe gheDangDat"></div>
-                      <div className="mt-3">Ghế đang đặt</div>
+                      <div className="mt-3">Ghế bạn đang chọn</div>
                     </div>
 
                     <div className="m-2 flex flex-col items-center">
                       <div className="ghe gheDaDuocDat"></div>
-                      <div className="mt-3">Ghế của bạn</div>
+                      <div className="mt-3">Ghế bạn đã đặt</div>
                     </div>
 
                     <div className="m-2 flex flex-col items-center">
@@ -202,6 +203,11 @@ export default function Checkout(props) {
                     <div className="m-2 flex flex-col items-center">
                       <div className="ghe mr-2"></div>
                       <div className="mt-3">Ghế thường</div>
+                    </div>
+
+                    <div className="m-2 flex flex-col items-center">
+                      <div className="ghe gheNguoiKhacDat mr-2"></div>
+                      <div className="mt-3">Ghế người khác chọn</div>
                     </div>
                   </div>
                 </div>
@@ -214,3 +220,4 @@ export default function Checkout(props) {
     </div>
   );
 }
+

@@ -243,6 +243,13 @@
   }
 }
 
+.ghe.gheNguoiKhacDat {
+  background-color: #0ba8c7;
+  &::after {
+    background-color: #0ba8c7;
+  }
+}
+
 .wsk-cp-product {
   //   background: rgb(0, 0, 0);
   padding: 15px;

@@ -2,11 +2,11 @@
 import { DISPLAY_LOADING, HIDE_LOADING } from "./../types/LoadingType";
 
 
-const stateDeafault = {
+const stateDefault = {
     isLoading: false
 }
 
-export const LoadingReducer = (state = stateDeafault, action) => {
+export const LoadingReducer = (state = stateDefault, action) => {
     switch (action.type) {
         case DISPLAY_LOADING: {
             state.isLoading = true;
