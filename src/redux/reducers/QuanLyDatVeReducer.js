@@ -12,19 +12,24 @@ export const QuanLyDatVeReducer = (state = stateDefault, action) => {
       return { ...state };
     }
     case DAT_VE: {
-      // console.log(action);
-      //cập nhật danh sách Ghê đang đặt
+      // bắt case ghế được click vào
+
       let danhSachGheCapNhat = [...state.danhSachGheDangDat];
 
-      let index = danhSachGheCapNhat.findIndex((ghe) => ghe.maGhe === action.gheDuocChon.maGhe);
-
+      let index = danhSachGheCapNhat.findIndex((gheDangDat) => gheDangDat.maGhe === action.gheDuocChon.maGhe);
       if (index != -1) {
-        //nếu ghế đó có tồn tại trong mảng từ trước thì trong lần này khi click vào sẽ xóa đi cái ghế đó
         danhSachGheCapNhat.splice(index, 1);
       } else {
         danhSachGheCapNhat.push(action.gheDuocChon);
       }
-      return { ...state, danhSachGheDangDat: danhSachGheCapNhat };
+      state.danhSachGheDangDat = danhSachGheCapNhat;
+      console.log("id", action.id);
+      console.log("malichchieu", state.chiTietPhongVe.thongTinPhim.maLichChieu);
+      if (action.id != state.chiTietPhongVe.thongTinPhim.maLichChieu) {
+        state.danhSachGheDangDat = [];
+      }
+
+      return { ...state };
     }
     case DAT_VE_HOAN_TAT: {
       state.danhSachGheDangDat = [];
