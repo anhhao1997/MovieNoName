@@ -1,11 +1,9 @@
-
 import { ThongTinLichChieu } from "../../_core/models/ThongTinPhongVe";
-import { DAT_VE, DAT_VE_HOAN_TAT, SET_CHI_TIET_PHONG_VE } from "./../types/QuanLyDatVeType";
+import { DAT_VE, DAT_VE_HOAN_TAT, KIEM_TRA_TRANG_DAT_VE, SET_CHI_TIET_PHONG_VE } from "./../types/QuanLyDatVeType";
 const stateDefault = {
     chiTietPhongVe: new ThongTinLichChieu(),
-    danhSachGheDangDat: []
-}
-
+    danhSachGheDangDat: [],
+};
 
 export const QuanLyDatVeReducer = (state = stateDefault, action) => {
     switch (action.type) {
@@ -15,7 +13,6 @@ export const QuanLyDatVeReducer = (state = stateDefault, action) => {
         }
         case DAT_VE: {
             // bắt case ghế được click vào
-
             let danhSachGheCapNhat = [...state.danhSachGheDangDat];
 
             let index = danhSachGheCapNhat.findIndex(gheDangDat => gheDangDat.maGhe === action.gheDuocChon.maGhe);
@@ -25,19 +22,20 @@ export const QuanLyDatVeReducer = (state = stateDefault, action) => {
                 danhSachGheCapNhat.push(action.gheDuocChon);
             }
             state.danhSachGheDangDat = danhSachGheCapNhat;
-            // console.log('id', action.id)
-            // console.log('malichchieu', state.chiTietPhongVe.thongTinPhim.maLichChieu)
-            // if (action.id != state.chiTietPhongVe.thongTinPhim.maLichChieu) {
-            //     state.danhSachGheDangDat = [];
-            // }
-
+            console.log(state.danhSachGheDangDat)
             return { ...state }
         }
         case DAT_VE_HOAN_TAT: {
+            // console.log('thong tin dat ve', action.thongTinDatVe)
+            state.danhSachGheDangDat = [];
+            return { ...state }
+        }
+
+        case KIEM_TRA_TRANG_DAT_VE: {
             state.danhSachGheDangDat = [];
             return { ...state }
         }
         default:
             return { ...state }
     }
-} 
+};

@@ -14,7 +14,7 @@ export default function HomeTheater(props) {
     dispatch(action);
   }, []);
 
-  console.log("heThongRapChieu", heThongRapChieu);
+  // console.log("heThongRapChieu", heThongRapChieu);
 
   return (
     <div className="container">

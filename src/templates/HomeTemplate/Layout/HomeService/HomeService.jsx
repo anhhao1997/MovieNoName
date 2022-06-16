@@ -24,7 +24,7 @@ export default function HomeService(props) {
 
     }, [])
 
-    console.log('film', arrFilm);
+    // console.log('film', arrFilm);
     return (
         <div className='container'>
             <HomeServiceSlick arrFilm={arrFilm} />

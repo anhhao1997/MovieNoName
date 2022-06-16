@@ -3,10 +3,12 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { UserOutlined } from "@ant-design/icons";
 import { datVeAction, layChiTietPhongVeAction } from "./../../redux/actions/QuanLyDatVeActions";
-import { DAT_VE } from "../../redux/types/QuanLyDatVeType";
+import { DAT_VE, KIEM_TRA_TRANG_DAT_VE } from "../../redux/types/QuanLyDatVeType";
 import moment from "moment";
 import _ from "lodash";
 import { ThongTinDatVe } from "../../_core/models/ThongTinDatVe";
+import { connection } from "../../index";
+
 
 /**
  *1. Tạo mảng danhSachDangDat [] bên reducer QuanLyDatVe
@@ -20,9 +22,10 @@ import { ThongTinDatVe } from "../../_core/models/ThongTinDatVe";
 export default function Checkout(props) {
   //Lấy thông tin người dùng
   const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
-  console.log(userLogin);
+  // console.log(userLogin);
   //Lấy thông tin phòng vé
   const { chiTietPhongVe, danhSachGheDangDat } = useSelector((state) => state.QuanLyDatVeReducer);
+
   const { danhSachGhe, thongTinPhim } = chiTietPhongVe;
 
   const dispatch = useDispatch();
@@ -30,11 +33,19 @@ export default function Checkout(props) {
   useEffect(() => {
     // tạo hàm để dispatch action lên reducer
     const action = layChiTietPhongVeAction(props.match.params.id);
+
     dispatch(action);
+
+    // dispatch đến reducer reset lại danh sách chọn
+    dispatch({
+      type: KIEM_TRA_TRANG_DAT_VE,
+      id: props.match.params.id
+    })
+
   }, []);
 
-  console.log("chiTietPhongVe", chiTietPhongVe);
-  console.log("danhSachGheDangDat", danhSachGheDangDat);
+  // console.log("chiTietPhongVe", chiTietPhongVe);
+  // console.log("danhSachGheDangDat", danhSachGheDangDat);
 
   const renderGhe = () => {
     return danhSachGhe.slice(0, 96).map((ghe, index) => {
@@ -43,7 +54,6 @@ export default function Checkout(props) {
       let classGheDaDat = ghe.daDat === true ? "gheDaDat" : "";
       let classGheDangDat = "";
       let classGheDaDuocDat = "";
-
       let indexGheDangDat = danhSachGheDangDat.findIndex((gheDangDat) => gheDangDat.maGhe === ghe.maGhe);
 
       if (indexGheDangDat != -1) {
@@ -63,7 +73,7 @@ export default function Checkout(props) {
             }}
             disabled={ghe.daDat}
             key={index}
-            className={`ghe ${classGheVip} ${classGheDaDat} ${classGheDangDat} ${classGheDaDuocDat}`}
+            className={`ghe ${classGheVip} ${classGheDaDat} ${classGheDangDat} ${classGheDaDuocDat} `}
           >
             {classGheDaDuocDat != "" ? <UserOutlined /> : ghe.stt}
           </button>
@@ -156,9 +166,8 @@ export default function Checkout(props) {
                             const thongTinDatVe = new ThongTinDatVe();
                             thongTinDatVe.maLichChieu = props.match.params.id;
                             thongTinDatVe.danhSachVe = danhSachGheDangDat;
-
-                            // console.log(thongTinDatVe);
                             dispatch(datVeAction(thongTinDatVe));
+                            console.log(thongTinDatVe)
                           }}
                           className="custom-btn btn-main"
                         >
@@ -178,7 +187,7 @@ export default function Checkout(props) {
                   <div className="text-center px-3 lg:px-3">
                     <div className="grid grid-cols-12 gap-1 justify-items-center lg:px-16 lg:py-5">{renderGhe()}</div>
                   </div>
-                  <div className="grid grid-cols-5 justify-items-center lg:grid-cols-5 lg:px-16  bg-black mt-3">
+                  <div className="grid grid-cols-3 justify-items-center sm:grid-cols-6 lg:px-16  bg-black mt-3">
                     <div className="m-2 flex flex-col items-center">
                       <div className="ghe gheDaDat"></div>
                       <div className="mt-3">Ghế đã đặt</div>
@@ -186,12 +195,12 @@ export default function Checkout(props) {
 
                     <div className="m-2 flex flex-col items-center">
                       <div className="ghe gheDangDat"></div>
-                      <div className="mt-3">Ghế đang đặt</div>
+                      <div className="mt-3">Ghế bạn đang chọn</div>
                     </div>
 
                     <div className="m-2 flex flex-col items-center">
                       <div className="ghe gheDaDuocDat"></div>
-                      <div className="mt-3">Ghế của bạn</div>
+                      <div className="mt-3">Ghế bạn đã đặt</div>
                     </div>
 
                     <div className="m-2 flex flex-col items-center">
@@ -202,6 +211,11 @@ export default function Checkout(props) {
                     <div className="m-2 flex flex-col items-center">
                       <div className="ghe mr-2"></div>
                       <div className="mt-3">Ghế thường</div>
+                    </div>
+
+                    <div className="m-2 flex flex-col items-center">
+                      <div className="ghe gheNguoiKhacDat mr-2"></div>
+                      <div className="mt-3">Ghế người khác chọn</div>
                     </div>
                   </div>
                 </div>
@@ -214,3 +228,4 @@ export default function Checkout(props) {
     </div>
   );
 }
+

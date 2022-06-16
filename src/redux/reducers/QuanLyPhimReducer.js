@@ -936,7 +936,7 @@ export const QuanLyPhimReducer = (state = stateDefault, action) => {
 
       let arrFilm = [...state.arrFilm];
 
-      console.log("action.film", action.arrFilm);
+      // console.log("action.film", action.arrFilm);
 
       arrFilm = action.arrFilm;
 
