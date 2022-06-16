@@ -12,6 +12,7 @@ import { Suspense, lazy } from "react";
 import { UserTemplate } from "./templates/UserTemplate/UserTemplate";
 import Register from "./pages/Register/Register";
 import Loading from "./components/Loading/Loading";
+import Profile from "./pages/Profile/Profile";
 
 // const CheckoutTemplateLazy = lazy(() => import("./templates/CheckoutTemplate/CheckoutTemplate"))
 
@@ -27,6 +28,7 @@ function App() {
 
         {/* <Route path="/login" exact component={Login} /> */}
         <Route path="/register" exact component={Register} />
+        <Route path="/profile" exact component={Profile} />
 
         <CheckoutTemplate path="/checkout/:id" exact Component={Checkout} />
 
