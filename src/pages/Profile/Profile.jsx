@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { layThongTinNguoiDungAction } from "../../redux/actions/QuanLyNguoiDungAction";
 
 export default function Profile(props) {
+  const dispatch = useDispatch();
   const { thongTinNguoiDung } = useSelector((state) => state.QuanLyNguoiDungReducer);
   const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
+  useEffect(() => {
+    const action = layThongTinNguoiDungAction()
+    dispatch(action);
+  }, []);
   return (
     <div className=" bg-dark h-[100vh] ">
       <div className="container">
@@ -17,11 +22,9 @@ export default function Profile(props) {
 }
 
 function Ticket(props) {
-  const dispatch = useDispatch();
   const { thongTinNguoiDung } = useSelector((state) => state.QuanLyNguoiDungReducer);
   const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
 
-  useDispatch(dispatch(layThongTinNguoiDungAction()));
   console.log("thongTinNguoiDung", thongTinNguoiDung);
   return (
     <article className="ticket">

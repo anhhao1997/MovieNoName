@@ -16,7 +16,6 @@ export const dangNhapAction = (thongTinDangNhap) => {
         history.goBack();
       }
 
-
       console.log("result", result);
     } catch (error) {
       console.log("error", error.response.data);
@@ -28,6 +27,7 @@ export const layThongTinNguoiDungAction = () => {
   return async (dispatch) => {
     try {
       const result = await quanLyNguoiDungService.layThongTinNguoiDung();
+      console.log("result", result);
 
       if (result.data.statusCode === 200) {
         const action = {
@@ -35,11 +35,7 @@ export const layThongTinNguoiDungAction = () => {
           thongTinNguoiDung: result.data.content,
         };
         dispatch(action);
-
       }
-
-
-      console.log("result", result);
     } catch (error) {
       console.log("error", error.response.data);
     }
