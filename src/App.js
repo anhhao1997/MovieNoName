@@ -13,6 +13,10 @@ import { UserTemplate } from "./templates/UserTemplate/UserTemplate";
 import Register from "./pages/Register/Register";
 import Loading from "./components/Loading/Loading";
 import Profile from "./pages/Profile/Profile";
+import AdminTemplate from "./templates/AdminTemplate/AdminTemplate";
+import DashBoard from "./pages/Admin/Dashboard/DashBoard";
+import Films from "./pages/Admin/Films/Films";
+import ShowTime from "./pages/Admin/ShowTime/ShowTime";
 
 // const CheckoutTemplateLazy = lazy(() => import("./templates/CheckoutTemplate/CheckoutTemplate"))
 
@@ -37,6 +41,10 @@ function App() {
         {/* <Suspense fallback={<h1>LOADING...</h1>}>
           <CheckoutTemplateLazy path="/checkout/:id" exact Component={Checkout} />
         </Suspense> */}
+        <AdminTemplate path="/admin" exact Component={DashBoard} />
+        <AdminTemplate path="/admin/films" exact Component={Films} />
+        <AdminTemplate path="/admin/users" exact Component={DashBoard} />
+        <AdminTemplate path="/admin/showtime" exact Component={ShowTime} />
 
         <HomeTemplate path="/" Component={Home} />
       </Switch>
