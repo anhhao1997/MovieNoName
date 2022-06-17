@@ -78,7 +78,7 @@ export default class HomeServiceSlick extends Component {
                         });
                       }}
                     >
-                      <i class="fa fa-play-circle"></i>
+                      <i className="fa fa-play-circle"></i>
                     </button>
                   </div>
                   <div className="info-film">
@@ -108,7 +108,7 @@ export default class HomeServiceSlick extends Component {
                         });
                       }}
                     >
-                      <i class="fa fa-play-circle"></i>
+                      <i className="fa fa-play-circle"></i>
                     </button>
                   </div>
                   <div className="info-film">

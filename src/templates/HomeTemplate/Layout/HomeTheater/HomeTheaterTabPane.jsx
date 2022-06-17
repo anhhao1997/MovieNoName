@@ -71,7 +71,7 @@ export default function HomeTheaterTabPane(props) {
       );
     });
   };
-  console.log("heThongRapChieu", props);
+  // console.log("heThongRapChieu", props);
   return (
     <div className="pb-10">
       <h1 className="uppercase text-center mt-5 pt-3">HỆ THỐNG RẠP CHIẾU</h1>

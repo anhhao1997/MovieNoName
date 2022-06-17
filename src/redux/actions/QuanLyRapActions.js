@@ -15,7 +15,7 @@ export const layDanhSachHeThongRap = () => {
 
       dispatch(action);
 
-      console.log(result.data.content);
+      // console.log(result.data.content);
     } catch (errors) {
       console.log("errors", errors.response?.data);
     }
@@ -27,7 +27,7 @@ export const layThongTinLichChieuPhim = (id) => {
     try {
       //kết nối api với quanLyRapService để lấy ra result
       const result = await quanLyRapService.layThongTinLichChieuPhim(id);
-      console.log('result',result.data.content)
+      // console.log('result',result.data.content)
 
       //Khi đã có result thì gán vào thuộc tính filmDetail của action
       const action = {

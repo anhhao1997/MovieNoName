@@ -3,10 +3,11 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { UserOutlined } from "@ant-design/icons";
 import { datVeAction, layChiTietPhongVeAction } from "./../../redux/actions/QuanLyDatVeActions";
-import { DAT_VE } from "../../redux/types/QuanLyDatVeType";
+import { DAT_VE, KIEM_TRA_TRANG_DAT_VE } from "../../redux/types/QuanLyDatVeType";
 import moment from "moment";
 import _ from "lodash";
 import { ThongTinDatVe } from "../../_core/models/ThongTinDatVe";
+import { connection } from "../../index";
 
 
 /**
@@ -21,9 +22,10 @@ import { ThongTinDatVe } from "../../_core/models/ThongTinDatVe";
 export default function Checkout(props) {
   //Lấy thông tin người dùng
   const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
-  console.log(userLogin);
+  // console.log(userLogin);
   //Lấy thông tin phòng vé
   const { chiTietPhongVe, danhSachGheDangDat } = useSelector((state) => state.QuanLyDatVeReducer);
+
   const { danhSachGhe, thongTinPhim } = chiTietPhongVe;
 
   const dispatch = useDispatch();
@@ -31,11 +33,19 @@ export default function Checkout(props) {
   useEffect(() => {
     // tạo hàm để dispatch action lên reducer
     const action = layChiTietPhongVeAction(props.match.params.id);
+
     dispatch(action);
+
+    // dispatch đến reducer reset lại danh sách chọn
+    dispatch({
+      type: KIEM_TRA_TRANG_DAT_VE,
+      id: props.match.params.id
+    })
+
   }, []);
 
-  console.log("chiTietPhongVe", chiTietPhongVe);
-  console.log("danhSachGheDangDat", danhSachGheDangDat);
+  // console.log("chiTietPhongVe", chiTietPhongVe);
+  // console.log("danhSachGheDangDat", danhSachGheDangDat);
 
   const renderGhe = () => {
     return danhSachGhe.slice(0, 96).map((ghe, index) => {
@@ -44,7 +54,6 @@ export default function Checkout(props) {
       let classGheDaDat = ghe.daDat === true ? "gheDaDat" : "";
       let classGheDangDat = "";
       let classGheDaDuocDat = "";
-
       let indexGheDangDat = danhSachGheDangDat.findIndex((gheDangDat) => gheDangDat.maGhe === ghe.maGhe);
 
       if (indexGheDangDat != -1) {
@@ -60,12 +69,11 @@ export default function Checkout(props) {
               dispatch({
                 type: DAT_VE,
                 gheDuocChon: ghe,
-                id: props.match.params.id,
               });
             }}
             disabled={ghe.daDat}
             key={index}
-            className={`ghe ${classGheVip} ${classGheDaDat} ${classGheDangDat} ${classGheDaDuocDat}`}
+            className={`ghe ${classGheVip} ${classGheDaDat} ${classGheDangDat} ${classGheDaDuocDat} `}
           >
             {classGheDaDuocDat != "" ? <UserOutlined /> : ghe.stt}
           </button>
@@ -158,9 +166,8 @@ export default function Checkout(props) {
                             const thongTinDatVe = new ThongTinDatVe();
                             thongTinDatVe.maLichChieu = props.match.params.id;
                             thongTinDatVe.danhSachVe = danhSachGheDangDat;
-
-                            // console.log(thongTinDatVe);
                             dispatch(datVeAction(thongTinDatVe));
+                            console.log(thongTinDatVe)
                           }}
                           className="custom-btn btn-main"
                         >

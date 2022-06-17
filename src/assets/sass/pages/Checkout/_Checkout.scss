@@ -213,8 +213,10 @@
     background-color: rgb(93, 93, 93);
   }
 }
+
 .ghe.gheVip {
   background-color: #ff5403;
+
   &::after {
     background-color: #ff5403;
   }
@@ -222,6 +224,7 @@
 
 .ghe.gheDangDat {
   background-color: #9c19e0 !important;
+
   &::after {
     background-color: #9c19e0 !important;
   }
@@ -230,6 +233,7 @@
 .ghe.gheDaDat {
   background-color: #810000;
   cursor: no-drop;
+
   &::after {
     background-color: #810000;
   }
@@ -238,6 +242,7 @@
 .ghe.gheDaDuocDat {
   //do chính mình đặt
   background-color: #3EC70B;
+
   &::after {
     background-color: #3EC70B;
   }
@@ -245,6 +250,8 @@
 
 .ghe.gheNguoiKhacDat {
   background-color: #0ba8c7;
+  cursor: no-drop;
+
   &::after {
     background-color: #0ba8c7;
   }

@@ -7,7 +7,7 @@ export const layChiTietPhongVeAction = (maLichChieu) => {
   return async (dispatch) => {
     try {
       const result = await quanLyDatVeService.layChiTietPhongVe(maLichChieu);
-      console.log("result", result);
+      // console.log("result", result);
       if (result.status === 200) {
         const action = {
           type: SET_CHI_TIET_PHONG_VE,
@@ -26,13 +26,14 @@ export const datVeAction = (thongTinDatVe = new ThongTinDatVe()) => {
   return async (dispatch) => {
     try {
       dispatch(displayLoadingAction);
+      console.log('thong tin dat ve',)
       const result = await quanLyDatVeService.datVe(thongTinDatVe);
       await dispatch(layChiTietPhongVeAction(thongTinDatVe.maLichChieu));
       await dispatch({
         type: DAT_VE_HOAN_TAT,
       });
       dispatch(hideLoadingAction);
-      console.log(result.data.content);
+      // console.log('result', result.data);
     } catch (error) {
       dispatch(hideLoadingAction);
       console.log("error", error.response?.data);
