@@ -3,12 +3,14 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { UserOutlined } from "@ant-design/icons";
 import { datVeAction, layChiTietPhongVeAction } from "./../../redux/actions/QuanLyDatVeActions";
-import { DAT_VE, KIEM_TRA_TRANG_DAT_VE } from "../../redux/types/QuanLyDatVeType";
+import { DAT_GHE, DAT_VE, KIEM_TRA_TRANG_DAT_VE } from "../../redux/types/QuanLyDatVeType";
 import moment from "moment";
 import _ from "lodash";
 import { ThongTinDatVe } from "../../_core/models/ThongTinDatVe";
-import { connection } from "../../index";
 
+import { connection } from "../../index";
+import { Tabs } from "antd";
+import { layThongTinNguoiDungAction } from "../../redux/actions/QuanLyNguoiDungAction";
 
 /**
  *1. Tạo mảng danhSachDangDat [] bên reducer QuanLyDatVe
@@ -19,7 +21,7 @@ import { connection } from "../../index";
  *6. Tại lúc render ra từng ghế sẽ tiến hành kiểm tra xem cái ghế đó có đang trong danhSachGheDangDat trên reducer hay không, nếu có thì add classGheDangDat, nếu kh thì kh add classGheDangDat
  */
 
-export default function Checkout(props) {
+function Checkout(props) {
   //Lấy thông tin người dùng
   const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
   // console.log(userLogin);
@@ -39,9 +41,8 @@ export default function Checkout(props) {
     // dispatch đến reducer reset lại danh sách chọn
     dispatch({
       type: KIEM_TRA_TRANG_DAT_VE,
-      id: props.match.params.id
-    })
-
+      id: props.match.params.id,
+    });
   }, []);
 
   // console.log("chiTietPhongVe", chiTietPhongVe);
@@ -67,7 +68,7 @@ export default function Checkout(props) {
           <button
             onClick={() => {
               dispatch({
-                type: DAT_VE,
+                type: DAT_GHE,
                 gheDuocChon: ghe,
               });
             }}
@@ -85,9 +86,8 @@ export default function Checkout(props) {
   };
 
   return (
-    <div className="checkout">
-      {/* //header checkout */}
-      <div className="header-checkout glassmorphism-black fixed-top p-3">
+    <div>
+      {/* <div className="header-checkout glassmorphism-black fixed-top p-3">
         <div className="container d-flex align-items-center justify-content-between text-white">
           <div className="logo text-center">Logo</div>
           <div className="info-user text-center">
@@ -109,10 +109,9 @@ export default function Checkout(props) {
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${thongTinPhim.hinhAnh})`, minHeight: "100vh" }}>
-        <div className="glassmorphism glassmorphism-black pt-14" style={{ minHeight: "100vh" }}>
+      </div>  */}
+      <div className="bg-cover bg-fixed bg-center bg-no-repeat" style={{ backgroundImage: `url(${thongTinPhim.hinhAnh})`, minHeight: "100vh" }}>
+        <div className="glassmorphism glassmorphism-black  text-white  pt-8 lg:pt-10" style={{ minHeight: "100vh" }}>
           <div className="container ">
             {" "}
             <div className="grid grid-cols-1 mt-5 pb-7 gap-3 lg:grid-cols-7 lg:gap-1  ">
@@ -122,7 +121,8 @@ export default function Checkout(props) {
                   <div className="wsk-cp-img">
                     <img className="sm:h-full md:h-full lg:h-[400px] img-responsive" src={thongTinPhim.hinhAnh} />
                   </div>
-                  <div className="wsk-cp-text lg:pt-[150%] ">
+
+                  <div className="wsk-cp-text  lg:pt-[150%] ">
                     <div className="category">
                       <span>{thongTinPhim.tenRap}</span>
                     </div>
@@ -167,7 +167,7 @@ export default function Checkout(props) {
                             thongTinDatVe.maLichChieu = props.match.params.id;
                             thongTinDatVe.danhSachVe = danhSachGheDangDat;
                             dispatch(datVeAction(thongTinDatVe));
-                            console.log(thongTinDatVe)
+                            console.log(thongTinDatVe);
                           }}
                           className="custom-btn btn-main"
                         >
@@ -221,11 +221,107 @@ export default function Checkout(props) {
                 </div>
               </div>
             </div>
-            {/* //*--- */}
           </div>
         </div>
       </div>
     </div>
   );
 }
+const { TabPane } = Tabs;
+const onChange = (key) => {
+  console.log(key);
+};
 
+export default function (props) {
+  return (
+    <div className="tabsCheckout">
+      <Tabs className="" defaultActiveKey="1" onChange={onChange}>
+        <TabPane tab="01 CHỌN GHẾ VÀ THANH TOÁN" key="1">
+          <Checkout {...props} />
+        </TabPane>
+        <TabPane tab="02 KẾT QUẢ ĐẶT VÉ" key="2">
+          <KetQuaDatVe {...props} />
+        </TabPane>
+      </Tabs>
+    </div>
+  );
+}
+function KetQuaDatVe(props) {
+  const dispatch = useDispatch();
+  const { userLogin, thongTinNguoiDung } = useSelector((state) => state.QuanLyNguoiDungReducer);
+  const { thongTinDatVe } = thongTinNguoiDung;
+  const { chiTietPhongVe, danhSachGheDangDat } = useSelector((state) => state.QuanLyDatVeReducer);
+  const { thongTinPhim } = chiTietPhongVe;
+
+  useEffect(() => {
+    dispatch(layThongTinNguoiDungAction());
+  }, []);
+
+  const renderTicketItem = function () {
+    return thongTinDatVe?.map((ticket, index) => {
+      const seats = _.first(ticket.danhSachGhe);
+      return (
+        <article className="ticket text-black drop-shadow-lg" key={index}>
+          <header className="ticket__wrapper">
+            <div className="ticket__header uppercase">
+              <p className="font-medium" style={{ fontSize: "14px" }}>
+                {seats.tenHeThongRap} - {seats.tenCumRap}
+              </p>
+              <h3 className="font-bold mt-2" style={{ fontSize: "24px" }}>
+                {ticket.tenPhim}
+              </h3>
+            </div>
+          </header>
+          <div className="ticket__divider">
+            <div className="ticket__notch" />
+            <div className="ticket__notch ticket__notch--right" />
+          </div>
+          <div className="ticket__body">
+            <section className="ticket__section">
+              <h3>Ngày đặt: {moment(ticket.ngayDat).format("DD/MM/YYYY")}</h3>
+              <h3>Thời lượng: {ticket.thoiLuongPhim} phút</h3>
+
+              <h3>Chỗ ngồi: </h3>
+              <div className="grid grid-cols-8 gap-1">
+                {ticket.danhSachGhe.slice(0, 8).map((ghe, index) => {
+                  return (
+                    <p className="ghe gheDaDuocDat" key={index}>
+                      {ghe.tenGhe}
+                    </p>
+                  );
+                })}
+              </div>
+            </section>
+          </div>
+          <footer className="ticket__footer">
+            <div>
+              Đặt vé thành công <i className="fas fa-check-circle"></i>
+            </div>
+            <div className="w-1/3">
+              <div className="barcode"></div>
+            </div>
+          </footer>
+        </article>
+      );
+    });
+  };
+
+  console.log("thongTinDatVe", thongTinDatVe);
+
+  return (
+    <div className="bg-cover bg-fixed bg-center bg-no-repeat" style={{ backgroundImage: `url(${thongTinPhim.hinhAnh})`, minHeight: "100vh" }}>
+      <div className="glassmorphism glassmorphism-black  text-white pt-8 lg:pt-10" style={{ minHeight: "100vh" }}>
+        <div className="container">
+          <div className="flex flex-col justify-center items-center mt-5 pb-7 gap-3 ">
+            <div className="infoAccount flex flex-col justify-center items-center">
+              <img className="w-24 h-24 rounded-full drop-shadow-md" src="https://picsum.photos/100/200" />
+              <h1 className="text-white text-center my-2">Chúc mừng {userLogin.hoTen} đặt vé thành công</h1>
+              <p>Hãy xem thông tin đặt vé bên dưới để xem phim vui vẻ bạn nhé!</p>
+            </div>
+            <div className="tickets grid grid-cols-1 justify-items-stretch sm:grid-cols-2 lg:grid-cols-3 gap-y-2 lg:gap-3">{renderTicketItem()}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -3,13 +3,13 @@ $grey: hsl(200, 10%, 85%);
 $grey-dark: hsl(200, 10%, 70%);
 $shadow: hsla(200, 20%, 20%, 0.25);
 $red: #dc143c;
+$black: #343434;
 
 $bg: hsl(200, 0%, 100%);
-$divider: $grey-light;
+$divider: rgb(153, 153, 153);
 $border: $grey-dark;
 
-$cutout-size: 1rem;
-
+$cutout-size: 1.5rem;
 
 .ticket {
   display: grid;
@@ -18,20 +18,24 @@ $cutout-size: 1rem;
   &__header,
   &__body,
   &__footer {
-    padding: 1rem;
+    padding: 10px;
     background-color: $bg;
     border: 1px solid $border;
     box-shadow: 0 2px 4px $shadow;
   }
   &__header {
-    font-size: 1.5rem;
-    border-top: 0.25rem solid $mainColor;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    // border-top: 0.25rem solid $mainColor;
     border-bottom: none;
     box-shadow: none;
+    height: 100px;
   }
   &__wrapper {
     box-shadow: 0 2px 4px $shadow;
-    border-radius: 0.375em 0.375em 0 0;
+    border-radius: 20px 20px 0 0;
     overflow: hidden;
   }
   &__divider {
@@ -41,7 +45,7 @@ $cutout-size: 1rem;
     margin-left: ($cutout-size / 2);
     margin-right: ($cutout-size / 2);
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       height: 50%;
       width: 100%;
@@ -56,7 +60,7 @@ $cutout-size: 1rem;
     height: $cutout-size;
     overflow: hidden;
     &::after {
-      content: '';
+      content: "";
       position: relative;
       display: block;
       width: ($cutout-size * 2);
@@ -76,8 +80,10 @@ $cutout-size: 1rem;
     }
   }
   &__body {
-      border-bottom: none;
-      border-top: none;
+    border-bottom: none;
+    font-size: $textBase;
+    border-top: none;
+    height: 100%;
     & > * + * {
       margin-top: 1.5rem;
       padding-top: 1.5rem;
@@ -89,19 +95,33 @@ $cutout-size: 1rem;
       margin-top: 0.25rem;
     }
     & > h3 {
-      font-size: 1.125rem;
+      font-size: $textBase;
       margin-bottom: 0.5rem;
     }
   }
   &__header,
   &__footer {
     font-weight: bold;
-    font-size: 1.25rem;
+    font-size: $textMd;
     display: flex;
-    justify-content: space-between;
   }
   &__footer {
     border-top: 2px dashed $divider;
-    border-radius: 0 0 0.325rem 0.325rem;
+    padding: 10px 20px 10px 20px;
+    border-radius: 0 0 20px 20px;
+    align-items: center;
+    justify-content: space-between;
+    color:$mainColor;
+    i{
+      color:$mainColor;
+    }
+    .barcode {
+      height: 2em;
+      width: 0;
+      box-shadow: 1px 0 0 1px $black, 5px 0 0 1px $black, 10px 0 0 1px $black, 11px 0 0 1px $black, 15px 0 0 1px $black, 18px 0 0 1px $black, 22px 0 0 1px $black,
+        23px 0 0 1px $black, 26px 0 0 1px $black, 30px 0 0 1px $black, 35px 0 0 1px $black, 37px 0 0 1px $black, 41px 0 0 1px $black, 44px 0 0 1px $black, 47px 0 0 1px $black,
+        51px 0 0 1px $black, 56px 0 0 1px $black, 59px 0 0 1px $black, 64px 0 0 1px $black, 68px 0 0 1px $black, 72px 0 0 1px $black, 74px 0 0 1px $black, 77px 0 0 1px $black,
+        81px 0 0 1px $black;
+    }
   }
 }

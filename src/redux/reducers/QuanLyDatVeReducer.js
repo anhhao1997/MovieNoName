@@ -1,5 +1,5 @@
 import { ThongTinLichChieu } from "../../_core/models/ThongTinPhongVe";
-import { DAT_VE, DAT_VE_HOAN_TAT, KIEM_TRA_TRANG_DAT_VE, SET_CHI_TIET_PHONG_VE } from "./../types/QuanLyDatVeType";
+import { DAT_GHE, DAT_VE, DAT_VE_HOAN_TAT, KIEM_TRA_TRANG_DAT_VE, SET_CHI_TIET_PHONG_VE } from "./../types/QuanLyDatVeType";
 const stateDefault = {
     chiTietPhongVe: new ThongTinLichChieu(),
     danhSachGheDangDat: [],
@@ -11,7 +11,7 @@ export const QuanLyDatVeReducer = (state = stateDefault, action) => {
             state.chiTietPhongVe = action.chiTietPhongVe;
             return { ...state };
         }
-        case DAT_VE: {
+        case DAT_GHE: {
             // bắt case ghế được click vào
             let danhSachGheCapNhat = [...state.danhSachGheDangDat];
 

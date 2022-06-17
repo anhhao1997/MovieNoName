@@ -1,3 +1,20 @@
+//ant-tab
+
+.tabsCheckout .ant-tabs-top > .ant-tabs-nav {
+  margin: 0px;
+  position: fixed;
+  width: 100vw;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.585);
+  color: white;
+  &::before {
+    display: none;
+  }
+  .ant-tabs-nav-list{
+    padding: 20px 50px;
+  }
+}
+
 .glassmorphism-blue {
   background-color: rgba(4, 25, 46, 0.7);
 }
@@ -241,10 +258,10 @@
 
 .ghe.gheDaDuocDat {
   //do chính mình đặt
-  background-color: #3EC70B;
+  background-color: #3ec70b;
 
   &::after {
-    background-color: #3EC70B;
+    background-color: #3ec70b;
   }
 }
 
@@ -299,7 +316,7 @@
   transition: all 0.2s ease-in-out;
 }
 
-.wsk-cp-text .category>* {
+.wsk-cp-text .category > * {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -310,7 +327,7 @@
   -khtml-transform: translate(-50%, -50%);
 }
 
-.wsk-cp-text .category>span {
+.wsk-cp-text .category > span {
   padding: 12px 30px;
   border: 1px solid #313131;
   background: $mainColor;
@@ -320,7 +337,7 @@
   transition: all 0.05s ease-in-out;
 }
 
-.wsk-cp-product:hover .wsk-cp-text .category>span {
+.wsk-cp-product:hover .wsk-cp-text .category > span {
   border-color: #ddd;
   box-shadow: none;
   padding: 11px 28px;
@@ -446,7 +463,7 @@ a.buy-btn:focus {
     padding-left: 30%;
   }
 
-  .wsk-cp-product .wsk-cp-text .category>span {
+  .wsk-cp-product .wsk-cp-text .category > span {
     border-color: #ddd;
     box-shadow: none;
     padding: 11px 28px;
