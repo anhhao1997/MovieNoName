@@ -9,8 +9,8 @@ export default function Header(props) {
   return (
     //Có chỉnh sửa phần header
 
-    <div className="header-home fixed w-full text-white glassmorphism-black drop-shadow-2xl top-0 z-10">
-      <header className="container mx-auto">
+    <div className="header-home fixed w-full text-white glassmorphism-black drop-shadow-2xl z-10">
+      <header className="container">
         <nav className="navbar navbar-expand-lg navbar-dark ">
           <NavLink to="#">Logo</NavLink>
           <button
@@ -46,9 +46,9 @@ export default function Header(props) {
                 </span>
               </div>
               <div className="nav-login">
-                {localStorage.getItem(USER_LOGIN) ? 
-                 'Xin chào ' + userLogin.hoTen
-                 : 
+                {localStorage.getItem(USER_LOGIN) ?
+                  'Xin chào ' + userLogin.hoTen
+                  :
                   <NavLink to="/login" className="login-item">
                     <i className="fa fa-user pr-2" />
                     Đăng kí / Đăng nhập

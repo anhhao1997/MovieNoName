@@ -24,6 +24,7 @@ const AdminTemplate = (props) => { //path, exact, Component
         return <Redirect to="/" />;
     }
 
+
     return <Route {...restProps} render={(propsRoute) => { //props.location,props.history,props.match
 
         return (
@@ -47,7 +48,7 @@ const AdminTemplate = (props) => { //path, exact, Component
                                     </div>
                                     <div className='menu-item p-3'>
                                         <NavLink to={'/admin/films'} style={{ display: 'block' }}>
-                                            <i className="fa fa-file-video"></i>
+                                            <i className="fas fa-photo-video"></i>
                                             <span className='pl-3'>Films</span>
                                         </NavLink>
                                     </div>

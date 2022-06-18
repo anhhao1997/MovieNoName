@@ -1,32 +1,38 @@
-.admin-films {
-    position: relative;
+.admin-layout {
 
-    .admin-films-content {
-        position: absolute;
-        top: -84px;
-        width: 100%;
-
-        h3 {
-            color: white;
-            font-size: 25px;
-            display: inline-block;
-            background-color: rgb(255, 0, 76);
-            padding: 20px 150px;
-            border: 1px solid rgb(255, 0, 76);
-            border-radius: 200px 200px;
-            box-shadow: 0px 0px 5px 0px black;
-        }
-    }
-
-    .admin-films-table {
+    .admin-layout-table {
         background-color: #334155;
         border: 1px solid;
         border-radius: 15px 15px;
         box-shadow: 0px 0px 5px 0px black;
         padding: 30px;
+
+        .ant-input-search-button {
+            background-color: $black;
+            border: 1px solid $black;
+        }
+
+        .ant-input-search-button:hover {
+            background-color: $mainColor;
+            border: 1px solid $mainColor;
+        }
+
+        .ant-select-selector {
+            display: none;
+        }
+
+        .ant-select-arrow {
+            display: none;
+        }
+
+        .ant-table-thead>tr>th,
+        .ant-table-tbody>tr>td,
+        .ant-table tfoot>tr>th,
+        .ant-table tfoot>tr>td {
+            padding: 14px;
+        }
     }
 }
-
 
 .ant-pagination-prev .ant-pagination-item-link,
 .ant-pagination-next .ant-pagination-item-link {
