@@ -39,20 +39,20 @@ const AdminTemplate = (props) => { //path, exact, Component
                         <div className="text-white text-center mt-4 mb-4">Logo</div>
                         <div>
                             <Menu theme="dark" mode="inline" >
-                                <div className='menu p-1 mt-3 text-lg'>
-                                    <div className='menu-item p-3 w-full'>
+                                <div className='menu-content p-1 mt-3 text-lg'>
+                                    <div className='menu-content-item p-3 w-full'>
                                         <NavLink to={'/admin/users'} style={{ display: 'block' }}>
-                                            <i class="fa fa-user"></i>
+                                            <i className="fa fa-user"></i>
                                             <span className='pl-3'>User</span>
                                         </NavLink>
                                     </div>
-                                    <div className='menu-item p-3'>
+                                    <div className='menu-content-item p-3'>
                                         <NavLink to={'/admin/films'} style={{ display: 'block' }}>
                                             <i className="fas fa-photo-video"></i>
                                             <span className='pl-3'>Films</span>
                                         </NavLink>
                                     </div>
-                                    <div className='menu-item p-3'>
+                                    <div className='menu-content-item p-3'>
                                         <NavLink to={'/admin/showtime'} style={{ display: 'block' }}>
                                             <i className="fa fa-tv"></i>
                                             <span className='pl-3'>Showtimes</span>

@@ -94,7 +94,7 @@ export default function Films(props) {
                 return (
                     <div className='text-center'>
                         <NavLink className='edit text-blue-600 text-2xl mr-2' to='/'><i className="far fa-edit"></i></NavLink>
-                        <NavLink className='delete text-red-600 text-2xl ml-2' to='/'><i class="fas fa-trash-alt"></i></NavLink>
+                        <NavLink className='delete text-red-600 text-2xl ml-2' to='/'><i className="fas fa-trash-alt"></i></NavLink>
                     </div>
                 )
             }
@@ -109,7 +109,7 @@ export default function Films(props) {
                 <div className='admin-layout-content'><h3 >Quản lý phim</h3></div>
                 <div className='admin-layout-table w-full h-full'>
                     <Search className='w-2/3 pb-4' placeholder="Nhập từ khóa tìm kiếm" onSearch={onSearch} enterButton />
-                    <Button danger className='ml-5 pl-4 pr-4 text-xl'><i className="fa fa-plus-circle pr-2"></i><i className="fas fa-film"></i></Button>
+                    <Button danger className='ml-5 pl-3 pr-3 text-xl'><i className="fa fa-plus-circle pr-2"></i><i className="fas fa-film"></i></Button>
                     <Table columns={columns} dataSource={data} onChange={onChange} />
                 </div>
             </div>

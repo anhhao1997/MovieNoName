@@ -2,6 +2,11 @@
 @import "./_AdminFilm.scss";
 @import "./_AdminShowTime.scss";
 
+.ant-layout-sider {
+    max-width: 170px !important;
+    min-width: 170px !important;
+}
+
 .admin-layout {
     position: relative;
 
