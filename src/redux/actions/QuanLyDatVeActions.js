@@ -1,6 +1,6 @@
 import { quanLyDatVeService } from "../../services/QuanLyDatVeService";
 import { ThongTinDatVe } from "../../_core/models/ThongTinDatVe";
-import { SET_CHI_TIET_PHONG_VE, DAT_VE_HOAN_TAT } from "./../types/QuanLyDatVeType";
+import { SET_CHI_TIET_PHONG_VE, DAT_VE_HOAN_TAT, CHUYEN_TAB } from "./../types/QuanLyDatVeType";
 import { displayLoadingAction, hideLoadingAction } from "./LoadingActions";
 
 export const layChiTietPhongVeAction = (maLichChieu) => {
@@ -26,13 +26,16 @@ export const datVeAction = (thongTinDatVe = new ThongTinDatVe()) => {
   return async (dispatch) => {
     try {
       dispatch(displayLoadingAction);
-      console.log('thong tin dat ve',)
+      console.log("thong tin dat ve");
       const result = await quanLyDatVeService.datVe(thongTinDatVe);
       await dispatch(layChiTietPhongVeAction(thongTinDatVe.maLichChieu));
       await dispatch({
         type: DAT_VE_HOAN_TAT,
       });
-      dispatch(hideLoadingAction);
+      await dispatch(hideLoadingAction);
+      dispatch({
+        type: CHUYEN_TAB,
+      });
       // console.log('result', result.data);
     } catch (error) {
       dispatch(hideLoadingAction);

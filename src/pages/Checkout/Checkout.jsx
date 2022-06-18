@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { UserOutlined } from "@ant-design/icons";
 import { datVeAction, layChiTietPhongVeAction } from "./../../redux/actions/QuanLyDatVeActions";
-import { DAT_GHE, DAT_VE, KIEM_TRA_TRANG_DAT_VE } from "../../redux/types/QuanLyDatVeType";
+import { CHANGE_TAB_ACTIVE, DAT_GHE, DAT_VE, KIEM_TRA_TRANG_DAT_VE } from "../../redux/types/QuanLyDatVeType";
 import moment from "moment";
 import _ from "lodash";
 import { ThongTinDatVe } from "../../_core/models/ThongTinDatVe";
@@ -228,14 +228,23 @@ function Checkout(props) {
   );
 }
 const { TabPane } = Tabs;
-const onChange = (key) => {
-  console.log(key);
-};
 
 export default function (props) {
+  const { tabActive } = useSelector((state) => state.QuanLyDatVeReducer);
+  const dispatch = useDispatch();
   return (
     <div className="tabsCheckout">
-      <Tabs className="" defaultActiveKey="1" onChange={onChange}>
+      <Tabs
+        className=""
+        defaultActiveKey={1}
+        activeKey={tabActive}
+        onChange={(key) => {
+          dispatch({
+            type: CHANGE_TAB_ACTIVE,
+            number: key.toString(),
+          });
+        }}
+      >
         <TabPane tab="01 CHỌN GHẾ VÀ THANH TOÁN" key="1">
           <Checkout {...props} />
         </TabPane>
@@ -258,52 +267,55 @@ function KetQuaDatVe(props) {
   }, []);
 
   const renderTicketItem = function () {
-    return thongTinDatVe?.map((ticket, index) => {
-      const seats = _.first(ticket.danhSachGhe);
-      return (
-        <article className="ticket text-black drop-shadow-lg" key={index}>
-          <header className="ticket__wrapper">
-            <div className="ticket__header uppercase">
-              <p className="font-medium" style={{ fontSize: "14px" }}>
-                {seats.tenHeThongRap} - {seats.tenCumRap}
-              </p>
-              <h3 className="font-bold mt-2" style={{ fontSize: "24px" }}>
-                {ticket.tenPhim}
-              </h3>
-            </div>
-          </header>
-          <div className="ticket__divider">
-            <div className="ticket__notch" />
-            <div className="ticket__notch ticket__notch--right" />
-          </div>
-          <div className="ticket__body">
-            <section className="ticket__section">
-              <h3>Ngày đặt: {moment(ticket.ngayDat).format("DD/MM/YYYY")}</h3>
-              <h3>Thời lượng: {ticket.thoiLuongPhim} phút</h3>
-
-              <h3>Chỗ ngồi: </h3>
-              <div className="grid grid-cols-8 gap-1">
-                {ticket.danhSachGhe.slice(0, 8).map((ghe, index) => {
-                  return (
-                    <p className="ghe gheDaDuocDat" key={index}>
-                      {ghe.tenGhe}
-                    </p>
-                  );
-                })}
+    // const reverseArrThongTinDatVe =_.reverse(thongTinDatVe)
+    return _.reverse(
+      thongTinDatVe?.map((ticket, index) => {
+        const seats = _.first(ticket.danhSachGhe);
+        return (
+          <article className="ticket text-black drop-shadow-lg" key={index}>
+            <header className="ticket__wrapper">
+              <div className="ticket__header uppercase">
+                <p className="font-medium" style={{ fontSize: "14px" }}>
+                  {seats.tenHeThongRap} - {seats.tenCumRap}
+                </p>
+                <h3 className="font-bold mt-2" style={{ fontSize: "24px" }}>
+                  {ticket.tenPhim}
+                </h3>
               </div>
-            </section>
-          </div>
-          <footer className="ticket__footer">
-            <div>
-              Đặt vé thành công <i className="fas fa-check-circle"></i>
+            </header>
+            <div className="ticket__divider">
+              <div className="ticket__notch" />
+              <div className="ticket__notch ticket__notch--right" />
             </div>
-            <div className="w-1/3">
-              <div className="barcode"></div>
+            <div className="ticket__body">
+              <section className="ticket__section">
+                <h3>Ngày đặt: {moment(ticket.ngayDat).format("DD/MM/YYYY - hh:mm A")}</h3>
+                <h3>Thời lượng: {ticket.thoiLuongPhim} phút</h3>
+
+                <h3>Chỗ ngồi: </h3>
+                <div className="grid grid-cols-8 gap-1">
+                  {ticket.danhSachGhe.slice(0, 8).map((ghe, index) => {
+                    return (
+                      <p className="ghe gheDaDuocDat" key={index}>
+                        {ghe.tenGhe}
+                      </p>
+                    );
+                  })}
+                </div>
+              </section>
             </div>
-          </footer>
-        </article>
-      );
-    });
+            <footer className="ticket__footer">
+              <div>
+                Đặt vé thành công <i className="fas fa-check-circle"></i>
+              </div>
+              <div className="w-1/3 md:w-2/5 flex items-center justify-center">
+                <div className="barcode"></div>
+              </div>
+            </footer>
+          </article>
+        );
+      })
+    );
   };
 
   console.log("thongTinDatVe", thongTinDatVe);
@@ -312,13 +324,13 @@ function KetQuaDatVe(props) {
     <div className="bg-cover bg-fixed bg-center bg-no-repeat" style={{ backgroundImage: `url(${thongTinPhim.hinhAnh})`, minHeight: "100vh" }}>
       <div className="glassmorphism glassmorphism-black  text-white pt-8 lg:pt-10" style={{ minHeight: "100vh" }}>
         <div className="container">
-          <div className="flex flex-col justify-center items-center mt-5 pb-7 gap-3 ">
+          <div className="flex flex-col md:w-full justify-between items-center mt-5 pb-7 ">
             <div className="infoAccount flex flex-col justify-center items-center">
               <img className="w-24 h-24 rounded-full drop-shadow-md" src="https://picsum.photos/100/200" />
               <h1 className="text-white text-center my-2">Chúc mừng {userLogin.hoTen} đặt vé thành công</h1>
               <p>Hãy xem thông tin đặt vé bên dưới để xem phim vui vẻ bạn nhé!</p>
             </div>
-            <div className="tickets grid grid-cols-1 justify-items-stretch sm:grid-cols-2 lg:grid-cols-3 gap-y-2 lg:gap-3">{renderTicketItem()}</div>
+            <div className="tickets grid grid-cols-1 justify-items-stretch md:grid-cols-2 md:gap-2 xl:grid-cols-3 gap-y-2">{renderTicketItem()}</div>
           </div>
         </div>
       </div>
