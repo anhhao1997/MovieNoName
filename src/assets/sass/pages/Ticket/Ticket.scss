@@ -14,11 +14,11 @@ $cutout-size: 1.5rem;
 .ticket {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  max-width: 18rem;
+  max-width: 25rem;
   &__header,
   &__body,
   &__footer {
-    padding: 10px;
+    padding: 10px 10px 10px 10px;
     background-color: $bg;
     border: 1px solid $border;
     box-shadow: 0 2px 4px $shadow;
@@ -32,6 +32,7 @@ $cutout-size: 1.5rem;
     border-bottom: none;
     box-shadow: none;
     height: 100px;
+    padding-bottom: 0px;
   }
   &__wrapper {
     box-shadow: 0 2px 4px $shadow;
@@ -94,9 +95,21 @@ $cutout-size: 1.5rem;
     & > * + * {
       margin-top: 0.25rem;
     }
-    & > h3 {
+    & > p {
       font-size: $textBase;
-      margin-bottom: 0.5rem;
+      font-weight: 400;
+
+    }
+    .seats {
+      margin-top: 0;
+    }
+  }
+  &__header {
+    p {
+      font-size: 14px;
+    }
+    h3 {
+      font-size: 18px;
     }
   }
   &__header,
@@ -107,16 +120,21 @@ $cutout-size: 1.5rem;
   }
   &__footer {
     border-top: 2px dashed $divider;
-    padding: 10px 20px 10px 20px;
+    padding: 10px 10px 10px 20px;
     border-radius: 0 0 20px 20px;
     align-items: center;
     justify-content: space-between;
     color: $mainColor;
+    p {
+      font-size: 14px;
+      font-weight: 400;
+    }
     i {
       color: $mainColor;
+      margin-left: 5px;
     }
     .barcode {
-      height: 2em;
+      height: 1.5em;
       width: 0;
       box-shadow: 1px 0 0 1px $black, 5px 0 0 1px $black, 10px 0 0 1px $black, 11px 0 0 1px $black, 15px 0 0 1px $black, 18px 0 0 1px $black, 22px 0 0 1px $black,
         23px 0 0 1px $black, 26px 0 0 1px $black, 30px 0 0 1px $black, 35px 0 0 1px $black, 37px 0 0 1px $black, 41px 0 0 1px $black, 44px 0 0 1px $black, 47px 0 0 1px $black,
@@ -125,7 +143,6 @@ $cutout-size: 1.5rem;
     }
   }
 }
-
 
 @media screen and (max-width: 768px) {
   .ticket {
@@ -136,13 +153,49 @@ $cutout-size: 1.5rem;
   }
 }
 
-
-
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 480px) {
   .ticket {
     max-width: 20rem;
     &__header {
-      height: 100px;
+      height: 70px;
     }
+  }
+  .container {
+    padding: 0 15px;
+  }
+  .infoAccount {
+    h1 {
+      font-size: 20px;
+    }
+    p {
+      font-size: 14px;
+    }
+  }
+  
+  .ticket__section > p {
+    font-size: 16px;
+  }
+  .ticket__footer p {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .ticket {
+    max-width: 20rem;
+    &__header {
+      height: 80px;
+    }
+    .ticket__header {
+      h3 {
+        font-size: 16px;
+      }
+    }
+    .ticket__section > p {
+      font-size: 14px;
+    }
+  }
+  .container {
+    padding: 0 8px;
   }
 }

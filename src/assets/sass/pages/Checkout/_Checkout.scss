@@ -1,163 +1,72 @@
-//ant-tab
-
-.tabsCheckout .ant-tabs-top > .ant-tabs-nav {
-  margin: 0px;
-  position: fixed;
-  width: 100vw;
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.585);
-  color: white;
-  &::before {
-    display: none;
-  }
-  
-  .ant-tabs-nav-list{
-    padding: 20px 50px;
-  }
-}
-
-.glassmorphism-blue {
-  background-color: rgba(4, 25, 46, 0.7);
-}
-
 .checkout {
   background-color: #04192e;
   color: #fff;
 
   .header-checkout {
-    font-size: $textMd;
+    background: rgba(0, 0, 0, 0.848);
+    padding: 20px 0;
     // background-color: rgba(4, 25, 46, 0.7);
 
     .info-user {
-      .dropdown .btn {
-        background-color: #03213b;
+      span {
+        font-size: 16px;
       }
-
+      .dropdown .btn {
+        background-color: transparent;
+      }
       .dropdown-menu {
         color: #fff;
         padding-top: 10px;
         padding-bottom: 10px;
         // background-color: #03213b;
         background-color: black;
-
+        font-size: 14px;
+        min-width: 8rem;
         .item-drop-1,
         .item-drop-2 {
           display: block;
+          color: #a0a0a0;
+          position: relative;
           padding: 10px 20px;
           margin: 10px 0;
-        }
+          &::after {
+            content: "";
+            position: absolute;
+            background-color: $mainColor;
+            height: 3px;
+            width: 0;
+            left: 0;
+            bottom: -10px;
+            transition: 0.3s;
+          }
+          &:hover {
+            color: #fff;
 
-        :hover {
-          background-color: rgb(230, 0, 0);
-          color: #fff;
-        }
-      }
-    }
-  }
-
-  .bg-film {
-    background-position: center;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    width: 100%;
-
-    .film {
-      padding-top: 110px;
-      padding-bottom: 40px;
-
-      .img-film {
-        img {
-          width: 100%;
-          height: 450px;
-        }
-      }
-
-      .info-film {
-        position: relative;
-
-        .name-film {
-          font-size: $textXl;
-          padding-bottom: 10px;
-        }
-
-        .date-film,
-        .time-film {
-          margin-top: 10px;
-          margin-bottom: 10px;
-          padding: 10px 10px;
-          font-size: $textMd;
-          display: inline-block;
-          border: 2px solid #fff;
-          border-radius: 200px 200px;
-        }
-
-        .date-film {
-          margin-right: 20px;
-        }
-
-        .detailed-movie {
-          position: absolute;
-          text-align: center;
-          padding: 10px 10px;
-          bottom: 0;
-          font-size: $textMd;
-          border-radius: 200px 200px;
-          background-color: rgba(0, 65, 129, 0.5);
-          border: 2px solid #004181;
-          box-shadow: 0px 0px 5px 5px rgba(0, 65, 129, 0.575);
-        }
-
-        :hover.detailed-movie {
-          cursor: pointer;
-          color: #fff;
-          background-color: rgb(230, 0, 0);
-          border: 2px solid #810000;
-          box-shadow: 0px 0px 5px 5px rgba(129, 0, 0, 0.575);
-        }
-      }
-    }
-
-    .booking {
-      padding: 40px 0;
-    }
-
-    .info-booking {
-      font-size: $textBase;
-      padding: 15px 10px;
-      border: 1px solid #004181;
-      box-shadow: 0px 0px 5px 5px rgba(0, 65, 129, 0.575);
-
-      div {
-        padding: 10px 0;
-      }
-
-      .info-chair {
-        padding-top: 20px;
-        padding-bottom: 100px;
-      }
-
-      .amount {
-        border-top: 1px solid #004181;
-      }
-
-      .button-ticket {
-        button {
-          color: #fff;
-          background-color: rgba(0, 65, 129, 0.5);
-          font-size: $textMd;
-          border-radius: 0;
-          border: 2px solid #004181;
-          box-shadow: 0px 0px 5px 5px rgba(0, 65, 129, 0.575);
-        }
-
-        button:hover {
-          background-color: rgb(230, 0, 0);
-          border: 2px solid #810000;
-          box-shadow: 0px 0px 5px 5px rgba(129, 0, 0, 0.575);
+            &::after {
+              width: 100%;
+            }
+          }
         }
       }
     }
   }
+}
+
+.tabsCheckout .ant-tabs-top > .ant-tabs-nav {
+  margin: 0px;
+  background: black;
+  color: white;
+  &::before {
+    display: none;
+  }
+  .ant-tabs-nav-list {
+    margin: 0 auto;
+    padding: 20px 50px;
+  }
+}
+
+.glassmorphism-blue {
+  background-color: rgba(4, 25, 46, 0.7);
 }
 
 .screen {
@@ -169,44 +78,7 @@
   border-radius: 35px;
 }
 
-// .screen-red {
-//   // background-color: $mainColor;
-//   // // #04d9ff
-//   // height:15px;
-//   // filter: brightness(200%);
-//   // border-radius: 25px;
 
-//   background: #fff;
-//   height: 70px;
-//   width: 70%;
-//   margin: 15px 0;
-//   transform: rotateX(-45deg);
-//   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
-// }
-
-// .screen-box {
-//   position: absolute;
-//   top: 40%;
-//   width: 100%;
-//   z-index: 1;
-//   height: 30px;
-//   // border: 1px solid #1c2c3d;
-//   // background-color: #1c2c3d;
-//   // box-shadow: 0px 5px 5px 5px #1c2c3d;
-// }
-
-// .screen-box::after {
-//   content: "";
-//   position: absolute;
-//   width: 100%;
-//   top: 0;
-//   z-index: 1;
-//   height: 70px;
-//   border-radius: 100% 100% 0 0;
-//   // background-color: #ff0000;
-//   // box-shadow: 0px 5px 5px 5px #ff0000;
-//   // filter: blur(50px);
-// }
 
 .ghe {
   background-color: rgb(93, 93, 93);
@@ -512,5 +384,45 @@ a.buy-btn:focus {
 
   .wsk-cp-text {
     padding-left: 40%;
+  }
+  .ghe {
+    width: 25px;
+    height: 16px;
+    font-size: 12px;
+    &::after {
+      left: 0px;
+      width: 25px;
+      height: 6px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .ghe {
+    width: 25px;
+    height: 16px;
+    font-size: 10px;
+    &::after {
+      left: 0px;
+      width: 25px;
+      height: 6px;
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .container {
+    padding: 0px 8px;
+  }
+  .header-checkout {
+    padding: 10px 0;
+  }
+  .ghe {
+    width: 20px;
+    height: 16px;
+    font-size: 10px;
+    &::after {
+      width: 20px;
+    }
   }
 }
