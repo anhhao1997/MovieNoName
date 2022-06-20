@@ -87,34 +87,11 @@ function Checkout(props) {
 
   return (
     <div>
-      {/* <div className="header-checkout glassmorphism-black fixed-top p-3">
-        <div className="container d-flex align-items-center justify-content-between text-white">
-          <div className="logo text-center">Logo</div>
-          <div className="info-user text-center">
-            <div className="dropdown show">
-              <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span className="mr-3">
-                  <i className="fa fa-user pr-2" />
-                  {userLogin.hoTen}
-                </span>
-              </a>
-              <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a className="item-drop-1" href="#">
-                  Lịch sử{" "}
-                </a>
-                <a className="item-drop-2" href="#">
-                  Đăng xuất
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>  */}
       <div className="bg-cover bg-fixed bg-center bg-no-repeat" style={{ backgroundImage: `url(${thongTinPhim.hinhAnh})`, minHeight: "100vh" }}>
-        <div className="glassmorphism glassmorphism-black  text-white  pt-8 lg:pt-10" style={{ minHeight: "100vh" }}>
-          <div className="container ">
+        <div className="glassmorphism glassmorphism-black text-white pt-5 lg:pt-10" style={{ minHeight: "100vh" }}>
+          <div className="container">
             {" "}
-            <div className="grid grid-cols-1 mt-5 pb-7 gap-3 lg:grid-cols-7 lg:gap-1  ">
+            <div className="grid grid-cols-1 pb-7 gap-3 lg:grid-cols-7 lg:gap-1">
               {/* card item phim */}
               <div className="order-2 col-span-7 md:order-1 lg:justify-self-center lg:col-span-2 ">
                 <div className="wsk-cp-product glassmorphism-black">
@@ -184,10 +161,10 @@ function Checkout(props) {
                   <div className="screen justify-self-center "></div>
                   <h3 className="text-center text-white">Màn hình</h3>
                   {/* //render ghe */}
-                  <div className="text-center px-3 lg:px-3">
+                  <div className="text-center px-2 lg:px-3">
                     <div className="grid grid-cols-12 gap-1 justify-items-center lg:px-16 lg:py-5">{renderGhe()}</div>
                   </div>
-                  <div className="grid grid-cols-3 justify-items-center sm:grid-cols-6 lg:px-16  bg-black mt-3">
+                  <div className="grid grid-cols-3 justify-items-center sm:grid-cols-5 lg:px-16  bg-black mt-3">
                     <div className="m-2 flex flex-col items-center">
                       <div className="ghe gheDaDat"></div>
                       <div className="mt-3">Ghế đã đặt</div>
@@ -212,11 +189,6 @@ function Checkout(props) {
                       <div className="ghe mr-2"></div>
                       <div className="mt-3">Ghế thường</div>
                     </div>
-
-                    <div className="m-2 flex flex-col items-center">
-                      <div className="ghe gheNguoiKhacDat mr-2"></div>
-                      <div className="mt-3">Ghế người khác chọn</div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -231,11 +203,38 @@ const { TabPane } = Tabs;
 
 export default function (props) {
   const { tabActive } = useSelector((state) => state.QuanLyDatVeReducer);
+  const { userLogin, thongTinNguoiDung } = useSelector((state) => state.QuanLyNguoiDungReducer);
+
   const dispatch = useDispatch();
   return (
-    <div className="tabsCheckout">
+    <div className="">
+      <div className="checkout">
+        <div className="header-checkout">
+          <div className="container d-flex align-items-center justify-content-between text-white">
+            <div className="logo text-center">Logo</div>
+            <div className="info-user text-center">
+              <div className="dropdown show">
+                <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span className="mr-3">
+                    <i className="fa fa-user pr-2" />
+                    {userLogin.hoTen}
+                  </span>
+                </a>
+                <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a className="item-drop-1" href="#">
+                    Lịch sử{" "}
+                  </a>
+                  <a className="item-drop-2" href="#">
+                    Đăng xuất
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="tabsCheckout">
       <Tabs
-        className=""
         defaultActiveKey={1}
         activeKey={tabActive}
         onChange={(key) => {
@@ -252,6 +251,7 @@ export default function (props) {
           <KetQuaDatVe {...props} />
         </TabPane>
       </Tabs>
+      </div>
     </div>
   );
 }
@@ -275,12 +275,10 @@ function KetQuaDatVe(props) {
           <article className="ticket text-black drop-shadow-lg" key={index}>
             <header className="ticket__wrapper">
               <div className="ticket__header uppercase">
-                <p className="font-medium" style={{ fontSize: "14px" }}>
+                <p className="font-medium">
                   {seats.tenHeThongRap} - {seats.tenCumRap}
                 </p>
-                <h3 className="font-bold mt-2" style={{ fontSize: "24px" }}>
-                  {ticket.tenPhim}
-                </h3>
+                <h3 className="font-bold mt-1 md:mt-2">{ticket.tenPhim}</h3>
               </div>
             </header>
             <div className="ticket__divider">
@@ -289,11 +287,11 @@ function KetQuaDatVe(props) {
             </div>
             <div className="ticket__body">
               <section className="ticket__section">
-                <h3>Ngày đặt: {moment(ticket.ngayDat).format("DD/MM/YYYY - hh:mm A")}</h3>
-                <h3>Thời lượng: {ticket.thoiLuongPhim} phút</h3>
+                <p>Ngày đặt: {moment(ticket.ngayDat).format("DD/MM/YYYY - hh:mm A")}</p>
+                <p>Thời lượng: {ticket.thoiLuongPhim} phút</p>
 
-                <h3>Chỗ ngồi: </h3>
-                <div className="grid grid-cols-8 gap-1">
+                <p>Chỗ ngồi: </p>
+                <div className="seats grid grid-cols-8">
                   {ticket.danhSachGhe.slice(0, 8).map((ghe, index) => {
                     return (
                       <p className="ghe gheDaDuocDat" key={index}>
@@ -305,10 +303,10 @@ function KetQuaDatVe(props) {
               </section>
             </div>
             <footer className="ticket__footer">
-              <div>
-                Đặt vé thành công <i className="fas fa-check-circle"></i>
+              <div className="w-3/5 sm:w-4/5 md:w-2/3 lg:w-3/4 2xl:w-3/5 flex">
+                <p>Đặt vé thành công</p> <i className="fas fa-check-circle"></i>
               </div>
-              <div className="w-1/3 md:w-2/5 flex items-center justify-center">
+              <div className="w-2/5 sm:w-1/5 md:w-1/3 lg:w-1/4 2xl:w-2/5 flex items-center justify-start">
                 <div className="barcode"></div>
               </div>
             </footer>
@@ -322,15 +320,17 @@ function KetQuaDatVe(props) {
 
   return (
     <div className="bg-cover bg-fixed bg-center bg-no-repeat" style={{ backgroundImage: `url(${thongTinPhim.hinhAnh})`, minHeight: "100vh" }}>
-      <div className="glassmorphism glassmorphism-black  text-white pt-8 lg:pt-10" style={{ minHeight: "100vh" }}>
+      <div className="glassmorphism glassmorphism-black text-white pt-10" style={{ minHeight: "100vh" }}>
         <div className="container">
-          <div className="flex flex-col md:w-full justify-between items-center mt-5 pb-7 ">
-            <div className="infoAccount flex flex-col justify-center items-center">
-              <img className="w-24 h-24 rounded-full drop-shadow-md" src="https://picsum.photos/100/200" />
+          <div className="flex flex-col md:w-full justify-between pb-7 ">
+            <div className="infoAccount flex flex-col justify-center items-center mb-2">
+              <img className="w-10 h-10 sm:w-24 sm:h-24 rounded-full drop-shadow-md" src="https://picsum.photos/100/200" />
               <h1 className="text-white text-center my-2">Chúc mừng {userLogin.hoTen} đặt vé thành công</h1>
-              <p>Hãy xem thông tin đặt vé bên dưới để xem phim vui vẻ bạn nhé!</p>
+              <p className="text-center">Hãy xem thông tin đặt vé bên dưới để xem phim vui vẻ bạn nhé!</p>
             </div>
-            <div className="tickets grid grid-cols-1 justify-items-stretch md:grid-cols-2 md:gap-2 xl:grid-cols-3 gap-y-2">{renderTicketItem()}</div>
+            <div className="tickets ">
+              <div className="grid grid-cols-1 gap-1 justify-items-stretch md:grid-cols-2 md:gap-2 lg:grid-cols-3 2xl:grid-cols-4 2xl:gap-1">{renderTicketItem()}</div>
+            </div>
           </div>
         </div>
       </div>
