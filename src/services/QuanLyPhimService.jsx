@@ -7,10 +7,17 @@ export class QuanLyPhimService extends baseService {
         super();
     }
 
-    layDanhSachPhim = () => {
+    layDanhSachPhim = (tenPhim = '') => {
+        if (tenPhim.trim() != '') {
+            return this.get(`api/QuanLyPhim/LayDanhSachPhim?maNhom=${GROUPID}&tenPhim=${tenPhim}`)
+        }
         return this.get(`api/QuanLyPhim/LayDanhSachPhim?maNhom=${GROUPID}`)
     }
-    
+
+    themPhimUploadHinh = (formData) => {
+        return this.post(`api/QuanLyPhim/ThemPhimUploadHinh`, formData);
+    }
+
 }
 
 

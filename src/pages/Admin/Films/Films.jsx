@@ -29,7 +29,10 @@ export default function Films(props) {
             }}
         />
     );
-    const onSearch = (value) => console.log(value);
+    const onSearch = (value) => {
+        // gọi api
+        dispatch(getQuanLyPhimAction(value))
+    };
 
     const columns = [
         {
@@ -109,7 +112,11 @@ export default function Films(props) {
                 <div className='admin-layout-content'><h3 >Quản lý phim</h3></div>
                 <div className='admin-layout-table w-full h-full'>
                     <Search className='w-2/3 pb-4' placeholder="Nhập từ khóa tìm kiếm" onSearch={onSearch} enterButton />
-                    <Button danger className='ml-5 pl-3 pr-3 text-xl'><i className="fa fa-plus-circle pr-2"></i><i className="fas fa-film"></i></Button>
+                    <span onClick={() => {
+                        props.history.push("/admin/films/addfilms")
+                    }}>
+                        <Button danger className='ml-5 pl-3 pr-3 text-xl'><i className="fa fa-plus-circle pr-2" ></i><i className="fas fa-film"></i></Button>
+                    </span>
                     <Table columns={columns} dataSource={data} onChange={onChange} />
                 </div>
             </div>

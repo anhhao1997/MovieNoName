@@ -1,0 +1,60 @@
+.admin-add-films {
+    background-color: #334155;
+    border: 1px solid #334155;
+    border-radius: 10px 10px;
+    box-shadow: 0px 0px 5px 0px black;
+    padding-left: 20px;
+
+    .img-add-films {
+        position: relative;
+        text-align: center;
+        margin-left: 10px;
+
+        .title-films {
+            z-index: 1000 !important;
+            position: absolute;
+            width: 100%;
+            color: white;
+            padding: 30px 0;
+            font-size: 20px;
+            background-color: #334155;
+            top: 5%;
+            box-shadow: 0px 1px 1px 0px black;
+            border-radius: 1px 1px;
+            margin-right: 10px;
+        }
+
+        .img-film {
+            box-shadow: 0px 0px 1px 0px black;
+        }
+    }
+
+    .form-add-films {
+        align-items: center;
+        text-align: left;
+        margin-top: 30px;
+        margin-left: 100px;
+
+        .ant-form-item-label>label {
+            color: $bg !important;
+            font-size: $textMd;
+        }
+
+        .ant-switch {
+            background: #fff !important;
+        }
+
+        .ant-switch-checked {
+            background: #1890ff !important;
+        }
+
+        .btn-add-film {
+            width: 80px;
+            height: 50px;
+            font-size: 40px;
+            line-height: 1px;
+        }
+
+
+    }
+}
