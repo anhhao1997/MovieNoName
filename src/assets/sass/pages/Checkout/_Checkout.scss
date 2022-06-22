@@ -4,7 +4,11 @@
 
   .header-checkout {
     background: rgba(0, 0, 0, 0.848);
-    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    // padding: 20px 0;
+    height: 80px;
+
     // background-color: rgba(4, 25, 46, 0.7);
 
     .info-user {
@@ -54,14 +58,29 @@
 
 .tabsCheckout .ant-tabs-top > .ant-tabs-nav {
   margin: 0px;
-  background: black;
-  color: white;
+  // background: rgba(156, 156, 156, 0.726);
+  background-color: rgb(198, 18, 18);
+  color: rgb(186, 186, 186);
+  height: 60px;
   &::before {
     display: none;
   }
+  .ant-tabs-nav-wrap {
+    align-items: center;
+    justify-content: center;
+  }
   .ant-tabs-nav-list {
-    margin: 0 auto;
-    padding: 20px 50px;
+    // margin: 0 auto;
+    // padding: 20px 50px;
+  }
+
+  .ant-tabs-tab-active {
+    .ant-tabs-tab-btn {
+      color: white;
+    }
+  }
+  .ant-tabs-ink-bar {
+    background-color: white;
   }
 }
 
@@ -77,8 +96,6 @@
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
   border-radius: 35px;
 }
-
-
 
 .ghe {
   background-color: rgb(93, 93, 93);

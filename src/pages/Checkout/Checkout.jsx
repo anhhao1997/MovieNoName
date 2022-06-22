@@ -234,23 +234,23 @@ export default function (props) {
         </div>
       </div>
       <div className="tabsCheckout">
-      <Tabs
-        defaultActiveKey={1}
-        activeKey={tabActive}
-        onChange={(key) => {
-          dispatch({
-            type: CHANGE_TAB_ACTIVE,
-            number: key.toString(),
-          });
-        }}
-      >
-        <TabPane tab="01 CHỌN GHẾ VÀ THANH TOÁN" key="1">
-          <Checkout {...props} />
-        </TabPane>
-        <TabPane tab="02 KẾT QUẢ ĐẶT VÉ" key="2">
-          <KetQuaDatVe {...props} />
-        </TabPane>
-      </Tabs>
+        <Tabs
+          defaultActiveKey={1}
+          activeKey={tabActive}
+          onChange={(key) => {
+            dispatch({
+              type: CHANGE_TAB_ACTIVE,
+              number: key.toString(),
+            });
+          }}
+        >
+          <TabPane tab="01 CHỌN GHẾ VÀ THANH TOÁN" key="1">
+            <Checkout {...props} />
+          </TabPane>
+          <TabPane tab="02 KẾT QUẢ ĐẶT VÉ" key="2">
+            <KetQuaDatVe {...props} />
+          </TabPane>
+        </Tabs>
       </div>
     </div>
   );
