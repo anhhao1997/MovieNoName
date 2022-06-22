@@ -1,3 +1,6 @@
+.header-home {
+  height: 80px;
+}
 .navbar-nav {
   flex-grow: calc(1);
   display: flex;
@@ -43,7 +46,6 @@
       display: inline-block;
       background-color: white;
       color: gray;
-
     }
 
     .mode:hover {
@@ -79,7 +81,6 @@
 }
 
 @media screen and (max-width: 992px) {
-
   header.container {
     padding: 8px 0;
   }
@@ -88,7 +89,6 @@
     display: block;
     margin-left: 0;
   }
-
 
   .nav-content {
     margin-top: 20px;
