@@ -13,7 +13,7 @@ const AdminTemplate = (props) => { //path, exact, Component
     const { Component, ...restProps } = props;
 
     const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
-
+    console.log('user', userLogin);
     // kiểm tra user đã login chưa
     if (!localStorage.getItem(USER_LOGIN)) {
         return <Redirect to="/login" />;
@@ -64,7 +64,7 @@ const AdminTemplate = (props) => { //path, exact, Component
                     </Sider>
                     <Layout className="site-layout">
                         <Header
-                            className="bg-slate-700 text-lg p-5 text-white d-flex justify-end align-items-center"
+                            className="header-admin bg-slate-700 text-lg p-5 text-white d-flex justify-end align-items-center"
                         >
                             <div className='mr-20'>{userLogin.hoTen}</div>
                         </Header>

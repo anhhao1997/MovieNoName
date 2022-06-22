@@ -4,7 +4,7 @@ import { AudioOutlined } from '@ant-design/icons';
 import { Input, Space } from 'antd';
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { useEffect } from "react";
-import { getQuanLyPhimAction } from "./../../../redux/actions/QuanLyPhimActions";
+import { getQuanLyPhimAction, xoaPhimAction } from "./../../../redux/actions/QuanLyPhimActions";
 import { NavLink } from "react-router-dom";
 
 export default function Films(props) {
@@ -40,7 +40,7 @@ export default function Films(props) {
             dataIndex: 'maPhim',
             sorter: (a, b) => a.maPhim - b.maPhim,
             sortDirections: ['descend'],
-            width: 200
+            width: '10%'
         },
         {
             title: 'Tên phim',
@@ -54,7 +54,7 @@ export default function Films(props) {
                 return -1;
             },
             sortDirections: ['descend'],
-            width: 400
+            width: '20%'
         },
         {
             title: 'Hình ảnh',
@@ -88,7 +88,7 @@ export default function Films(props) {
                     </Fragment>
                 )
             },
-            width: 600
+            width: '40%'
         },
         {
             title: 'Chức năng',
@@ -96,8 +96,13 @@ export default function Films(props) {
             render: (text, film) => {
                 return (
                     <div className='text-center'>
-                        <NavLink className='edit text-blue-600 text-2xl mr-2' to='/'><i className="far fa-edit"></i></NavLink>
-                        <NavLink className='delete text-red-600 text-2xl ml-2' to='/'><i className="fas fa-trash-alt"></i></NavLink>
+                        <NavLink key={1} className='edit text-blue-600 text-2xl mr-2' to={`/admin/films/editfilm/${film.maPhim}`}><i className="far fa-edit"></i></NavLink>
+                        <span style={{ cursor: 'pointer' }} key={2} className='delete text-red-600 text-2xl ml-2' onClick={() => {
+                            if (window.confirm('Bạn có chắc chắn xóa phim' + film.tenPhim)) {
+                                //gọi api xóa
+                                dispatch(xoaPhimAction(film.maPhim))
+                            }
+                        }}><i className="fas fa-trash-alt"></i></span>
                     </div>
                 )
             }
@@ -117,7 +122,7 @@ export default function Films(props) {
                     }}>
                         <Button danger className='ml-5 pl-3 pr-3 text-xl'><i className="fa fa-plus-circle pr-2" ></i><i className="fas fa-film"></i></Button>
                     </span>
-                    <Table columns={columns} dataSource={data} onChange={onChange} />
+                    <Table columns={columns} dataSource={data} onChange={onChange} rowKey={"maPhim"} />
                 </div>
             </div>
         </Fragment>

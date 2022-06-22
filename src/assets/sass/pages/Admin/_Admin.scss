@@ -1,11 +1,11 @@
 @import "./_AdminDashBoard.scss";
 @import "./_AdminFilm.scss";
 @import "./_AdminShowTime.scss";
-@import "./AdminAddFilm.scss";
+@import "./_AdminAddFilm.scss";
+@import "./_AdminEditFilm.scss";
 
-.ant-layout-sider {
-    max-width: 170px !important;
-    min-width: 170px !important;
+.header-admin {
+    height: 96px !important;
 }
 
 .admin-layout {

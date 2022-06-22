@@ -1,5 +1,5 @@
 import { SET_CHI_TIET_FILM } from "../actions/types/QuanLyRapType";
-import { SET_ARRFILM } from "./../types/QuanLyPhimType";
+import { SET_ARRFILM, SET_THONG_TIN_PHIM } from "./../types/QuanLyPhimType";
 
 const stateDefault = {
   arrFilm: [
@@ -928,6 +928,20 @@ const stateDefault = {
     "ngayKhoiChieu": "2022-05-19T19:24:55.803",
     "danhGia": 9
   },
+  layThongTinPhim: {
+    "maPhim": 1466,
+    "tenPhim": "The Longest Ride OK",
+    "biDanh": "the-longest-ride-ok",
+    "trailer": "https://www.youtube.com/embed/FUS_Q7FsfqU",
+    "hinhAnh": "https://movienew.cybersoft.edu.vn/hinhanh/thelongestride.jpg",
+    "moTa": "lỗi rồi hihi phim cũng chán lắm :)) h thì chạy lại bình thường ảo ma v",
+    "maNhom": "GP03",
+    "hot": true,
+    "dangChieu": true,
+    "sapChieu": true,
+    "ngayKhoiChieu": "2022-05-19T19:24:55.803",
+    "danhGia": 9
+  },
 };
 
 export const QuanLyPhimReducer = (state = stateDefault, action) => {
@@ -949,6 +963,13 @@ export const QuanLyPhimReducer = (state = stateDefault, action) => {
       state.filmDetail = action.filmDetail;
       return { ...state };
     }
+
+    case SET_THONG_TIN_PHIM: {
+      state.layThongTinPhim = action.layThongTinPhim;
+      // console.log('action thong tin phim', action.layThongTinPhim)
+      return { ...state };
+    }
+
     default:
       return { ...state };
   }

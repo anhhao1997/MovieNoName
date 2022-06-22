@@ -2,7 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { createBrowserHistory } from "history";
 import Home from "./pages/Home/Home";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Router } from "react-router-dom";
 import { HomeTemplate } from "./templates/HomeTemplate/HomeTemplate";
 import Detail from "./pages/Detail/Detail";
 import CheckoutTemplate from "./templates/CheckoutTemplate/CheckoutTemplate";
@@ -20,12 +20,13 @@ import ShowTime from "./pages/Admin/ShowTime/ShowTime";
 import AddFilms from "./pages/Admin/Films/AddFilms/AddFilms";
 
 // const CheckoutTemplateLazy = lazy(() => import("./templates/CheckoutTemplate/CheckoutTemplate"))
+import EditFilm from "./pages/Admin/Films/EditFilm/EditFilm";
 
 export const history = createBrowserHistory();
 
 function App() {
   return (
-    <BrowserRouter history={history}>
+    <Router Router history={history}>
       <Loading />
       <Switch>
         <HomeTemplate path="/home" Component={Home} />
@@ -44,13 +45,14 @@ function App() {
         </Suspense> */}
         <AdminTemplate path="/admin" exact Component={DashBoard} />
         <AdminTemplate path="/admin/films" exact Component={Films} />
-        <AdminTemplate path="/admin/films/addfilms" exact Component={AddFilms} />
         <AdminTemplate path="/admin/users" exact Component={DashBoard} />
         <AdminTemplate path="/admin/showtime" exact Component={ShowTime} />
+        <AdminTemplate path="/admin/films/addfilms" exact Component={AddFilms} />
+        <AdminTemplate path="/admin/films/editfilm/:id" exact Component={EditFilm} />
 
         <HomeTemplate path="/" Component={Home} />
       </Switch>
-    </BrowserRouter>
+    </Router>
   );
 }
 

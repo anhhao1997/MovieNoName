@@ -3,12 +3,10 @@
     border: 1px solid #334155;
     border-radius: 10px 10px;
     box-shadow: 0px 0px 5px 0px black;
-    padding-left: 20px;
 
     .img-add-films {
         position: relative;
         text-align: center;
-        margin-left: 10px;
 
         .title-films {
             z-index: 1000 !important;
@@ -17,7 +15,7 @@
             color: white;
             padding: 30px 0;
             font-size: 20px;
-            background-color: #334155;
+            background-color: #00b185;
             top: 5%;
             box-shadow: 0px 1px 1px 0px black;
             border-radius: 1px 1px;
@@ -30,10 +28,8 @@
     }
 
     .form-add-films {
-        align-items: center;
         text-align: left;
         margin-top: 30px;
-        margin-left: 100px;
 
         .ant-form-item-label>label {
             color: $bg !important;
