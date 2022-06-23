@@ -66,7 +66,7 @@ const AdminTemplate = (props) => { //path, exact, Component
                         <Header
                             className="header-admin bg-slate-700 text-lg text-white d-flex justify-end align-items-center"
                         >
-                            <div className='mr-20'>{userLogin.hoTen}</div>
+                            <div className='mr-20 userLoin'>{userLogin.hoTen}</div>
                         </Header>
                         <Content
                         >
