@@ -4,8 +4,14 @@
 @import "./_AdminAddFilm.scss";
 @import "./_AdminEditFilm.scss";
 
+.menu-content {
+    font-size: 18px;
+}
+
+
 .header-admin {
     height: 96px !important;
+    font-size: 18px !important;
 }
 
 .admin-layout {
