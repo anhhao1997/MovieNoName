@@ -97,14 +97,14 @@
     .content-item {
       padding-top: 10px;
       padding-bottom: 10px;
-      margin-top: 10px;
-      margin-bottom: 10px;
+      margin-top: 15px;
+      margin-bottom: 15px;
       display: block;
     }
 
-    :hover {
-      background-color: rgba(255, 0, 0, 0.3);
-    }
+    // :hover {
+    //   background-color: rgba(255, 0, 0, 0.3);
+    // }
   }
 
   .nav-mode {
@@ -114,7 +114,6 @@
 
     .mode:hover {
       cursor: pointer;
-      background-color: rgba(255, 0, 0, 0.3);
     }
   }
 
