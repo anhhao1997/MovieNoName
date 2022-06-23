@@ -64,11 +64,11 @@ const AdminTemplate = (props) => { //path, exact, Component
                     </Sider>
                     <Layout className="site-layout">
                         <Header
-                            className="header-admin bg-slate-700 text-lg p-5 text-white d-flex justify-end align-items-center"
+                            className="header-admin bg-slate-700 text-lg text-white d-flex justify-end align-items-center"
                         >
                             <div className='mr-20'>{userLogin.hoTen}</div>
                         </Header>
-                        <Content className='p-5'
+                        <Content
                         >
                             {/* truyền component */}
                             <Component {...propsRoute} />
