@@ -41,3 +41,21 @@
         }
     }
 }
+
+@media screen and (max-width: 1024px) {
+    .header-admin {
+        padding: 0 40px !important;
+    }
+
+    .userLoin {
+        margin-right: 0 !important;
+    }
+
+    .admin-layout {
+        .admin-layout-content {
+            h3 {
+                padding: 20px 120px;
+            }
+        }
+    }
+}
