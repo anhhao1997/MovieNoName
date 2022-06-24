@@ -1,5 +1,8 @@
 import React from "react";
+import UserRegister from "../../templates/UserTemplate/Layout/UserRegister";
 
 export default function Register() {
-  return <div>Register</div>;
+  return <div>
+    <UserRegister/>
+  </div>;
 }

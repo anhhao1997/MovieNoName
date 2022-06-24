@@ -33,11 +33,11 @@ export default function UserLogin() {
 
   return (
     <div style={{ backgroundImage: `url(${image})`, minHeight: "100vh" }} className="w-[100vw] h-[100vh] bg-cover bg-center bg-no-repeat">
-      <div className="bg-black bg-opacity-60 w-[100vw] h-[100vh] bg-clip-padding backdrop-blur-sm">
+      <div className="bg-black bg-opacity-60 w-[100vw] h-[100vh] bg-clip-padding backdrop-blur-lg">
         <div className="flex justify-center items-center w-[100vw] h-[100vh]">
-          <div className="container bg-white/20 w-[75vw] h-[65vh] sm:w-[500px] md:w-[450px] rounded">
-            <h1 className="text-center text-white tracking-wider p-8 uppercase">Đăng nhập</h1>
-            <div className="px-3 sm:px-2 text-white">
+          <div className="py-3 bg-white/20 w-[90vw] h-[65vh] sm:w-[500px] md:w-[450px] rounded">
+            <h1 className="text-center text-white tracking-wider py-2 sm:py-3 uppercase">Đăng nhập</h1>
+            <div className="px-2 text-white">
               <div className="content">
                 {/* //dùng handleSubmit */}
                 <form onSubmit={formik.handleSubmit} action="#">
