@@ -38,12 +38,20 @@ export default function Header(props) {
                 </NavLink>
               </div>
               <div className="nav-mode">
-                <span className="mode light-mode">
+                {/* <span className="mode light-mode">
                   <i className="fa fa-sun" />
                 </span>
                 <span className="mode dark-mode">
                   <i className="fa fa-moon" />
-                </span>
+                </span> */}
+                <input type="checkbox" className="checkbox" id="chk" onChange={()=>{
+                  document.body.classList.toggle('dark')
+                }}/>
+                <label className="label" for="chk">
+                  <i className="fas fa-moon"></i>
+                  <i className="fas fa-sun"></i>
+                  <div className="ball"></div>
+                </label>
               </div>
               <div className="nav-login">
                 {localStorage.getItem(USER_LOGIN) ? (
@@ -57,7 +65,6 @@ export default function Header(props) {
               </div>
             </div>
           </div>
-         
         </nav>
       </header>
     </div>

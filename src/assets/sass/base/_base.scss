@@ -7,6 +7,19 @@
   font-family: "Josefin Sans", sans-serif;
 }
 
+body {
+  transition: 0.2s linear;
+}
+body.dark {
+	background: #343a40;
+}
+
+body.dark {
+  h1,h2,h3,p,div{
+    color:white;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
