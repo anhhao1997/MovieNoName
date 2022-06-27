@@ -96,13 +96,14 @@ export default function Films(props) {
             render: (text, film) => {
                 return (
                     <div className='text-center'>
-                        <NavLink key={1} className='edit text-blue-600 text-2xl mr-2' to={`/admin/films/editfilm/${film.maPhim}`}><i className="far fa-edit"></i></NavLink>
-                        <span style={{ cursor: 'pointer' }} key={2} className='delete text-red-600 text-2xl ml-2' onClick={() => {
+                        <NavLink key={1} className='edit text-blue-600 text-2xl' to={`/admin/films/editfilm/${film.maPhim}`}><i className="far fa-edit"></i></NavLink>
+                        <span style={{ cursor: 'pointer' }} key={2} className='delete text-red-600 text-2xl mr-3 ml-3' onClick={() => {
                             if (window.confirm('Bạn có chắc chắn xóa phim' + film.tenPhim)) {
                                 //gọi api xóa
                                 dispatch(xoaPhimAction(film.maPhim))
                             }
                         }}><i className="fas fa-trash-alt"></i></span>
+                        <NavLink key={1} className='showtime text-green-600 text-2xl' to={`/admin/films/showtime/${film.maPhim}`}><i className="far fa-calendar-alt"></i></NavLink>
                     </div>
                 )
             }

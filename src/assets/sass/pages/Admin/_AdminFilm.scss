@@ -19,6 +19,10 @@
             font-size: 24px !important;
         }
 
+        .showtime {
+            font-size: 24px !important;
+        }
+
         .ant-input-search-button {
             background-color: $black;
             border: 1px solid $black;
@@ -46,11 +50,17 @@
 
 
         .edit:hover {
-            color: $social-icon3;
+            color: black;
         }
 
         .delete:hover {
-            color: $social-icon4;
+            color: black;
+
+        }
+
+        .showtime:hover {
+            color: black;
+
         }
     }
 }

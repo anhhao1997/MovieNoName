@@ -52,12 +52,6 @@ const AdminTemplate = (props) => { //path, exact, Component
                                             <span className='pl-3'>Films</span>
                                         </NavLink>
                                     </div>
-                                    <div className='menu-content-item p-3'>
-                                        <NavLink to={'/admin/showtime'} style={{ display: 'block' }}>
-                                            <i className="fa fa-tv"></i>
-                                            <span className='pl-3'>Showtimes</span>
-                                        </NavLink>
-                                    </div>
                                 </div>
                             </Menu>
                         </div>

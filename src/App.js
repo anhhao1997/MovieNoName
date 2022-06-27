@@ -49,6 +49,7 @@ function App() {
         <AdminTemplate path="/admin/showtime" exact Component={ShowTime} />
         <AdminTemplate path="/admin/films/addfilms" exact Component={AddFilms} />
         <AdminTemplate path="/admin/films/editfilm/:id" exact Component={EditFilm} />
+        <AdminTemplate path="/admin/films/showtime/:id" exact Component={ShowTime} />
 
         <HomeTemplate path="/" Component={Home} />
       </Switch>
