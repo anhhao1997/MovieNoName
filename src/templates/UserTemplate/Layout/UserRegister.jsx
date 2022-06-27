@@ -56,27 +56,30 @@ export default function UserRegister() {
     validate,
     validationSchema: schema,
     onSubmit: (values) => {
-        const action = dangKyAction(values);
-        dispatch(action);
+      const action = dangKyAction(values);
+      dispatch(action);
       console.log("values", values);
     },
   });
 
   return (
     <div style={{ backgroundImage: `url(${image})`, minHeight: "100vh" }} className="w-[100vw] h-[100vh] bg-cover bg-center bg-no-repeat">
-      <div className="bg-black bg-opacity-60 w-[100vw] h-[100vh] bg-clip-padding backdrop-blur-lg">
-        <div className="flex justify-center items-center w-[100vw] h-[100vh]">
-          <div className="bg-white/20 pt-3 w-[95vw] h-[70vh] sm:w-[500px] md:w-[800px] rounded-xl">
+      <div className="bg-black bg-opacity-60 w-[100vw] h-[100vh] backdrop-blur-lg">
+        <div className="flex justify-center items-center h-[100vh] mr-[30px] ml-[30px]">
+          {/* w-[100vw] h-[100vh] */}
+          <div className="background bg-white/20 rounded-xl">
+            {/* w-[95vw] h-[70vh] sm:w-[500px] md:w-[800px] rounded-xl */}
             <h1 className="text-center text-white tracking-wider py-2 sm:py-3 uppercase">Đăng ký</h1>
 
-            <div className="content register-content text-white">
+            <div className="content register-content w-full text-white">
               {/* //dùng handleSubmit */}
               <form onSubmit={formik.handleSubmit} action="#">
                 <div className="grid sm:gap-2 grid-cols-1 sm:grid-cols-2">
-                  <div>
+                  <div className="div-1">
                     <div className="field">
                       <input name="hoTen" onChange={formik.handleChange} type="hoTen" placeholder="Họ và tên" />
-                      <span className="fa fa-lock" />
+                      <span className="fas fa-signature" />
+
                       {formik.errors.hoTen ? <div className="errors-value">{formik.errors.hoTen}</div> : null}
                     </div>
                     <div className="field">
@@ -94,17 +97,17 @@ export default function UserRegister() {
                   <div>
                     <div className="field field-4">
                       <input name="email" onChange={formik.handleChange} type="email" placeholder="Email" />
-                      <span className="fa fa-lock" />
+                      <span className="fas fa-envelope" />
                       {formik.errors.email ? <div className="errors-value">{formik.errors.email}</div> : null}
                     </div>
                     <div className="field">
                       <input name="soDt" onChange={formik.handleChange} type="text" placeholder="Số điện thoại" />
-                      <span className="fa fa-lock" />
+                      <span className="fas fa-phone" />
                     </div>
 
                     <div className="field">
                       <input name="maNhom" onChange={formik.handleChange} type="text" placeholder="Mã Nhóm" />
-                      <span className="fa fa-lock" />
+                      <span className="fas fa-user-friends" />
                       {formik.errors.maNhom ? <div className="errors-value">{formik.errors.maNhom}</div> : null}
                     </div>
                   </div>

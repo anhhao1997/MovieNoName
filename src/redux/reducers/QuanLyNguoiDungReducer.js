@@ -1,12 +1,11 @@
 import { TOKEN, USER_LOGIN } from "../../util/settings/config";
-import { DANG_NHAP_ACTION, SET_THONG_TIN_NGUOI_DUNG } from "../actions/types/QuanLyNguoiDungType";
+import { DANG_NHAP_ACTION, DANG_XUAT_ACTION, SET_THONG_TIN_NGUOI_DUNG } from "../actions/types/QuanLyNguoiDungType";
 
 //TRƯỜNG HỢP NGƯỜI DÙNG CHƯA LOGIN
 //1. lấy ra thongTinDangNhap từ action
 //2. setItem với key USER_LOGIN có value từ obj thongTinDangNhap thành chuỗi stringJSON
 //3. setItem với key TOKEN có value từ obj thongTinDangNhap.accessToken thành chuỗi stringJSON
 //4. return về state và gán thongTinDangNhap cho userLogin
-
 
 //TRƯỜNG HỢP NGƯỜI DÙNG ĐÃ LOGIN VÀ LƯU THÔNG TIN TRÊN LOCALSTORAGE
 //1. Khai báo biến user {}
@@ -20,9 +19,7 @@ if (localStorage.getItem(USER_LOGIN)) {
 
 const stateDefault = {
   userLogin: user,
-  thongTinNguoiDung:{
-
-  }
+  thongTinNguoiDung: {},
 };
 
 export const QuanLyNguoiDungReducer = (state = stateDefault, action) => {
@@ -33,9 +30,13 @@ export const QuanLyNguoiDungReducer = (state = stateDefault, action) => {
       localStorage.setItem(TOKEN, thongTinDangNhap.accessToken);
       return { ...state, userLogin: thongTinDangNhap };
     }
-    case SET_THONG_TIN_NGUOI_DUNG:{
+    case SET_THONG_TIN_NGUOI_DUNG: {
       state.thongTinNguoiDung = action.thongTinNguoiDung;
-      return {...state}
+      return { ...state };
+    }
+    case DANG_XUAT_ACTION: {
+      localStorage.clear();
+      return { ...state };
     }
     default:
       return { ...state };

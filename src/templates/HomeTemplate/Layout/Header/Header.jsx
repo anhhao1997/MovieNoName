@@ -46,17 +46,18 @@ export default function Header(props) {
                 </span>
               </div>
               <div className="nav-login">
-                {localStorage.getItem(USER_LOGIN) ?
-                  'Xin chào ' + userLogin.hoTen
-                  :
-                  <NavLink to="/login" className="login-item">
+                {localStorage.getItem(USER_LOGIN) ? (
+                  "Xin chào " + userLogin.hoTen
+                ) : (
+                  <NavLink to="/register" className="login-item">
                     <i className="fa fa-user pr-2" />
                     Đăng kí / Đăng nhập
                   </NavLink>
-                }
+                )}
               </div>
             </div>
           </div>
+         
         </nav>
       </header>
     </div>
