@@ -13,7 +13,7 @@ export const dangNhapAction = (thongTinDangNhap) => {
           thongTinDangNhap: result.data.content,
         };
         dispatch(action);
-        history.goBack();
+        history.push("/");
       }
 
       console.log("result", result);
@@ -29,21 +29,22 @@ export const dangKyAction = (thongTinDangKy) => {
       const result = await quanLyNguoiDungService.layThongTinDangKy(thongTinDangKy);
 
       if (result.data.statusCode === 200) {
-        // const action = {
-        //   type: DANG_KY_ACTION,
-        //   thongTinDangKy: result.data.content,
-        // };
-        // dispatch(action);
-        // history.goBack();
-      console.log("result", result.data.content);
-
+        const action = {
+          type: DANG_KY_ACTION,
+          thongTinDangKy: result.data.content,
+        };
+        dispatch(action);
+        alert("Chúc mừng bạn đăng ký thành công, giờ hãy đăng nhập nhé");
+        history.push("/login");
+        console.log("result", result.data.content);
       }
-
     } catch (error) {
       console.log("error", error.response.data);
     }
   };
 };
+
+
 
 export const layThongTinNguoiDungAction = () => {
   return async (dispatch) => {

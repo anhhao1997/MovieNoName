@@ -38,22 +38,30 @@ export default function Header(props) {
                 </NavLink>
               </div>
               <div className="nav-mode">
-                <span className="mode light-mode">
+                {/* <span className="mode light-mode">
                   <i className="fa fa-sun" />
                 </span>
                 <span className="mode dark-mode">
                   <i className="fa fa-moon" />
-                </span>
+                </span> */}
+                <input type="checkbox" className="checkbox" id="chk" onChange={()=>{
+                  document.body.classList.toggle('dark')
+                }}/>
+                <label className="label" for="chk">
+                  <i className="fas fa-moon"></i>
+                  <i className="fas fa-sun"></i>
+                  <div className="ball"></div>
+                </label>
               </div>
               <div className="nav-login">
-                {localStorage.getItem(USER_LOGIN) ?
-                  'Xin chào ' + userLogin.hoTen
-                  :
-                  <NavLink to="/login" className="login-item">
+                {localStorage.getItem(USER_LOGIN) ? (
+                  "Xin chào " + userLogin.hoTen
+                ) : (
+                  <NavLink to="/register" className="login-item">
                     <i className="fa fa-user pr-2" />
                     Đăng kí / Đăng nhập
                   </NavLink>
-                }
+                )}
               </div>
             </div>
           </div>

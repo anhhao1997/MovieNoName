@@ -54,7 +54,7 @@ $textBase: 16px;
   }
 
   &-white {
-    background: rgba(255, 255, 255, 0.082); //0.31 
+    background: rgba(255, 255, 255, 0.082); //0.31
     // border: 1px solid rgba(255, 255, 255, 0.18);
     backdrop-filter: blur(0px);
   }
@@ -78,3 +78,4 @@ $textBase: 16px;
     color: $mainColor;
   }
 }
+

@@ -33,47 +33,46 @@ export default function UserLogin() {
 
   return (
     <div style={{ backgroundImage: `url(${image})`, minHeight: "100vh" }} className="w-[100vw] h-[100vh] bg-cover bg-center bg-no-repeat">
-      <div className="bg-black bg-opacity-60 w-[100vw] h-[100vh] bg-clip-padding backdrop-blur-lg">
-        <div className="flex justify-center items-center w-[100vw] h-[100vh]">
-          <div className="py-3 bg-white/20 w-[90vw] h-[65vh] sm:w-[500px] md:w-[450px] rounded">
+      <div className="bg-black bg-opacity-60 w-[100vw] h-[100vh] backdrop-blur-lg">
+        <div className="flex justify-center items-center h-[100vh]">
+          <div className="background bg-white/20 rounded-xl">
             <h1 className="text-center text-white tracking-wider py-2 sm:py-3 uppercase">Đăng nhập</h1>
-            <div className="px-2 text-white">
-              <div className="content">
-                {/* //dùng handleSubmit */}
-                <form onSubmit={formik.handleSubmit} action="#">
-                  <div className="field">
-                    <input name="taiKhoan" onChange={formik.handleChange} type="text" placeholder="Tài khoản" required />
-                    <span className="fa fa-user" />
+
+            <div className="content login-content text-white w-full">
+              {/* //dùng handleSubmit */}
+              <form onSubmit={formik.handleSubmit} action="#">
+                <div className="field">
+                  <input name="taiKhoan" onChange={formik.handleChange} type="text" placeholder="Tài khoản" required />
+                  <span className="fa fa-user" />
+                </div>
+                <div className="field">
+                  <input name="matKhau" onChange={formik.handleChange} type="password" placeholder="Password" />
+                  <span className="fa fa-lock" />
+                </div>
+                <NavLink className="forget" to="#">
+                  Quên mật khẩu?
+                </NavLink>
+                <button type="submit" className="login">
+                  Đăng nhập
+                </button>
+                <div className="text-center">
+                  <div className="or">Or</div>
+                  <div className="icon-button">
+                    <span className="facebook mr-2">
+                      <i className="fab fa-facebook-f mr-1"></i>Facebook
+                    </span>
+                    <span>
+                      <i className="fab fa-google" /> Google
+                    </span>
                   </div>
-                  <div className="field">
-                    <input name="matKhau" onChange={formik.handleChange} type="password" placeholder="Password" />
-                    <span className="fa fa-lock" />
+                  <div className="h-full mt-3">
+                    Bạn chưa có tài khoản?{" "}
+                    <NavLink className="text-blue-300 font-semibold" to="/register">
+                      Đăng ký
+                    </NavLink>
                   </div>
-                  <NavLink className="forget" to="#">
-                    Quên mật khẩu?
-                  </NavLink>
-                  <button type="submit" className="login">
-                    Đăng nhập
-                  </button>
-                  <div className="text-center">
-                    <div className="or">Or</div>
-                    <div className="icon-button">
-                      <span className="facebook mr-2">
-                        <i className="fab fa-facebook-f mr-1"></i>Facebook
-                      </span>
-                      <span>
-                        <i className="fab fa-google" /> Google
-                      </span>
-                    </div>
-                    <div className="h-full mt-3">
-                      Bạn chưa có tài khoản?{" "}
-                      <NavLink className="text-blue-300 font-semibold" to="/register">
-                        Đăng ký
-                      </NavLink>
-                    </div>
-                  </div>
-                </form>
-              </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>

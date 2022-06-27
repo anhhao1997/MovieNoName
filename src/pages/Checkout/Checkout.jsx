@@ -5,12 +5,14 @@ import { UserOutlined } from "@ant-design/icons";
 import { datVeAction, layChiTietPhongVeAction } from "./../../redux/actions/QuanLyDatVeActions";
 import { CHANGE_TAB_ACTIVE, DAT_GHE, DAT_VE, KIEM_TRA_TRANG_DAT_VE } from "../../redux/types/QuanLyDatVeType";
 import moment from "moment";
+import { history } from "../../App";
 import _ from "lodash";
 import { ThongTinDatVe } from "../../_core/models/ThongTinDatVe";
 
 import { connection } from "../../index";
 import { Tabs } from "antd";
 import { layThongTinNguoiDungAction } from "../../redux/actions/QuanLyNguoiDungAction";
+import { DANG_XUAT_ACTION } from "../../redux/actions/types/QuanLyNguoiDungType";
 
 /**
  *1. Tạo mảng danhSachDangDat [] bên reducer QuanLyDatVe
@@ -207,32 +209,41 @@ export default function (props) {
 
   const dispatch = useDispatch();
   return (
-    <div className="">
-      <div className="checkout">
-        <div className="header-checkout">
-          <div className="container d-flex align-items-center justify-content-between text-white">
-            <div className="logo text-center">Logo</div>
-            <div className="info-user text-center">
-              <div className="dropdown show">
-                <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span className="mr-3">
-                    <i className="fa fa-user pr-2" />
-                    {userLogin.hoTen}
-                  </span>
+    <div className="checkout">
+      <div className="header-checkout">
+        <div className="container d-flex align-items-center justify-content-between text-white">
+          <div className="logo text-center">Logo</div>
+          <div className="info-user text-center">
+            <div className="dropdown show">
+              <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span className="mr-3">
+                  <i className="fa fa-user pr-2" />
+                  {userLogin.hoTen}
+                </span>
+              </a>
+              <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a className="item-drop-1" href="#">
+                  Lịch sử{" "}
                 </a>
-                <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a className="item-drop-1" href="#">
-                    Lịch sử{" "}
-                  </a>
-                  <a className="item-drop-2" href="#">
-                    Đăng xuất
-                  </a>
-                </div>
+                <button
+                  className="item-drop-2"
+                  href="#"
+                  onClick={() => {
+                    const action = {
+                      type: DANG_XUAT_ACTION,
+                    };
+                    dispatch(action);
+                    history.push("/");
+                  }}
+                >
+                  Đăng xuất
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
+
       <div className="tabsCheckout">
         <Tabs
           defaultActiveKey={1}
