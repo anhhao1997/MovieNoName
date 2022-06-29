@@ -20,7 +20,7 @@ export default function HomeTheaterTabPane(props) {
                     <div className="text-left" style={{ width: "430px", fontSize: "16px" }}>
                       <div className="flex gap-2 items-center ">
                         <img src={heThongRap.logo} className="rounded-full" width="40" />
-                        <div className="uppercase font-semibold">{cumRap.tenCumRap}</div>
+                        <div className="uppercase font-semibold"><h1 style={{fontSize:'16px'}}>{cumRap.tenCumRap}</h1></div>
                       </div>
 
                       <p className="mt-1">Địa chỉ: {cumRap.diaChi.length > 50 ? cumRap.diaChi.slice(0, 30) + " ..." : cumRap.diaChi}</p>

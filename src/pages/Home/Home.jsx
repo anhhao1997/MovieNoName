@@ -5,7 +5,7 @@ import HomeTheater from "./../../templates/HomeTemplate/Layout/HomeTheater/HomeT
 
 export default function Home(props) {
   return (
-    <div>
+    <div id="home">
       <HomeCarousel></HomeCarousel>
       <div>
         <HomeService></HomeService>
