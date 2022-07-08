@@ -1,0 +1,81 @@
+$mainColor: #f32424;
+$secondaryColor: #a11717;
+
+$social-icon1: #e4405f;
+$social-icon2: #3b5999;
+$social-icon3: #cd201f;
+$social-icon4: #0077b5;
+
+$textXl: 30px;
+$textMd: 18px;
+$textBase: 16px;
+
+//button
+.custom-btn {
+  background: transparent;
+  height: 40px;
+  padding: 10px 25px;
+  // border: 2px solid $mainColor;
+  color: white;
+  width: 100%;
+  font-size: $textBase;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  display: inline-block;
+
+  &.btn-main {
+    background: $mainColor;
+    color: #fff;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+
+    &:hover {
+      background-color: white;
+      color: $mainColor;
+      border: 1px solid $mainColor;
+    }
+
+    & span {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+//glassmorphism
+.glassmorphism {
+  &-black {
+    background: rgba(0, 0, 0, 0.649);
+    // border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(4px);
+  }
+
+  &-white {
+    background: rgba(255, 255, 255, 0.082); //0.31
+    // border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(0px);
+  }
+}
+
+.btn-lich-chieu {
+  padding: 4px 4px;
+  border: 2px solid rgb(177, 177, 177);
+  margin: 4px 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-size: 16px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  transition: all 0.2s;
+
+  &:hover {
+    border: 2px solid $mainColor;
+    color: $mainColor;
+  }
+}
+

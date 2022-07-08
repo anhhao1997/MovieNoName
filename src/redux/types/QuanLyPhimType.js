@@ -1,0 +1,2 @@
+export const SET_ARRFILM = 'SET_ARRFILM';
+export const SET_THONG_TIN_PHIM = 'SET_THONG_TIN_PHIM';

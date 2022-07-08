@@ -1,0 +1,201 @@
+$grey-light: hsl(200, 10%, 92%);
+$grey: hsl(200, 10%, 85%);
+$grey-dark: hsl(200, 10%, 70%);
+$shadow: hsla(200, 20%, 20%, 0.25);
+$red: #dc143c;
+$black: #343434;
+
+$bg: hsl(200, 0%, 100%);
+$divider: rgb(153, 153, 153);
+$border: $grey-dark;
+
+$cutout-size: 1.5rem;
+
+.ticket {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  max-width: 25rem;
+  &__header,
+  &__body,
+  &__footer {
+    padding: 10px 10px 10px 10px;
+    background-color: $bg;
+    border: 1px solid $border;
+    box-shadow: 0 2px 4px $shadow;
+  }
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    // border-top: 0.25rem solid $mainColor;
+    border-bottom: none;
+    box-shadow: none;
+    height: 100px;
+    padding-bottom: 0px;
+  }
+  &__wrapper {
+    box-shadow: 0 2px 4px $shadow;
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+  }
+  &__divider {
+    position: relative;
+    height: $cutout-size;
+    background-color: $bg;
+    margin-left: ($cutout-size / 2);
+    margin-right: ($cutout-size / 2);
+    &::after {
+      content: "";
+      position: absolute;
+      height: 50%;
+      width: 100%;
+      top: 0;
+      border-bottom: 2px dashed $divider;
+    }
+  }
+  &__notch {
+    position: absolute;
+    left: ($cutout-size / 2) * -1;
+    width: $cutout-size;
+    height: $cutout-size;
+    overflow: hidden;
+    &::after {
+      content: "";
+      position: relative;
+      display: block;
+      width: ($cutout-size * 2);
+      height: ($cutout-size * 2);
+      right: 100%;
+      top: -50%;
+      border: ($cutout-size / 2) solid $bg;
+      border-radius: 50%;
+      box-shadow: inset 0 2px 4px $shadow;
+    }
+    &--right {
+      left: auto;
+      right: ($cutout-size / 2) * -1;
+      &::after {
+        right: 0;
+      }
+    }
+  }
+  &__body {
+    border-bottom: none;
+    font-size: $textBase;
+    border-top: none;
+    height: 100%;
+    & > * + * {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid $divider;
+    }
+  }
+  &__section {
+    & > * + * {
+      margin-top: 0.25rem;
+    }
+    & > p {
+      font-size: $textBase;
+      font-weight: 400;
+
+    }
+    .seats {
+      margin-top: 0;
+    }
+  }
+  &__header {
+    p {
+      font-size: 14px;
+    }
+    h3 {
+      font-size: 18px;
+    }
+  }
+  &__header,
+  &__footer {
+    font-weight: bold;
+    font-size: $textMd;
+    display: flex;
+  }
+  &__footer {
+    border-top: 2px dashed $divider;
+    padding: 10px 10px 10px 20px;
+    border-radius: 0 0 20px 20px;
+    align-items: center;
+    justify-content: space-between;
+    color: $mainColor;
+    p {
+      font-size: 14px;
+      font-weight: 400;
+    }
+    i {
+      color: $mainColor;
+      margin-left: 5px;
+    }
+    .barcode {
+      height: 1.5em;
+      width: 0;
+      box-shadow: 1px 0 0 1px $black, 5px 0 0 1px $black, 10px 0 0 1px $black, 11px 0 0 1px $black, 15px 0 0 1px $black, 18px 0 0 1px $black, 22px 0 0 1px $black,
+        23px 0 0 1px $black, 26px 0 0 1px $black, 30px 0 0 1px $black, 35px 0 0 1px $black, 37px 0 0 1px $black, 41px 0 0 1px $black, 44px 0 0 1px $black, 47px 0 0 1px $black,
+        51px 0 0 1px $black, 56px 0 0 1px $black, 59px 0 0 1px $black, 64px 0 0 1px $black, 68px 0 0 1px $black, 72px 0 0 1px $black, 74px 0 0 1px $black, 77px 0 0 1px $black,
+        81px 0 0 1px $black;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ticket {
+    max-width: 25rem;
+    &__header {
+      height: 80px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .ticket {
+    max-width: 20rem;
+    &__header {
+      height: 70px;
+    }
+  }
+  .container {
+    padding: 0 15px;
+  }
+  .infoAccount {
+    h1 {
+      font-size: 20px;
+    }
+    p {
+      font-size: 14px;
+    }
+  }
+  
+  .ticket__section > p {
+    font-size: 16px;
+  }
+  .ticket__footer p {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .ticket {
+    max-width: 20rem;
+    &__header {
+      height: 80px;
+    }
+    .ticket__header {
+      h3 {
+        font-size: 16px;
+      }
+    }
+    .ticket__section > p {
+      font-size: 14px;
+    }
+  }
+  .container {
+    padding: 0 8px;
+  }
+}

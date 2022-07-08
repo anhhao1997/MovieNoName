@@ -1,0 +1,19 @@
+.Home-Carousel {
+    padding-top: 72px !important;
+    background-color: black;
+}
+
+.ant-carousel .slick-dots-bottom {
+    margin: 0;
+}
+
+.Carousel-img {
+    height: 650px;
+}
+
+@media screen and (max-width: 768px) {
+    .Carousel-img {
+        height: 550px;
+    }
+
+}

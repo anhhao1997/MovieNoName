@@ -1,0 +1,29 @@
+.ant-tabs-ink-bar {
+  position: absolute;
+  background: $mainColor;
+  pointer-events: none;
+}
+
+.ant-tabs-tab-btn {
+  outline: none;
+  transition: all 0.3s;
+  width: 100%;
+}
+.spanStyle {
+  position: "absolute";
+  top: "50%";
+  left: "50%";
+  transform: "translate(-50%, -50%)";
+}
+
+// .ant-tabs{
+//   &-nav{
+//     &-wrap{
+//       justify-content: center;
+//     }
+//   }
+// }
+
+// .ant-tabs-nav-list{
+//     width: 400px;
+// }

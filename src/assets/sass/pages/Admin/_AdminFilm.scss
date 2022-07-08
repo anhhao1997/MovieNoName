@@ -1,0 +1,71 @@
+.admin-layout {
+
+    .admin-layout-table {
+        background-color: #334155;
+        border: 1px solid #334155;
+        border-radius: 10px 10px;
+        box-shadow: 0px 0px 5px 0px black;
+        padding: 30px;
+
+        .ant-btn-default {
+            font-size: 20px !important;
+        }
+
+        .edit {
+            font-size: 24px !important;
+        }
+
+        .delete {
+            font-size: 24px !important;
+        }
+
+        .showtime {
+            font-size: 24px !important;
+        }
+
+        .ant-input-search-button {
+            background-color: $black;
+            border: 1px solid $black;
+        }
+
+        .ant-input-search-button:hover {
+            background-color: $mainColor;
+            border: 1px solid $mainColor;
+        }
+
+        .ant-select-selector {
+            display: none;
+        }
+
+        .ant-select-arrow {
+            display: none;
+        }
+
+        .ant-table-thead>tr>th,
+        .ant-table-tbody>tr>td,
+        .ant-table tfoot>tr>th,
+        .ant-table tfoot>tr>td {
+            padding: 14px;
+        }
+
+
+        .edit:hover {
+            color: black;
+        }
+
+        .delete:hover {
+            color: black;
+
+        }
+
+        .showtime:hover {
+            color: black;
+
+        }
+    }
+}
+
+.ant-pagination-prev .ant-pagination-item-link,
+.ant-pagination-next .ant-pagination-item-link {
+    line-height: 1px !important;
+}

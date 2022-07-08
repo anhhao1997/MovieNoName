@@ -1,0 +1,61 @@
+@import "./_AdminDashBoard.scss";
+@import "./_AdminFilm.scss";
+@import "./_AdminShowTime.scss";
+@import "./_AdminAddFilm.scss";
+@import "./_AdminEditFilm.scss";
+
+.menu-content {
+    font-size: 18px;
+}
+
+
+.header-admin {
+    font-size: 18px !important;
+}
+
+.ant-layout-header {
+    height: 96px !important;
+}
+
+.ant-layout-content {
+    padding: 48px !important;
+}
+
+.admin-layout {
+    position: relative;
+
+    .admin-layout-content {
+        position: absolute;
+        top: -84px;
+        width: 100%;
+
+        h3 {
+            color: white;
+            font-size: 25px;
+            display: inline-block;
+            background-color: rgb(255, 0, 76);
+            padding: 20px 100px;
+            border: 1px solid rgb(255, 0, 76);
+            border-radius: 200px 200px;
+            box-shadow: 0px 0px 5px 0px black;
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .header-admin {
+        padding: 0 40px !important;
+    }
+
+    .userLoin {
+        margin-right: 0 !important;
+    }
+
+    .admin-layout {
+        .admin-layout-content {
+            h3 {
+                padding: 20px 30px;
+            }
+        }
+    }
+}
