@@ -1,9 +1,6 @@
 .header-home {
   height: 80px;
-  display: flex;
-  align-items: center;
 }
-
 .navbar-nav {
   flex-grow: calc(1);
   display: flex;
@@ -72,87 +69,9 @@
 
   .nav-login {
     .login-item {
-      // padding: 12.5px 10px;
+      padding: 12.5px 10px;
       color: white;
       transition: 0.3s;
-      font-size: 18px;
-    }
-    .show > .btn-secondary.dropdown-toggle:focus {
-      box-shadow: none;
-    }
-    // .dropdown.show{
-    //   position: relative;
-    //   display: flex;
-    //   align-items: center;
-    //   flex-direction: column;
-    // }
-
-    .dropdown-menu {
-      color: #fff;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      // background-color: #03213b;
-      background-color: black;
-      font-size: 18px;
-      min-width: 10rem;
-
-      .item-drop {
-        display: block;
-        color: #a0a0a0;
-        position: relative;
-        padding: 0 10px;
-        margin: 15px 0;
-
-        &::after {
-          content: "";
-          position: absolute;
-          background-color: $mainColor;
-          height: 3px;
-          width: 0;
-          left: 0;
-          bottom: -10px;
-          transition: 0.3s;
-        }
-
-        &:hover {
-          color: #fff;
-
-          &::after {
-            width: 100%;
-          }
-        }
-      }
-    }
-    .dropdown-toggle {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      background-color: transparent;
-      border: none;
-
-      &::after {
-        display: none;
-      }
-      .user-span {
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
-        border: 1px solid #a0a0a0;
-        color: #a0a0a0;
-        transition: 0.3s;
-
-        &:hover {
-          color: #fff;
-          border: 1px solid #fff;
-        }
-      }
-    }
-    .dropdown-menu-center {
-      left: 50% !important;
-      right: auto !important;
-
-      transform: translate(-50%, 0);
     }
 
     .login-item:hover {
@@ -205,28 +124,15 @@
   color: #f39c12;
 }
 
+
 @media screen and (max-width: 992px) {
   header.container {
     padding: 8px 0;
   }
 
-  .navbar.navbar-expand-lg {
-    padding: 0px !important;
-  }
-
   .navbar-nav {
     display: block;
     margin-left: 0;
-    padding: 10px 0;
-    transition: 0.3s all linear;
-    background-color: rgba(0, 0, 0, 0.638);
-  }
-  .navbar-collapse.collapse {
-    height: 0;
-    transition: 0.3s all linear;
-  }
-  .collapsing {
-    transition: height 0s linear !important;
   }
 
   .nav-content {
@@ -259,23 +165,6 @@
   .nav-login {
     margin: 10px 15px;
 
-    .dropdown-menu {
-      background-color: transparent !important;
-    }
-
-    .dropdown-menu-center {
-      left: 50% !important;
-      right: auto !important;
-
-      transform: translate(0%, 0) !important;
-    }
-    .item-drop {
-      display: block;
-      color: #a0a0a0;
-      position: relative;
-      padding: 0px 10px;
-      margin: 15px 0;
-    }
     .login-item {
       display: block;
     }

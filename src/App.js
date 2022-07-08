@@ -14,13 +14,13 @@ import Register from "./pages/Register/Register";
 import Loading from "./components/Loading/Loading";
 import Profile from "./pages/Profile/Profile";
 import AdminTemplate from "./templates/AdminTemplate/AdminTemplate";
-import DashBoard from "./pages/Admin/Dashboard/DashBoard";
 import Films from "./pages/Admin/Films/Films";
 import ShowTime from "./pages/Admin/ShowTime/ShowTime";
 import AddFilms from "./pages/Admin/Films/AddFilms/AddFilms";
 
 // const CheckoutTemplateLazy = lazy(() => import("./templates/CheckoutTemplate/CheckoutTemplate"))
-import EditFilm from "./pages/Admin/Films/EditFilm/EditFilm";
+import Manager from "./pages/Admin/Manager/Manager";
+import EditFilm from './pages/Admin/Films/EditFilm/EditFilm';
 
 export const history = createBrowserHistory();
 
@@ -43,14 +43,13 @@ function App() {
         {/* <Suspense fallback={<h1>LOADING...</h1>}>
           <CheckoutTemplateLazy path="/checkout/:id" exact Component={Checkout} />
         </Suspense> */}
-        <AdminTemplate path="/admin" exact Component={DashBoard} />
+        <AdminTemplate path="/admin" exact Component={Manager} />
         <AdminTemplate path="/admin/films" exact Component={Films} />
-        <AdminTemplate path="/admin/users" exact Component={DashBoard} />
+        <AdminTemplate path="/admin/manager" exact Component={Manager} />
         <AdminTemplate path="/admin/showtime" exact Component={ShowTime} />
         <AdminTemplate path="/admin/films/addfilms" exact Component={AddFilms} />
         <AdminTemplate path="/admin/films/editfilm/:id" exact Component={EditFilm} />
         <AdminTemplate path="/admin/films/showtime/:id" exact Component={ShowTime} />
-
         <HomeTemplate path="/" Component={Home} />
       </Switch>
     </Router>

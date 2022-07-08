@@ -79,6 +79,7 @@ export default function UserRegister() {
                     <div className="field">
                       <input name="hoTen" onChange={formik.handleChange} type="hoTen" placeholder="Họ và tên" />
                       <span className="fas fa-signature" />
+
                       {formik.errors.hoTen ? <div className="errors-value">{formik.errors.hoTen}</div> : null}
                     </div>
                     <div className="field">
@@ -97,7 +98,7 @@ export default function UserRegister() {
                     <div className="field field-4">
                       <input name="email" onChange={formik.handleChange} type="email" placeholder="Email" />
                       <span className="fas fa-envelope" />
-                      {formik.touched.email ? <div className="errors-value">{formik.errors.email}</div> : null}
+                      {formik.errors.email ? <div className="errors-value">{formik.errors.email}</div> : null}
                     </div>
                     <div className="field">
                       <input name="soDt" onChange={formik.handleChange} type="text" placeholder="Số điện thoại" />

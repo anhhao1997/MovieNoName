@@ -121,7 +121,7 @@ export default function Films(props) {
                     <span onClick={() => {
                         props.history.push("/admin/films/addfilms")
                     }}>
-                        <Button danger className='ml-5 pl-3 pr-3 text-xl'><i className="fa fa-plus-circle pr-2" ></i><i className="fas fa-film"></i></Button>
+                        <Button danger className='ml-5'><i className="fa fa-plus-circle pr-3" ></i><i className="fas fa-film"></i></Button>
                     </span>
                     <Table columns={columns} dataSource={data} onChange={onChange} rowKey={"maPhim"} />
                 </div>
