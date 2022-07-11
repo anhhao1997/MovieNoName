@@ -15,7 +15,7 @@ export default function Header(props) {
     <div className="header-home fixed w-full text-white glassmorphism-black drop-shadow-2xl z-10">
       <header className="container">
         <nav className="navbar navbar-expand-lg navbar-dark ">
-          <NavLink to="#">Logo</NavLink>
+          <NavLink className="pl-2" to="#">Logo</NavLink>
           <button
             className="navbar-toggler"
             type="button"
@@ -41,12 +41,6 @@ export default function Header(props) {
                 </NavLink>
               </div>
               <div className="nav-mode">
-                {/* <span className="mode light-mode">
-                  <i className="fa fa-sun" />
-                </span>
-                <span className="mode dark-mode">
-                  <i className="fa fa-moon" />
-                </span> */}
                 <input
                   type="checkbox"
                   className="checkbox"
