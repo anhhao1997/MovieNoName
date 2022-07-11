@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useFormik } from "formik";
 
 const Contact = () => {
@@ -16,7 +16,7 @@ const Contact = () => {
   });
 
   return (
-    <div name="contact" className="w-full h-screen bg-gradient-to-r from-slate-900 to-gray-700  text-white">
+    <div name="lienHe" className="w-full h-screen bg-gradient-to-r from-slate-900 to-gray-700  text-white">
       <div className="flex flex-col p-3 justify-center max-w-screen-xl mx-auto h-full">
         <div className="pb-8">
           <h1 className="uppercase text-center pt-3 text-white">LIÊN HỆ VỚI CHÚNG TÔI</h1>
