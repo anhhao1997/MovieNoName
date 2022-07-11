@@ -73,7 +73,7 @@ export default function HomeTheaterTabPane(props) {
   };
   // console.log("heThongRapChieu", props);
   return (
-    <div className="pb-10">
+    <div name="lichChieu" className="w-full py-10">
       <h1 className="uppercase text-center mt-5 pt-3">HỆ THỐNG RẠP CHIẾU</h1>
       <Tabs centered tabPosition={"top"}>
         {renderHeThongRap()}
