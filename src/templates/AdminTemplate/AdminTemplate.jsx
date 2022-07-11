@@ -41,7 +41,7 @@ const AdminTemplate = (props) => { //path, exact, Component
                             <Menu theme="dark" mode="inline" >
                                 <div className='menu-content p-1 mt-3 text-lg'>
                                     <div className='menu-content-item p-3 w-full'>
-                                        <NavLink to={'/admin/users'} style={{ display: 'block' }}>
+                                        <NavLink to={'/admin/manager'} style={{ display: 'block' }}>
                                             <i className="fa fa-user"></i>
                                             <span className='pl-3'>User</span>
                                         </NavLink>

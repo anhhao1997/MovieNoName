@@ -9,21 +9,28 @@ import { quanLyRapService } from '../../../services/QuanLyRap';
 import { useFormik } from "formik";
 import moment from "moment";
 import { quanLyDatVeService } from '../../../services/QuanLyDatVeService';
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux/es/exports";
+import { layThongTinPhimAction } from "./../../../redux/actions/QuanLyPhimActions";
 export default function ShowTime(props) {
 
     const [rap, setRap] = useState({
         heThongRapChieu: [],
         cumRapChieu: []
     })
-    // console.log('heThongRapChieu', rap.heThongRapChieu);
+    console.log('heThongRapChieu', rap.heThongRapChieu);
 
-    // useEffect(() => {
-    //     let id = props.match.params.id;
+    const dispatch = useDispatch()
 
-    //     dispatch(layThongTinPhimAction(id));
-    // }, [])
+    useEffect(() => {
+        let id = props.match.params.id;
 
-    // const { layThongTinPhim } = useSelector(state => state.QuanLyPhimReducer);
+        dispatch(layThongTinPhimAction(id));
+    }, [])
+
+    const { layThongTinPhim } = useSelector(state => state.QuanLyPhimReducer);
+
+    console.log('thong tin phim', layThongTinPhim);
 
     const formik = useFormik({
         initialValues: {
@@ -92,51 +99,56 @@ export default function ShowTime(props) {
             <div className='admin-layout text-center w-full h-full'>
                 <div className='admin-layout-content'><h3 >Quản lý phim</h3></div>
                 <div className='admin-add-films w-full h-full'>
-                    <div className='layout-add-films grid grid-cols-12 w-full h-full'>
+                    <div className='layout-add-films grid grid-cols-12 w-full h-full align-items-center'>
                         <div className='col-span-1'></div>
                         <div className='img-add-films img-showtime-films col-span-2 w-full h-full'>
                             <div className='title-films text-ceter'>Lịch chiếu phim</div>
                             <div className='img-film w-full h-full' style={{ backgroundImage: `url(${filmIcon})`, backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%' }}></div>
                         </div>
-                        <div className='col-span-1'></div>
                         <div className='form-add-films text-white col-span-8'>
-                            <Form
-                                name="basic"
-                                labelCol={{
-                                    span: 5,
-                                }}
-                                wrapperCol={{
-                                    span: 10,
-                                }}
-                                initialValues={{
-                                    remember: true,
-                                }}
-                                onSubmitCapture={formik.handleSubmit}
-                            >
-                                <Form.Item
-                                    label="Hệ thống rạp"
+                            <div className='title-film pb-5'>
+                                <h3 className='name-film text-2xl text-white pb-2'>{layThongTinPhim.tenPhim}</h3>
+                                <img src={layThongTinPhim.hinhAnh} alt="..." width={150} height={200} />
+                            </div>
+                            <div>
+                                <Form
+                                    name="basic"
+                                    labelCol={{
+                                        span: 8,
+                                    }}
+                                    wrapperCol={{
+                                        span: 11,
+                                    }}
+                                    initialValues={{
+                                        remember: true,
+                                    }}
+                                    onSubmitCapture={formik.handleSubmit}
                                 >
-                                    <Select options={rap.heThongRapChieu?.map((htr, index) => ({ label: htr.tenHeThongRap, value: htr.maHeThongRap }))} onChange={handleChangeHeThongRap} placeholder="Chọn hệ thống rạp" />;
-                                </Form.Item>
-                                <Form.Item
-                                    label="Cụm rạp"
-                                >
-                                    <Select options={rap.cumRapChieu?.map((cumRap, index) => ({ label: cumRap.tenCumRap, value: cumRap.maCumRap }))} onChange={handleChangeCumRap} placeholder="Chọn cụm rạp" />;
-                                </Form.Item>
-                                <Form.Item
-                                    label="Thời gian chiếu"
-                                >
-                                    <DatePicker showTime format="DD-MM-YYYY hh:mm:ss" onChange={onChangeDate} onOk={onOk} />
-                                </Form.Item>
-                                <Form.Item
-                                    label="Giá vé"
-                                >
-                                    <InputNumber type='number' step={1000} min={75000} onChange={onChangeInpuNumber} defaultValue={75000} placeholder={75000} />
-                                </Form.Item>
-                                <Form.Item label="Thêm lịch chiếu">
-                                    <button type='submit' className='btn-add-film btn btn-primary border-white'><i className="fas fa-file-medical"></i></button>
-                                </Form.Item>
-                            </Form>
+                                    <Form.Item
+                                        label="Hệ thống rạp"
+                                    >
+                                        <Select options={rap.heThongRapChieu?.map((htr, index) => ({ label: htr.tenHeThongRap, value: htr.maHeThongRap }))} onChange={handleChangeHeThongRap} placeholder="Chọn hệ thống rạp" />;
+                                    </Form.Item>
+                                    <Form.Item
+                                        label="Cụm rạp"
+                                    >
+                                        <Select options={rap.cumRapChieu?.map((cumRap, index) => ({ label: cumRap.tenCumRap, value: cumRap.maCumRap }))} onChange={handleChangeCumRap} placeholder="Chọn cụm rạp" />;
+                                    </Form.Item>
+                                    <Form.Item
+                                        label="Thời gian chiếu"
+                                    >
+                                        <DatePicker showTime format="DD-MM-YYYY hh:mm:ss" onChange={onChangeDate} onOk={onOk} />
+                                    </Form.Item>
+                                    <Form.Item
+                                        label="Giá vé"
+                                    >
+                                        <InputNumber type='number' step={1000} min={75000} onChange={onChangeInpuNumber} defaultValue={75000} placeholder={75000} />
+                                    </Form.Item>
+                                    <Form.Item label="Thêm lịch chiếu">
+                                        <button type='submit' className='btn-add-film btn btn-primary border-white'><i className="fas fa-file-medical"></i></button>
+                                    </Form.Item>
+                                </Form>
+                            </div>
                         </div>
                     </div>
                 </div>
