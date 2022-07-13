@@ -205,7 +205,7 @@ const { TabPane } = Tabs;
 
 export default function (props) {
   const { tabActive } = useSelector((state) => state.QuanLyDatVeReducer);
-  const { userLogin, thongTinNguoiDung } = useSelector((state) => state.QuanLyNguoiDungReducer);
+  const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
 
   const dispatch = useDispatch();
   return (
@@ -266,12 +266,14 @@ export default function (props) {
     </div>
   );
 }
-function KetQuaDatVe(props) {
+export  function KetQuaDatVe(props) {
   const dispatch = useDispatch();
   const { userLogin, thongTinNguoiDung } = useSelector((state) => state.QuanLyNguoiDungReducer);
   const { thongTinDatVe } = thongTinNguoiDung;
   const { chiTietPhongVe, danhSachGheDangDat } = useSelector((state) => state.QuanLyDatVeReducer);
   const { thongTinPhim } = chiTietPhongVe;
+
+  
 
   useEffect(() => {
     dispatch(layThongTinNguoiDungAction());
@@ -328,6 +330,7 @@ function KetQuaDatVe(props) {
   };
 
   console.log("thongTinDatVe", thongTinDatVe);
+  console.log('thongTinNguoiDung',thongTinNguoiDung)
 
   return (
     <div className="bg-cover bg-fixed bg-center bg-no-repeat" style={{ backgroundImage: `url(${thongTinPhim.hinhAnh})`, minHeight: "100vh" }}>
@@ -348,3 +351,4 @@ function KetQuaDatVe(props) {
     </div>
   );
 }
+ 
