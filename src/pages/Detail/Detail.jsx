@@ -17,7 +17,7 @@ export default function Detail(props) {
     const action = layThongTinLichChieuPhim(id);
     dispatch(action);
   }, []);
-
+  
   return (
     <div>
       <div style={{ backgroundImage: `url(${filmDetail.hinhAnh})`, minHeight: "100vh" }} className="bg-cover bg-center bg-no-repeat w-full">

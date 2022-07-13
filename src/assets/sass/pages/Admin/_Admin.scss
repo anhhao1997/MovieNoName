@@ -8,7 +8,6 @@
     font-size: 18px;
 }
 
-
 .header-admin {
     font-size: 18px !important;
 }
@@ -42,7 +41,7 @@
     }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1280px) {
     .header-admin {
         padding: 0 40px !important;
     }
@@ -50,11 +49,13 @@
     .userLoin {
         margin-right: 0 !important;
     }
-
+    .ant-layout-content {
+        padding: 48px 0px!important;
+    }
     .admin-layout {
         .admin-layout-content {
             h3 {
-                padding: 20px 30px;
+                padding: 20px 10px;
             }
         }
     }

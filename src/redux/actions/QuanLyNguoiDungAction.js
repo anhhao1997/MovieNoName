@@ -1,5 +1,5 @@
 import { quanLyNguoiDungService } from "../../services/QuanLyNguoiDungService";
-import { DANG_KY_ACTION, DANG_NHAP_ACTION, SET_THONG_TIN_NGUOI_DUNG } from "./types/QuanLyNguoiDungType";
+import { DANG_KY_ACTION, DANG_NHAP_ACTION, SET_THONG_TIN_NGUOI_DUNG, SET_USERS } from "./types/QuanLyNguoiDungType";
 import { history } from "../../App";
 // sử dụng history chuyển hướng nếu đăng nhập thành công
 export const dangNhapAction = (thongTinDangNhap) => {
@@ -16,7 +16,7 @@ export const dangNhapAction = (thongTinDangNhap) => {
         history.push("/");
       }
 
-      console.log("result", result);
+      // console.log("result", result);
     } catch (error) {
       console.log("error", error.response.data);
     }
@@ -36,7 +36,7 @@ export const dangKyAction = (thongTinDangKy) => {
         dispatch(action);
         alert("Chúc mừng bạn đăng ký thành công, giờ hãy đăng nhập nhé");
         history.push("/login");
-        console.log("result", result.data.content);
+        // console.log("result", result.data.content);
       }
     } catch (error) {
       console.log("error", error.response.data);
@@ -64,3 +64,19 @@ export const layThongTinNguoiDungAction = () => {
     }
   };
 };
+
+export const layDanhSachNguoiDungAction = () => {
+  return async (dispatch) => {
+    try {
+      const result = await quanLyNguoiDungService.layDanhSachNguoiDung();
+      const action = {
+        type: SET_USERS,
+        arrUsers: result.data.content
+      }
+      dispatch(action);
+    } catch (error) {
+      console.log("error", error.response.data);
+      
+    }
+  }
+}

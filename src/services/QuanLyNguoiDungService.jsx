@@ -1,3 +1,4 @@
+import { GROUPID } from "../util/settings/config";
 import { baseService } from "./baseService";
 
 export class QuanLyNguoiDungService extends baseService {
@@ -16,6 +17,9 @@ export class QuanLyNguoiDungService extends baseService {
   };
   layThongTinNguoiDung = () => {
     return this.post(`api/QuanLyNguoiDung/ThongTinTaiKhoan`)
+  }
+  layDanhSachNguoiDung = () => {
+    return this.get(`api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=${GROUPID}`)
   }
 }
 
