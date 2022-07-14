@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { FaBars } from "react-icons/fa";
@@ -13,12 +13,26 @@ import { useDispatch } from "react-redux";
 function UserSidebar({ userLogin, userCallback }) {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(true);
-
+  const btnRef = useRef();
   const showSidebar = () => setOpen(!open);
+  userCallback(open);
+
+  const width = window.innerWidth;
 
   useEffect(() => {
-    userCallback(open);
-  }, [open]);
+    const closeSidebarMobile = (e) => {
+      //khi click vào body không tồn tại btnRef thì sẽ close
+      if (!btnRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+
+    if (width < 500) {
+      window.addEventListener("click", closeSidebarMobile);
+    }
+
+    return () => window.removeEventListener("click", closeSidebarMobile);
+  }, [width]);
 
   const navListLinks = [
     { index: 1, name: "Thông tin tài khoản", icon: <BsFillPersonFill size={20} />, path: "/user/profile" },
@@ -27,7 +41,12 @@ function UserSidebar({ userLogin, userCallback }) {
     { index: 4, name: "Cài đặt", icon: <IoSettingsSharp size={20} /> },
   ];
   return (
-    <div className={`${open ? "w-[280px]" : "w-[60px]"} duration-300 sidebar fixed top-0 left-0 h-full bg-gray-800 px-2 py-1 text-white`}>
+    <div
+      className={`${
+        open ? "bg-opacity-60 bg-clip-padding backdrop-blur-[4px] w-[280px] md:w-[280px] md:bg-gray-800" : "md:bg-gray-800 w-[60px] md:w-[60px]"
+      } duration-300 sidebar fixed top-0 left-0 h-screen bg-gray-800 px-2 py-1 text-white z-50`}
+      ref={btnRef}
+    >
       <div className="logo_content py-2">
         <div className={`${open ? "justify-between" : "justify-center"} logo flex flex-row h-[50px] w-full items-center`}>
           <div className={`${!open && "hidden"} logo_name`}>
@@ -36,7 +55,12 @@ function UserSidebar({ userLogin, userCallback }) {
             </Link>
           </div>
 
-          <FaBars className="h-[25px] w-[25px] leading-[25px] cursor-pointer hover:scale-125 duration-200" onClick={showSidebar} />
+          <FaBars
+            className="h-[25px] w-[25px] leading-[25px] cursor-pointer hover:scale-125 duration-200"
+            onClick={() => {
+              setOpen(!open);
+            }}
+          />
         </div>
       </div>
       <ul className="nav_list mt-[20px]">
@@ -70,8 +94,8 @@ function UserSidebar({ userLogin, userCallback }) {
           </div>
           <div
             className={`${
-              !open && "left-[40%]"
-            } absolute left-[90%] bottom-0 -translate-y-1/2 -translate-x-1/2 min-w-[30px] leading-[60px] rounded-md hover:scale-125 duration-200`}
+              !open && "left-[10px]"
+            } absolute right-0 text-center bottom-[25%] left-[85%] mx-auto min-w-[30px] leading-[60px] rounded-md hover:scale-125 duration-200 cursor-pointer`}
           >
             <BiLogOut
               size={30}

@@ -87,8 +87,8 @@ function NavBar() {
                         </NavLink>
                       )}
 
-                      <NavLink className="item-drop" to="#">
-                        <button>Lịch sử </button>
+                      <NavLink className="item-drop" to="/user/profile">
+                        <button>Thông tin cá nhân</button>
                       </NavLink>
                       <a className="item-drop">
                         <button

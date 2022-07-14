@@ -3,10 +3,12 @@ import DetailInfoFilm from "./../../templates/HomeTemplate/Layout/DetailInfoFilm
 import DetailTheater from "./../../templates/HomeTemplate/Layout/DetailTheater/DetailTheater";
 import { useDispatch, useSelector } from "react-redux";
 import { layThongTinLichChieuPhim } from "../../redux/actions/QuanLyRapActions";
+import { Tabtitle } from "../../util/FunctionTitle";
 
 export default function Detail(props) {
   // bóc tách filmDetail trong QuanLyPhimReducer
   const filmDetail = useSelector((state) => state.QuanLyPhimReducer.filmDetail);
+  Tabtitle(filmDetail.tenPhim)
 
   //Khi vừa load lên thì dispatch(action) layThongTinLichChieuPhim thông qua id được lấy từ param trên url
   const dispatch = useDispatch();

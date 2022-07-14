@@ -1,6 +1,6 @@
 // import { Layout } from "antd";
 // import Sider from "antd/lib/layout/Sider";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Fragment } from "react";
 import { useSelector } from "react-redux";
 import { Redirect, Route } from "react-router-dom";
@@ -18,6 +18,7 @@ export const UserTemplate = (props) => {
   const callbackFunction = (sidebarStatus) => {
     setSidebar(sidebarStatus);
   };
+  console.log(sidebar);
 
   if (!localStorage.getItem(USER_LOGIN)) {
     return <Redirect to="/login" />;
@@ -32,9 +33,13 @@ export const UserTemplate = (props) => {
       render={(propsRoute) => {
         return (
           <Fragment>
-            <div className="relative flex flex-row" style={{ maxWidth: "100vw", minHeight: "100vh" }}>
+            <div className="relative flex flex-row" style={{ maxWidth: "100vw", height: "100vh" }}>
               <UserSidebar userLogin={userLogin} userCallback={callbackFunction} />
-              <div className={`${sidebar ? "left-[280px] w-[calc(100%-280px)]" : "left-[60px] w-[calc(100%-60px)] "} absolute duration-300 w-full`}>
+              <div
+                className={`${
+                  sidebar ? "left-[60px] w-[calc(100%-60px)] md:left-[280px] md:w-[calc(100%-280px)]" : "left-[60px] md:w-[calc(100%-60px)]"
+                } absolute duration-300`}
+              >
                 <Component {...propsRoute} />
               </div>
             </div>
