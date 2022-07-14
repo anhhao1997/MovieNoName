@@ -67,7 +67,7 @@ export default function AddUser(props) {
                             </h4>
                         </div>
                         <div className="form-user text-white text-left">
-                            <form onSubmit={formik.onSubmit}>
+                            <form onSubmit={formik.handleSubmit}>
                                 <div className="row">
                                     <div className="col-6">
                                         <div className="form-item account">

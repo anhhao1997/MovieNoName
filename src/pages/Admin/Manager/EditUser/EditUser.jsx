@@ -51,7 +51,7 @@ export default function EdiUser(props) {
         },
         validationSchema: signupSchema,
         onSubmit: (value) => {
-            // dispatch(suaNguoiDungAction(value));
+            dispatch(suaNguoiDungAction(value));  
             console.log("value: ", value);
         },
     });
@@ -71,7 +71,7 @@ export default function EdiUser(props) {
                             </h4>
                         </div>
                         <div className="form-user text-white text-left">
-                            <form onSubmit={formik.onSubmit}>
+                            <form onSubmit={formik.handleSubmit}>
                                 <div className="row">
                                     <div className="col-6">
                                         <div className="form-item account">
