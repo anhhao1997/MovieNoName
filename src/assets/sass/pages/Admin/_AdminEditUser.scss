@@ -1,0 +1,17 @@
+.admin-manager {
+    .title-manager {
+        background-color: #0079b1 ;
+        border: 1px solid #0079b1;
+        box-shadow: 0px 0px 5px 0px #0079b1;
+    }
+    .form-item-submit {
+        button {
+            background-color: #0079b1;
+            box-shadow: 0 0 0 2px #0079b1;         
+        }
+        button:hover {
+            box-shadow: 0 0 0 2px #0096b1;
+            background-color: #0096b1;
+        }
+    }
+}

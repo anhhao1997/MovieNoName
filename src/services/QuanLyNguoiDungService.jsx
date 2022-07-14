@@ -21,6 +21,30 @@ export class QuanLyNguoiDungService extends baseService {
   layDanhSachNguoiDung = () => {
     return this.get(`api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=${GROUPID}`)
   }
+  capNhatThongTinNguoiDung =()=> {
+    return this.post(`api/QuanLyNguoiDung/CapNhatThongTinNguoiDung`)
+  }
+  layLoaiNguoiDung = () => {
+    return this.get(`api/QuanLyNguoiDung/LayDanhSachLoaiNguoiDung`)
+  }
+  xoaNguoiDung = (taiKhoan) => {
+    return this.delete(`api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`)
+  }
+  themNguoiDung = (thongTinNguoiDung) => {
+    return this.post(`api/QuanLyNguoiDung/themNguoiDung`,thongTinNguoiDung)
+  }
+  suaNguoiDung = (thongTinNguoiDung) => {
+    return this.post(`api/QuanLyNguoiDung/suaNguoiDung`,thongTinNguoiDung)
+  }
+  timNguoiDung = (tuKhoa) => {
+    if(tuKhoa !== '') {
+      return this.get(`api/QuanLyNguoiDung/TimKiemNguoiDung?MaNhom=${GROUPID}&tuKhoa=${tuKhoa}`)
+    }
+    return this.get(`api/QuanLyNguoiDung/TimKiemNguoiDung?MaNhom=${GROUPID}`)
+  }
+  layNguoiDungSua = (taiKhoan) => {
+    return this.post(`api/QuanLyNguoiDung/LayThongTinNguoiDung?taiKhoan=${taiKhoan}`)
+  }
 }
 
 export const quanLyNguoiDungService = new QuanLyNguoiDungService();

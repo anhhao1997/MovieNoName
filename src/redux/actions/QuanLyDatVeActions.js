@@ -26,7 +26,7 @@ export const datVeAction = (thongTinDatVe = new ThongTinDatVe()) => {
   return async (dispatch) => {
     try {
       dispatch(displayLoadingAction);
-      console.log("thong tin dat ve");
+      // console.log("thong tin dat ve");
       const result = await quanLyDatVeService.datVe(thongTinDatVe);
       await dispatch(layChiTietPhongVeAction(thongTinDatVe.maLichChieu));
       await dispatch({

@@ -2,17 +2,11 @@ import React from 'react'
 import { Fragment } from "react";
 import filmIcon from '../../../../../src/assets/img/films-icon.jpg'
 import {
-    Button,
-    Cascader,
-    Checkbox,
     DatePicker,
     Form,
     Input,
     InputNumber,
-    Radio,
-    Select,
     Switch,
-    TreeSelect,
 } from 'antd';
 import { useState } from 'react';
 import { useFormik } from "formik";

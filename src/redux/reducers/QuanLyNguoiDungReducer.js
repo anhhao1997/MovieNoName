@@ -2,7 +2,9 @@ import { TOKEN, USER_LOGIN } from "../../util/settings/config";
 import {
     DANG_NHAP_ACTION,
     DANG_XUAT_ACTION,
+    SET_EDIT_USER,
     SET_THONG_TIN_NGUOI_DUNG,
+    SET_USER_TYPE,
 } from "../actions/types/QuanLyNguoiDungType";
 import { SET_USERS } from "./../actions/types/QuanLyNguoiDungType";
 
@@ -26,6 +28,8 @@ const stateDefault = {
     danhSachNguoiDung: [],
     userLogin: user,
     thongTinNguoiDung: {},
+    loaiNguoiDung: [],
+    editUser:{}
 };
 
 export const QuanLyNguoiDungReducer = (state = stateDefault, action) => {
@@ -46,6 +50,16 @@ export const QuanLyNguoiDungReducer = (state = stateDefault, action) => {
         }
         case SET_USERS: {
             state.danhSachNguoiDung = action.arrUsers;
+            return { ...state };
+        }
+        case SET_USER_TYPE: {
+            state.loaiNguoiDung = action.userType;
+            // console.log('stateLoaiNguoiDung',state.loaiNguoiDung);
+            return { ...state };
+        }
+        case SET_EDIT_USER: {
+            state.editUser = action.editUser;
+            console.log('editUser',state.editUser)
             return { ...state };
         }
         default:

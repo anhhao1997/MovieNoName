@@ -20,7 +20,12 @@ import AddFilms from "./pages/Admin/Films/AddFilms/AddFilms";
 
 // const CheckoutTemplateLazy = lazy(() => import("./templates/CheckoutTemplate/CheckoutTemplate"))
 import Manager from "./pages/Admin/Manager/Manager";
-import EditFilm from './pages/Admin/Films/EditFilm/EditFilm';
+import EditFilm from "./pages/Admin/Films/EditFilm/EditFilm";
+import User from "./pages/User/User";
+import UserHistory from "./templates/UserTemplate/Layout/UserHistory";
+import UserProfile from "./templates/UserTemplate/Layout/UserProfile";
+import AddUser from "./pages/Admin/Manager/AddUser/AddUser";
+import EditUser from './pages/Admin/Manager/EditUser/EditUser';
 
 export const history = createBrowserHistory();
 
@@ -32,13 +37,18 @@ function App() {
         <HomeTemplate path="/home" Component={Home} />
         <HomeTemplate path="/detail/:id" exact Component={Detail} />
 
-        {/* <Route path="/login" exact component={Login} /> */}
+        <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
         <Route path="/profile" exact component={Profile} />
 
         <CheckoutTemplate path="/checkout/:id" exact Component={Checkout} />
 
-        <UserTemplate path="/login" exact Component={Login} />
+        {/* <UserTemplate path="/login" exact Component={Login} /> */}
+        <UserTemplate path="/user" exact Component={User} />
+        {/* <UserTemplate path="/user/profile" exact Component={UserProfile} /> */}
+        <UserTemplate path="/user/profile" exact Component={UserProfile} />
+
+        <UserTemplate path="/user/history" exact Component={UserHistory} />
 
         {/* <Suspense fallback={<h1>LOADING...</h1>}>
           <CheckoutTemplateLazy path="/checkout/:id" exact Component={Checkout} />
@@ -50,6 +60,9 @@ function App() {
         <AdminTemplate path="/admin/films/addfilms" exact Component={AddFilms} />
         <AdminTemplate path="/admin/films/editfilm/:id" exact Component={EditFilm} />
         <AdminTemplate path="/admin/films/showtime/:id" exact Component={ShowTime} />
+        <AdminTemplate path="/admin/manager/adduser" exact Component={AddUser} />
+        <AdminTemplate path="/admin/manager/edituser/:id" exact Component={EditUser} />
+
         <HomeTemplate path="/" Component={Home} />
       </Switch>
     </Router>
