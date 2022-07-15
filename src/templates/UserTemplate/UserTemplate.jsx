@@ -36,9 +36,7 @@ export const UserTemplate = (props) => {
             <div className="relative flex flex-row" style={{ maxWidth: "100vw", height: "100vh" }}>
               <UserSidebar userLogin={userLogin} userCallback={callbackFunction} />
               <div
-                className={`${
-                  sidebar ? "left-[60px] w-[calc(100%-60px)] md:left-[280px] md:w-[calc(100%-280px)]" : "left-[60px] md:w-[calc(100%-60px)]"
-                } absolute duration-300`}
+                className={`${sidebar ? "left-[60px] w-[calc(100%-60px)] md:left-[280px] md:w-[calc(100%-280px)]" : "left-[60px] md:w-[calc(100%-60px)]"} absolute duration-300`}
               >
                 <Component {...propsRoute} />
               </div>

@@ -14,6 +14,8 @@ import { Tabs } from "antd";
 import { layThongTinNguoiDungAction } from "../../redux/actions/QuanLyNguoiDungAction";
 import { DANG_XUAT_ACTION } from "../../redux/actions/types/QuanLyNguoiDungType";
 import TicketsList from "../../components/Tickets/TicketsList";
+import { Tabtitle } from "../../util/FunctionTitle";
+import { NavLink } from "react-router-dom";
 
 /**
  *1. Tạo mảng danhSachDangDat [] bên reducer QuanLyDatVe
@@ -32,6 +34,7 @@ function Checkout(props) {
   const { chiTietPhongVe, danhSachGheDangDat } = useSelector((state) => state.QuanLyDatVeReducer);
 
   const { danhSachGhe, thongTinPhim } = chiTietPhongVe;
+  Tabtitle(thongTinPhim.tenPhim);
 
   const dispatch = useDispatch();
 
@@ -223,9 +226,9 @@ export default function (props) {
                 </span>
               </a>
               <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a className="item-drop-1" href="#">
-                  Lịch sử{" "}
-                </a>
+                <NavLink className="item-drop-1" to="/user/profile">
+                  Thông tin cá nhân{" "}
+                </NavLink>
                 <button
                   className="item-drop-2"
                   href="#"
@@ -267,7 +270,7 @@ export default function (props) {
     </div>
   );
 }
-export  function KetQuaDatVe(props) {
+export function KetQuaDatVe(props) {
   const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
   const { chiTietPhongVe } = useSelector((state) => state.QuanLyDatVeReducer);
   const { thongTinPhim } = chiTietPhongVe;
@@ -282,11 +285,10 @@ export  function KetQuaDatVe(props) {
               <h1 className="text-white text-center my-2">Chúc mừng {userLogin.hoTen} đặt vé thành công</h1>
               <p className="text-center">Hãy xem thông tin đặt vé bên dưới để xem phim vui vẻ bạn nhé!</p>
             </div>
-            <TicketsList/>
+            <TicketsList />
           </div>
         </div>
       </div>
     </div>
   );
 }
- 

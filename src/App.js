@@ -24,6 +24,8 @@ import EditFilm from "./pages/Admin/Films/EditFilm/EditFilm";
 import User from "./pages/User/User";
 import UserHistory from "./templates/UserTemplate/Layout/UserHistory";
 import UserProfile from "./templates/UserTemplate/Layout/UserProfile";
+import AddUser from "./pages/Admin/Manager/AddUser/AddUser";
+import EditUser from './pages/Admin/Manager/EditUser/EditUser';
 
 export const history = createBrowserHistory();
 
@@ -58,6 +60,9 @@ function App() {
         <AdminTemplate path="/admin/films/addfilms" exact Component={AddFilms} />
         <AdminTemplate path="/admin/films/editfilm/:id" exact Component={EditFilm} />
         <AdminTemplate path="/admin/films/showtime/:id" exact Component={ShowTime} />
+        <AdminTemplate path="/admin/manager/adduser" exact Component={AddUser} />
+        <AdminTemplate path="/admin/manager/edituser/:id" exact Component={EditUser} />
+
         <HomeTemplate path="/" Component={Home} />
       </Switch>
     </Router>

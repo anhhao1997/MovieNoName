@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
-import { layThongTinNguoiDungAction } from "../../../redux/actions/QuanLyNguoiDungAction";
+import { layThongTinNguoiDungAction, suaNguoiDungAction } from "../../../redux/actions/QuanLyNguoiDungAction";
 
 import { IoCamera } from "react-icons/io5";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { Tabtitle } from "../../../util/FunctionTitle";
+import { GROUPID } from "../../../util/settings/config";
 
 function UserProfile() {
   Tabtitle("Thông tin cá nhân");
@@ -65,11 +66,11 @@ function UserProfile() {
       maLoaiNguoiDung: thongTinNguoiDung.maLoaiNguoiDung,
       email: thongTinNguoiDung.email,
       soDT: thongTinNguoiDung.soDT,
-      maNhom: thongTinNguoiDung.maNhom,
+      maNhom: GROUPID,
     },
     onSubmit: (values) => {
+      dispatch(suaNguoiDungAction(values));
       console.log("values", values);
-      alert("Cập nhật thành công");
     },
     validate,
     validationSchema: schema,
@@ -79,7 +80,7 @@ function UserProfile() {
     <div className="h-full md:h-screen w-full flex flex-col bg-slate-100">
       <div className="flex flex-col items-center pt-3">
         <div className="user_content relative">
-          <img src="https://picsum.photos/100/100" className="rounded-full relative" alt="profileImg" />
+          <img src="https://picsum.photos/100/100" className="w-[80px] md:w-full rounded-full relative" alt="profileImg" />
           <div className="absolute flex items-center justify-center bottom-[0px] right-[5px] hover:bg-gray-400 duration-200 bg-gray-500 w-[35px] h-[35px] leading-[35px] rounded-full cursor-pointer">
             <IoCamera size={20} className="text-gray-100" />
           </div>
@@ -87,14 +88,14 @@ function UserProfile() {
         <p className="text-sm font-bold mt-2">{thongTinNguoiDung.hoTen}</p>
       </div>
       <div className="max-w-screen-sm md:max-w-screen-lg mx-auto py-3">
-        <p className="text-xs md:text-lg font-bold uppercase pb-3 text-center">Thông tin cá nhân của bạn</p>
+        <p className="text-xs md:text-lg font-bold uppercase pb-2 md:pb-3 text-center">Thông tin cá nhân của bạn</p>
         <form onSubmit={formik.handleSubmit}>
           <div className="flex flex-col px-2 md:flex-row md:gap-3">
             <div className="w-[300px] md:w-[400px]">
               <div className="mb-2 md:mb-3">
-                <label className="block mb-2 text-sm font-bold text-gray-800">Họ và tên </label>
+                <label className="block mb-1 text-xs md:mb-2 md:text-sm font-semibold text-gray-800">Họ và tên </label>
                 <div className="relative duration-200">
-                  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-white">
+                  <div className="absolute inset-y-0 left-0 flex items-center pl-2 md:pl-3 pointer-events-none text-white">
                     <span className="fas fa-signature" />
                   </div>
                   <input
@@ -102,16 +103,15 @@ function UserProfile() {
                     type="text"
                     onChange={formik.handleChange}
                     value={formik.values.hoTen}
-                    className="bg-gray-600 border text-xs text-white rounded-lg border-none block w-full pl-10 p-2.5 focus:outline-none"
-                    disabled
+                    className="bg-gray-600 border text-xs text-white rounded-lg border-none block w-full pl-6 md:pl-10 p-2.5 focus:outline-none"
                   />
                   {formik.errors.hoTen ? <div className="text-red-600 font-bold">{formik.errors.hoTen}</div> : null}
                 </div>
               </div>
               <div className="mb-2 md:mb-3">
-                <label className="block mb-2 text-sm font-bold text-gray-800">Tài khoản</label>
+                <label className="block mb-1 text-xs md:mb-2 md:text-sm font-semibold text-gray-800">Tài khoản</label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-white">
+                  <div className="absolute inset-y-0 left-0 flex items-center pl-2 md:pl-3 pointer-events-none text-white">
                     <span className="fa fa-user" />
                   </div>
                   <input
@@ -119,16 +119,16 @@ function UserProfile() {
                     type="text"
                     onChange={formik.handleChange}
                     value={formik.values.taiKhoan}
-                    className="bg-gray-600 focus:outline-none border text-xs text-white rounded-lg border-none block w-full pl-10 p-2.5"
+                    className="bg-gray-600 focus:outline-none border text-xs text-white rounded-lg border-none block w-full pl-6 md:pl-10 p-2.5"
                     disabled
                   />
                   {formik.errors.taiKhoan ? <div className="text-red-600 font-bold">{formik.errors.taiKhoan}</div> : null}
                 </div>
               </div>
               <div className="mb-2 md:mb-3">
-                <label className="block mb-2 text-sm font-bold text-gray-800">Mật khẩu </label>
+                <label className="block mb-1 text-xs md:mb-2 md:text-sm font-semibold text-gray-800">Mật khẩu </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-white">
+                  <div className="absolute inset-y-0 left-0 flex items-center pl-2 md:pl-3 pointer-events-none text-white">
                     <span className="fa fa-lock" />
                   </div>
                   <input
@@ -136,36 +136,21 @@ function UserProfile() {
                     type={passwordType}
                     onChange={formik.handleChange}
                     value={formik.values.matKhau}
-                    className="bg-gray-600 focus:outline-none border text-xs text-white rounded-lg border-none block w-full pl-10 p-2.5"
+                    className="bg-gray-600 focus:outline-none border text-xs text-white rounded-lg border-none block w-full pl-6 md:pl-10 p-2.5"
                     id="myPassword"
                   />
-                  <div className="absolute inset-y-0 right-0 flex items-center pr-2 cursor-pointer text-white" onClick={togglePassword}>{passwordType === "password" ? <AiOutlineEyeInvisible size={20} /> : <AiOutlineEye size={20} />}</div>
-                </div>
-              </div>
-
-              <div className="mb-2 md:mb-3">
-                <label className="block mb-2 text-sm font-bold text-gray-800">Mã loại người dùng </label>
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-white">
-                    <span className="fa fa-user" />
+                  <div className="absolute inset-y-0 right-0 flex items-center pr-2 cursor-pointer text-white" onClick={togglePassword}>
+                    {passwordType === "password" ? <AiOutlineEyeInvisible size={20} /> : <AiOutlineEye size={20} />}
                   </div>
-                  <input
-                    name="maLoaiNguoiDung"
-                    type="text"
-                    onChange={formik.handleChange}
-                    value={formik.values.maLoaiNguoiDung}
-                    className="bg-gray-600 border focus:outline-none text-xs text-white rounded-lg border-none block w-full pl-10 p-2.5"
-                    disabled
-                  />
                 </div>
               </div>
             </div>
 
             <div className="w-[300px] md:w-[400px]">
               <div className="mb-2 md:mb-3">
-                <label className="block mb-2 text-sm font-bold text-gray-800">Email </label>
+                <label className="block mb-1 text-xs md:mb-2 md:text-sm font-semibold text-gray-800">Email </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-white">
+                  <div className="absolute inset-y-0 left-0 flex items-center pl-2 md:pl-3 pointer-events-none text-white">
                     <span className="fas fa-envelope" />
                   </div>
                   <input
@@ -173,16 +158,15 @@ function UserProfile() {
                     type="text"
                     onChange={formik.handleChange}
                     value={formik.values.email}
-                    className="bg-gray-600 border focus:outline-none text-xs text-white rounded-lg border-none block w-full pl-10 p-2.5"
-                    disabled
+                    className="bg-gray-600 border focus:outline-none text-xs text-white rounded-lg border-none block w-full pl-6 md:pl-10 p-2.5"
                   />
                   {formik.errors.email ? <div className="text-red-600 font-bold">{formik.errors.email}</div> : null}
                 </div>
               </div>
               <div className="mb-2 md:mb-3">
-                <label className="block mb-2 text-sm font-bold text-gray-800">Số điện thoại</label>
+                <label className="block mb-1 text-xs md:mb-2 md:text-sm font-semibold text-gray-800">Số điện thoại</label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-white">
+                  <div className="absolute inset-y-0 left-0 flex items-center pl-2 md:pl-3 pointer-events-none text-white">
                     <span className="fas fa-phone" />
                   </div>
                   <input
@@ -190,23 +174,22 @@ function UserProfile() {
                     type="text"
                     onChange={formik.handleChange}
                     value={formik.values.soDT}
-                    className="bg-gray-600 border focus:outline-none text-xs text-white rounded-lg border-none block w-full pl-10 p-2.5"
-                    disabled
+                    className="bg-gray-600 border focus:outline-none text-xs text-white rounded-lg border-none block w-full pl-6 md:pl-10 p-2.5"
                   />
                 </div>
               </div>
               <div className="mb-2 md:mb-3">
-                <label className="block mb-2 text-sm font-bold text-gray-800">Mã nhóm</label>
+                <label className="block mb-1 text-xs md:mb-2 md:text-sm font-semibold text-gray-800">Mã loại người dùng </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-white">
-                    <span className="fas fa-user-friends" />
+                  <div className="absolute inset-y-0 left-0 flex items-center pl-2 md:pl-3 pointer-events-none text-white">
+                    <span className="fa fa-user" />
                   </div>
                   <input
-                    name="maNhom"
+                    name="maLoaiNguoiDung"
                     type="text"
                     onChange={formik.handleChange}
-                    value={formik.values.maNhom}
-                    className="bg-gray-600 border focus:outline-none text-xs text-white rounded-lg border-none block w-full pl-10 p-2.5"
+                    value={formik.values.maLoaiNguoiDung}
+                    className="bg-gray-600 border focus:outline-none text-xs text-white rounded-lg border-none block w-full pl-6 md:pl-10 p-2.5"
                     disabled
                   />
                 </div>
@@ -214,13 +197,11 @@ function UserProfile() {
             </div>
           </div>
 
-          {/* <div className="flex flex-row justify-end">
-
-            <button className="text-white bg-blue-500 px-3 py-2 ml-2 flex items-center rounded-md hover:scale-110 duration-300">Chỉnh sửa</button>
-            <button type="submit" onSubmit={formik.handleSubmit} className="text-white bg-green-700 px-3 py-2 ml-2 flex items-center rounded-md hover:scale-110 duration-300">
+          <div className="flex flex-row justify-end">
+            <button type="submit" className="text-white bg-green-700 px-3 py-2 ml-2 flex items-center rounded-md hover:scale-110 duration-300">
               Cập nhật
             </button>
-          </div> */}
+          </div>
         </form>
       </div>
     </div>

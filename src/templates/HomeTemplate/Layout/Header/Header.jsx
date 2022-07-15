@@ -1,5 +1,5 @@
-
 import React from "react";
+import logo from "../../../../assets/img/logo_Noname.png";
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-scroll";
@@ -19,7 +19,7 @@ function NavBar() {
     {
       id: 1,
       link: "phimHot",
-      title: "phim hot"
+      title: "phim hot",
     },
     {
       id: 2,
@@ -31,7 +31,6 @@ function NavBar() {
       id: 3,
       link: "lienHe",
       title: "liên hệ",
-
     },
   ];
   return (
@@ -39,12 +38,14 @@ function NavBar() {
       <div className="container flex flex-row justify-between items-center">
         <div>
           <h1 className="text-xl ml-2 font-signature cursor-pointer text-white">
-            <Link to="/">No name</Link>
+            <NavLink to="/home">
+              <div style={{ backgroundImage: `url(${logo})`, width: "100px", height: "70px", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}></div>
+            </NavLink>
           </h1>
         </div>
 
         <ul className="hidden md:flex flex-row items-center">
-          {links.map(({ id, link,title }) => {
+          {links.map(({ id, link, title }) => {
             return (
               <li key={id} className="px-4 pb-1 relative text-sm cursor-pointer capitalize font-medium text-white hover:scale-105 duration-200 group">
                 <Link to={link} smooth duration={300}>
@@ -70,44 +71,44 @@ function NavBar() {
             </label>
           </div>
           <div className="nav-login px-4">
-              <div className="header-checkout">
-                <div className="info-user text-center">
-                  <div className="dropdown show">
-                    <a className="dropdown-toggle flex" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <span className="user-span">
-                        <i className="fa fa-user" />
-                      </span>
-                    </a>
-                    <div className="dropdown-menu dropdown-menu-center" aria-labelledby="dropdownMenuLink">
-                      {localStorage.getItem(USER_LOGIN) ? (
-                        <span className="item-drop">{"Xin chào " + userLogin.hoTen}</span>
-                      ) : (
-                        <NavLink to="/register" className="">
-                          <span className="item-drop"> Đăng kí / Đăng nhập</span>
-                        </NavLink>
-                      )}
-
-                      <NavLink className="item-drop" to="/user/profile">
-                        <button>Thông tin cá nhân</button>
+            <div className="header-checkout">
+              <div className="info-user text-center">
+                <div className="dropdown show">
+                  <a className="dropdown-toggle flex" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span className="user-span">
+                      <i className="fa fa-user" />
+                    </span>
+                  </a>
+                  <div className="dropdown-menu dropdown-menu-center" aria-labelledby="dropdownMenuLink">
+                    {localStorage.getItem(USER_LOGIN) ? (
+                      <span className="item-drop">{"Xin chào " + userLogin.hoTen}</span>
+                    ) : (
+                      <NavLink to="/register" className="">
+                        <span className="item-drop"> Đăng kí / Đăng nhập</span>
                       </NavLink>
-                      <a className="item-drop">
-                        <button
-                          onClick={() => {
-                            const action = {
-                              type: DANG_XUAT_ACTION,
-                            };
-                            dispatch(action);
-                            history.push("/home");
-                          }}
-                        >
-                          Đăng xuất
-                        </button>
-                      </a>
-                    </div>
+                    )}
+
+                    <NavLink className="item-drop" to="/user/profile">
+                      <button>Thông tin cá nhân</button>
+                    </NavLink>
+                    <a className="item-drop">
+                      <button
+                        onClick={() => {
+                          const action = {
+                            type: DANG_XUAT_ACTION,
+                          };
+                          dispatch(action);
+                          history.push("/home");
+                        }}
+                      >
+                        Đăng xuất
+                      </button>
+                    </a>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
         </ul>
 
         <div className="md:hidden cursor-pointer pr-4 z-10 text-white" onClick={() => setNav(!nav)}>
@@ -116,7 +117,7 @@ function NavBar() {
 
         {nav && (
           <ul className="md:hidden flex flex-col py-10 justify-start items-start absolute top-0 left-0 w-full h-screen bg-black bg-clip-padding backdrop-blur-md bg-opacity-60 drop-shadow-md text-white ease-in-out transition">
-            {links.map(({ id, link,title }) => (
+            {links.map(({ id, link, title }) => (
               <li key={id} className="px-4 py-2 cursor-pointer capitalize text-sm" onClick={() => setNav(!nav)}>
                 <Link to={link} smooth duration={500} onClick={() => setNav(!nav)}>
                   {title}
@@ -156,7 +157,7 @@ function NavBar() {
                         </NavLink>
                       )}
 
-                      <NavLink className="item-drop" to="#">
+                      <NavLink className="item-drop" to="/user/profile">
                         <button>Thông tin tài khoản </button>
                       </NavLink>
                       <a className="item-drop">

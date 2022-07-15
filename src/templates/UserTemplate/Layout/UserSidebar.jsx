@@ -27,7 +27,8 @@ function UserSidebar({ userLogin, userCallback }) {
       }
     };
 
-    if (width < 500) {
+    if (width < 768) {
+      setOpen(false);
       window.addEventListener("click", closeSidebarMobile);
     }
 
@@ -94,9 +95,10 @@ function UserSidebar({ userLogin, userCallback }) {
           </div>
           <div
             className={`${
-              !open && "left-[10px]"
-            } absolute right-0 text-center bottom-[25%] left-[85%] mx-auto min-w-[30px] leading-[60px] rounded-md hover:scale-125 duration-200 cursor-pointer`}
+              !open && "absolute flex items-center justify-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 "
+            } absolute text-center bottom-[25%] left-[85%] mx-auto min-w-[30px] leading-[60px] rounded-md hover:scale-125 duration-200 cursor-pointer `}
           >
+            {/* absolute text-center bottom-[25%] left-[85%] mx-auto min-w-[30px] leading-[60px] rounded-md hover:scale-125 duration-200 cursor-pointer */}
             <BiLogOut
               size={30}
               onClick={() => {
