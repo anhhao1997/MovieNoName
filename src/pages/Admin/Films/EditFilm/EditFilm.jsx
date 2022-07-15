@@ -2,18 +2,13 @@ import React, { useEffect } from 'react'
 import { Fragment } from "react";
 import filmIcon from '../../../../../src/assets/img/films-icon.jpg'
 import {
-    Button,
-    Cascader,
-    Checkbox,
     DatePicker,
     Form,
     Input,
     InputNumber,
-    Radio,
-    Select,
     Switch,
-    TreeSelect,
 } from 'antd';
+import * as yup from "yup";
 import { useState } from "react";
 import { useFormik } from "formik";
 import moment from "moment";
@@ -38,6 +33,14 @@ const EditFilm = (props) => {
     const { layThongTinPhim } = useSelector(state => state.QuanLyPhimReducer);
     // console.log('thongTinPhim', layThongTinPhim);
 
+    const signupSchema = yup.object().shape({
+        tenPhim: yup.string().required("Tên phim không được bỏ trống!"),
+        trailer: yup.string().required("Trailer không được bỏ trống!"),
+        moTa: yup.string().required("Mô tả không được bỏ trống!"),
+        ngayKhoiChieu: yup.string().required("Hãy chọn ngày khởi chiếu!"),
+        hinhAnh: yup.string().required("Hãy chọn hình ảnh!"),
+    });
+
     const formik = useFormik({
         enableReinitialize: true,
         initialValues: {
@@ -53,6 +56,7 @@ const EditFilm = (props) => {
             hinhAnh: null,
             maNhom: GROUPID
         },
+        validationSchema: signupSchema,
         onSubmit: (values) => {
             console.log('values', values);
             let formData = new FormData();

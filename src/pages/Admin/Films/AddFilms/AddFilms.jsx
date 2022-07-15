@@ -14,7 +14,7 @@ import moment from "moment";
 import { useDispatch } from "react-redux";
 import { GROUPID } from '../../../../util/settings/config';
 import { themPhimUploadHinhAction } from '../../../../redux/actions/QuanLyPhimActions';
-
+import * as yup from "yup";
 
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
@@ -22,7 +22,15 @@ const AddFilms = (props) => {
 
     const [imgSrc, setImgSrc] = useState('');
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+
+    const signupSchema = yup.object().shape({
+        tenPhim: yup.string().required("Tên phim không được bỏ trống!"),
+        trailer: yup.string().required("Trailer không được bỏ trống!"),
+        moTa: yup.string().required("Mô tả không được bỏ trống!"),
+        ngayKhoiChieu: yup.string().required("Hãy chọn ngày khởi chiếu!"),
+        hinhAnh: yup.string().required("Hãy chọn hình ảnh!"),
+    });
 
     const formik = useFormik({
         initialValues: {
@@ -37,6 +45,7 @@ const AddFilms = (props) => {
             hinhAnh: {},
             maNhom: GROUPID
         },
+        validationSchema: signupSchema,
         onSubmit: (values) => {
             console.log('values', values);
             let formData = new FormData();

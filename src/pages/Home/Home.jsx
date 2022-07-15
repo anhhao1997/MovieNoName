@@ -12,6 +12,7 @@ export default function Home(props) {
         <HomeService></HomeService>
 
         <HomeTheater></HomeTheater>
+        
         <Contact/>
       </div>
     </div>

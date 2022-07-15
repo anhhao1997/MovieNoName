@@ -72,14 +72,14 @@ export default function EdiUser(props) {
                         </div>
                         <div className="form-user text-white text-left">
                             <form onSubmit={formik.handleSubmit}>
-                                <div className="row">
+                                <div className="row form-row">
                                     <div className="col-6">
                                         <div className="form-item account">
                                             <p>
                                                 <span className="text-red-600">*</span> Tài khoản:
                                             </p>
                                             <div className="input">
-                                                <input type="text" name="taiKhoan" onChange={formik.handleChange} onBlur={formik.handleBlur} id="taiKhoan" value={formik.values.taiKhoan} />
+                                                <input className="text-white" disabled type="text" name="taiKhoan" onChange={formik.handleChange} onBlur={formik.handleBlur} id="taiKhoan" value={formik.values.taiKhoan} />
                                             </div>
                                             {formik.errors.taiKhoan && formik.touched.taiKhoan ? <div className="text-red-600 pt-1">{formik.errors.taiKhoan}</div> : ""}
                                         </div>

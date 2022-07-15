@@ -9,7 +9,6 @@ import { USER_LOGIN } from "../../../../util/settings/config";
 import { DANG_XUAT_ACTION } from "../../../../redux/actions/types/QuanLyNguoiDungType";
 import { history } from "../../../../App";
 import { NavLink } from "react-router-dom";
-
 function NavBar() {
   const [nav, setNav] = useState(false);
   const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
