@@ -96,7 +96,7 @@ $cutout-size: 1.5rem;
       margin-top: 0.25rem;
     }
     & > p {
-      font-size: $textBase;
+      font-size: 14px ;
       font-weight: 400;
 
     }
@@ -105,17 +105,13 @@ $cutout-size: 1.5rem;
     }
   }
   &__header {
-    p {
-      font-size: 14px;
-    }
+    
     h3 {
       font-size: 18px;
     }
   }
   &__header,
   &__footer {
-    font-weight: bold;
-    font-size: $textMd;
     display: flex;
   }
   &__footer {
@@ -157,7 +153,7 @@ $cutout-size: 1.5rem;
   .ticket {
     max-width: 20rem;
     &__header {
-      height: 70px;
+      height: 90px;
     }
   }
   .container {
@@ -186,11 +182,7 @@ $cutout-size: 1.5rem;
     &__header {
       height: 80px;
     }
-    .ticket__header {
-      h3 {
-        font-size: 16px;
-      }
-    }
+    
     .ticket__section > p {
       font-size: 14px;
     }

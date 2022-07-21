@@ -13,6 +13,9 @@ import { connection } from "../../index";
 import { Tabs } from "antd";
 import { layThongTinNguoiDungAction } from "../../redux/actions/QuanLyNguoiDungAction";
 import { DANG_XUAT_ACTION } from "../../redux/actions/types/QuanLyNguoiDungType";
+import TicketsList from "../../components/Tickets/TicketsList";
+import { Tabtitle } from "../../util/FunctionTitle";
+import { NavLink } from "react-router-dom";
 
 /**
  *1. Tạo mảng danhSachDangDat [] bên reducer QuanLyDatVe
@@ -31,6 +34,7 @@ function Checkout(props) {
   const { chiTietPhongVe, danhSachGheDangDat } = useSelector((state) => state.QuanLyDatVeReducer);
 
   const { danhSachGhe, thongTinPhim } = chiTietPhongVe;
+  Tabtitle(thongTinPhim.tenPhim);
 
   const dispatch = useDispatch();
 
@@ -222,9 +226,9 @@ export default function (props) {
                 </span>
               </a>
               <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a className="item-drop-1" href="#">
-                  Lịch sử{" "}
-                </a>
+                <NavLink className="item-drop-1" to="/user/profile">
+                  Thông tin cá nhân{" "}
+                </NavLink>
                 <button
                   className="item-drop-2"
                   href="#"
@@ -266,71 +270,10 @@ export default function (props) {
     </div>
   );
 }
-export  function KetQuaDatVe(props) {
-  const dispatch = useDispatch();
-  const { userLogin, thongTinNguoiDung } = useSelector((state) => state.QuanLyNguoiDungReducer);
-  const { thongTinDatVe } = thongTinNguoiDung;
-  const { chiTietPhongVe, danhSachGheDangDat } = useSelector((state) => state.QuanLyDatVeReducer);
+export function KetQuaDatVe(props) {
+  const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
+  const { chiTietPhongVe } = useSelector((state) => state.QuanLyDatVeReducer);
   const { thongTinPhim } = chiTietPhongVe;
-
-  
-
-  useEffect(() => {
-    dispatch(layThongTinNguoiDungAction());
-  }, []);
-
-  const renderTicketItem = function () {
-    // const reverseArrThongTinDatVe =_.reverse(thongTinDatVe)
-    return _.reverse(
-      thongTinDatVe?.map((ticket, index) => {
-        const seats = _.first(ticket.danhSachGhe);
-        return (
-          <article className="ticket text-black drop-shadow-lg" key={index}>
-            <header className="ticket__wrapper">
-              <div className="ticket__header uppercase">
-                <p className="font-medium">
-                  {seats.tenHeThongRap} - {seats.tenCumRap}
-                </p>
-                <h3 className="font-bold mt-1 md:mt-2">{ticket.tenPhim}</h3>
-              </div>
-            </header>
-            <div className="ticket__divider">
-              <div className="ticket__notch" />
-              <div className="ticket__notch ticket__notch--right" />
-            </div>
-            <div className="ticket__body">
-              <section className="ticket__section">
-                <p>Ngày đặt: {moment(ticket.ngayDat).format("DD/MM/YYYY - hh:mm A")}</p>
-                <p>Thời lượng: {ticket.thoiLuongPhim} phút</p>
-
-                <p>Chỗ ngồi: </p>
-                <div className="seats grid grid-cols-8">
-                  {ticket.danhSachGhe.slice(0, 8).map((ghe, index) => {
-                    return (
-                      <p className="ghe gheDaDuocDat" key={index}>
-                        {ghe.tenGhe}
-                      </p>
-                    );
-                  })}
-                </div>
-              </section>
-            </div>
-            <footer className="ticket__footer">
-              <div className="w-3/5 sm:w-4/5 md:w-2/3 lg:w-3/4 2xl:w-3/5 flex">
-                <p>Đặt vé thành công</p> <i className="fas fa-check-circle"></i>
-              </div>
-              <div className="w-2/5 sm:w-1/5 md:w-1/3 lg:w-1/4 2xl:w-2/5 flex items-center justify-start">
-                <div className="barcode"></div>
-              </div>
-            </footer>
-          </article>
-        );
-      })
-    );
-  };
-
-  console.log("thongTinDatVe", thongTinDatVe);
-  console.log('thongTinNguoiDung',thongTinNguoiDung)
 
   return (
     <div className="bg-cover bg-fixed bg-center bg-no-repeat" style={{ backgroundImage: `url(${thongTinPhim.hinhAnh})`, minHeight: "100vh" }}>
@@ -342,13 +285,10 @@ export  function KetQuaDatVe(props) {
               <h1 className="text-white text-center my-2">Chúc mừng {userLogin.hoTen} đặt vé thành công</h1>
               <p className="text-center">Hãy xem thông tin đặt vé bên dưới để xem phim vui vẻ bạn nhé!</p>
             </div>
-            <div className="tickets ">
-              <div className="grid grid-cols-1 gap-1 justify-items-stretch md:grid-cols-2 md:gap-2 lg:grid-cols-3 2xl:grid-cols-4 2xl:gap-1">{renderTicketItem()}</div>
-            </div>
+            <TicketsList />
           </div>
         </div>
       </div>
     </div>
   );
 }
- 

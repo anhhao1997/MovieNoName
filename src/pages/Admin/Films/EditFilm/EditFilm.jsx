@@ -38,7 +38,6 @@ const EditFilm = (props) => {
         trailer: yup.string().required("Trailer không được bỏ trống!"),
         moTa: yup.string().required("Mô tả không được bỏ trống!"),
         ngayKhoiChieu: yup.string().required("Hãy chọn ngày khởi chiếu!"),
-        hinhAnh: yup.string().required("Hãy chọn hình ảnh!"),
     });
 
     const formik = useFormik({
@@ -128,16 +127,20 @@ const EditFilm = (props) => {
                                     }}
                                 >
                                     <Form.Item label="Tên phim">
-                                        <Input name='tenPhim' onChange={formik.handleChange} value={formik.values.tenPhim} />
+                                        <Input name='tenPhim' onChange={formik.handleChange} value={formik.values.tenPhim} onBlur={formik.handleBlur}/>
+                                        {formik.errors.tenPhim && formik.touched.tenPhim ? <div className="text-red-600 pt-1">{formik.errors.tenPhim}</div> : ""}
                                     </Form.Item>
                                     <Form.Item label="Trailer">
-                                        <Input name='trailer' onChange={formik.handleChange} value={formik.values.trailer} />
+                                        <Input name='trailer' onChange={formik.handleChange} value={formik.values.trailer} onBlur={formik.handleBlur}/>
+                                        {formik.errors.trailer && formik.touched.trailer ? <div className="text-red-600 pt-1">{formik.errors.trailer}</div> : ""}
                                     </Form.Item>
                                     <Form.Item label="Mô tả">
-                                        <TextArea name='moTa' rows={4} onChange={formik.handleChange} value={formik.values.moTa} />
+                                        <TextArea name='moTa' rows={4} onChange={formik.handleChange} value={formik.values.moTa} onBlur={formik.handleBlur}/>
+                                        {formik.errors.moTa && formik.touched.moTa ? <div className="text-red-600 pt-1">{formik.errors.moTa}</div> : ""}
                                     </Form.Item>
                                     <Form.Item label="Ngày khởi chiếu" className='w-full'>
-                                        <DatePicker format={"DD/MM/YYYY"} placeholder="DD/MM/YYYY" onChange={handleChangeDatePicker} defaultValue={moment(formik.values.ngayKhoiChieu)} />
+                                        <DatePicker format={"DD/MM/YYYY"} placeholder="DD/MM/YYYY" onChange={handleChangeDatePicker} defaultValue={moment(formik.values.ngayKhoiChieu)} onBlur={formik.handleBlur}/>
+                                        {formik.errors.ngayKhoiChieu && formik.touched.ngayKhoiChieu ? <div className="text-red-600 pt-1">{formik.errors.ngayKhoiChieu}</div> : ""}
                                     </Form.Item>
                                     <Form.Item label="Đang chiếu" valuePropName="checked">
                                         <Switch name='dangChieu' onChange={handleChangeSwitchNumber('dangChieu')} checked={formik.values.dangChieu} />

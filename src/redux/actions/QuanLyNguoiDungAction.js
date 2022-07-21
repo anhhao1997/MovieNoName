@@ -181,10 +181,9 @@ export const suaNguoiDungAction = (thongTinNguoiDung) => {
                 thongTinNguoiDung
             );
             alert(
-                "Sửa thông tin người dùng thành công!"
+                "Cập nhật thông tin người dùng thành công!"
             );
-            history.push("/admin/manager");
-            // console.log("result", result.data.content);
+            window.location.reload(false);            // console.log("result", result.data.content);
 
         } catch (error) {
             console.log("error", error.response.data);
