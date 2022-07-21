@@ -6,7 +6,9 @@ import { GROUPID } from "../../../../util/settings/config";
 import { useDispatch } from "react-redux/es/exports";
 import { layLoaiNguoiDungAction, themNguoiDungAction } from "./../../../../redux/actions/QuanLyNguoiDungAction";
 import { useSelector } from "react-redux";
+import { Tabtitle } from "../../../../util/FunctionTitle";
 export default function AddUser(props) {
+    Tabtitle("Quản lý thêm người dùng");
     const dispatch = useDispatch();
 
     useEffect(() => {

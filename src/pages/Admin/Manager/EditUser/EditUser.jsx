@@ -6,6 +6,7 @@ import { GROUPID } from "../../../../util/settings/config";
 import { useDispatch } from "react-redux/es/exports";
 import { useSelector } from "react-redux";
 import { layThongTinNguoiDungSuaAction, suaNguoiDungAction } from "../../../../redux/actions/QuanLyNguoiDungAction";
+import { Tabtitle } from "../../../../util/FunctionTitle";
 
 export default function EdiUser(props) {
 
@@ -19,6 +20,8 @@ export default function EdiUser(props) {
     const { loaiNguoiDung } = useSelector((state) => state.QuanLyNguoiDungReducer);
 
     const { editUser } = useSelector((state) => state.QuanLyNguoiDungReducer);
+
+    Tabtitle("Chỉnh sửa người dùng " + editUser.taiKhoan);
 
     // console.log("loaiNguoiDung", loaiNguoiDung);
 

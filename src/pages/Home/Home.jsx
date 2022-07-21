@@ -6,7 +6,7 @@ import HomeService from "./../../templates/HomeTemplate/Layout/HomeService/HomeS
 import HomeTheater from "./../../templates/HomeTemplate/Layout/HomeTheater/HomeTheater";
 
 export default function Home(props) {
-  Tabtitle("Home");
+  Tabtitle("Trang chủ");
   return (
     <div id="home">
       <HomeCarousel></HomeCarousel>

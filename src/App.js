@@ -51,7 +51,6 @@ function App() {
         <AdminTemplate path="/admin" exact Component={Manager} />
         <AdminTemplate path="/admin/films" exact Component={Films} />
         <AdminTemplate path="/admin/manager" exact Component={Manager} />
-        <AdminTemplate path="/admin/showtime" exact Component={ShowTime} />
         <AdminTemplate path="/admin/films/addfilms" exact Component={AddFilms} />
         <AdminTemplate path="/admin/films/editfilm/:id" exact Component={EditFilm} />
         <AdminTemplate path="/admin/films/showtime/:id" exact Component={ShowTime} />

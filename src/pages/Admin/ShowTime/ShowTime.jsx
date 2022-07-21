@@ -12,8 +12,9 @@ import { quanLyDatVeService } from '../../../services/QuanLyDatVeService';
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux/es/exports";
 import { layThongTinPhimAction } from "./../../../redux/actions/QuanLyPhimActions";
+import { Tabtitle } from '../../../util/FunctionTitle';
 export default function ShowTime(props) {
-
+    
     const [rap, setRap] = useState({
         heThongRapChieu: [],
         cumRapChieu: []
@@ -29,7 +30,7 @@ export default function ShowTime(props) {
     }, [])
 
     const { layThongTinPhim } = useSelector(state => state.QuanLyPhimReducer);
-
+    Tabtitle("Lịch chiếu phim " + layThongTinPhim.tenPhim);
     console.log('thong tin phim', layThongTinPhim);
 
     const formik = useFormik({

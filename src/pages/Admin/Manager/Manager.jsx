@@ -5,8 +5,10 @@ import { AudioOutlined } from "@ant-design/icons";
 import { Input, Space } from "antd";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { NavLink } from "react-router-dom";
+import { Tabtitle } from "../../../util/FunctionTitle";
 
 export default function Manager(props) {
+    Tabtitle("Quản lý người dùng")
     const dispatch = useDispatch();
 
     useEffect(() => {

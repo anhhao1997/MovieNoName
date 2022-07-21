@@ -15,10 +15,13 @@ import { useDispatch } from "react-redux";
 import { GROUPID } from '../../../../util/settings/config';
 import { themPhimUploadHinhAction } from '../../../../redux/actions/QuanLyPhimActions';
 import * as yup from "yup";
+import { Tabtitle } from '../../../../util/FunctionTitle';
 
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 const AddFilms = (props) => {
+    
+    Tabtitle("Quản ý thêm phim");
 
     const [imgSrc, setImgSrc] = useState('');
 

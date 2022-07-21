@@ -6,9 +6,11 @@ import { useDispatch, useSelector } from "react-redux/es/exports";
 import { useEffect } from "react";
 import { getQuanLyPhimAction, xoaPhimAction } from "./../../../redux/actions/QuanLyPhimActions";
 import { NavLink } from "react-router-dom";
+import { Tabtitle } from '../../../util/FunctionTitle';
 
 export default function Films(props) {
     // Lấy danh sách các phim từ redux
+    Tabtitle("Quản lý phim")
     const { arrFilm } = useSelector(state => state.QuanLyPhimReducer)
 
     const dispatch = useDispatch();

@@ -15,8 +15,9 @@ import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
 import { GROUPID } from '../../../../util/settings/config';
 import { capNhatPhimUploadAction, layThongTinPhimAction } from "./../../../../redux/actions/QuanLyPhimActions";
+import { Tabtitle } from '../../../../util/FunctionTitle';
 
-const { RangePicker } = DatePicker;
+const { RangePicker } = DatePicker
 const { TextArea } = Input;
 const EditFilm = (props) => {
 
@@ -32,7 +33,7 @@ const EditFilm = (props) => {
 
     const { layThongTinPhim } = useSelector(state => state.QuanLyPhimReducer);
     // console.log('thongTinPhim', layThongTinPhim);
-
+    Tabtitle("Chỉnh sửa phim " + layThongTinPhim.tenPhim);
     const signupSchema = yup.object().shape({
         tenPhim: yup.string().required("Tên phim không được bỏ trống!"),
         trailer: yup.string().required("Trailer không được bỏ trống!"),
