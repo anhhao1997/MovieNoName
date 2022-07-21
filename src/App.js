@@ -3,7 +3,7 @@ import "./App.css";
 import { createBrowserHistory } from "history";
 import Home from "./pages/Home/Home";
 import { BrowserRouter, Route, Switch, Router } from "react-router-dom";
-import { HomeTemplate } from "./templates/HomeTemplate/HomeTemplate";
+import HomeTemplate from "./templates/HomeTemplate/HomeTemplate";
 import Detail from "./pages/Detail/Detail";
 import CheckoutTemplate from "./templates/CheckoutTemplate/CheckoutTemplate";
 import Checkout from "./pages/Checkout/Checkout";
@@ -12,7 +12,7 @@ import { Suspense, lazy } from "react";
 import { UserTemplate } from "./templates/UserTemplate/UserTemplate";
 import Register from "./pages/Register/Register";
 import Loading from "./components/Loading/Loading";
-import Profile from "./pages/Profile/Profile";
+// import Profile from "./pages/Profile/Profile";
 import AdminTemplate from "./templates/AdminTemplate/AdminTemplate";
 import Films from "./pages/Admin/Films/Films";
 import ShowTime from "./pages/Admin/ShowTime/ShowTime";
@@ -26,8 +26,7 @@ import UserProfile from "./templates/UserTemplate/Layout/UserProfile";
 import AddUser from "./pages/Admin/Manager/AddUser/AddUser";
 import EditUser from './pages/Admin/Manager/EditUser/EditUser';
 
-// const CheckoutTemplateLazy = lazy(() => import("./templates/CheckoutTemplate/CheckoutTemplate"))
-
+//const CheckoutTemplateLazy = lazy(() => import("./templates/CheckoutTemplate/CheckoutTemplate"))
 
 export const history = createBrowserHistory();
 
@@ -58,7 +57,6 @@ function App() {
         <AdminTemplate path="/admin/films/showtime/:id" exact Component={ShowTime} />
         <AdminTemplate path="/admin/manager/adduser" exact Component={AddUser} />
         <AdminTemplate path="/admin/manager/edituser/:id" exact Component={EditUser} />
-
         <HomeTemplate path="/" Component={Home} />
       </Switch>
     </Router>

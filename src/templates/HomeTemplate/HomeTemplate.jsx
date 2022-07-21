@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import Header from "./Layout/Header/Header";
 import Footer from "./Layout/Footer/Footer";
 
-export const HomeTemplate = (props) => {
+const HomeTemplate = (props) => {
 
     const { Component, ...restProps } = props;
 
@@ -25,3 +25,4 @@ export const HomeTemplate = (props) => {
     }} />
 
 }
+export default HomeTemplate; 
