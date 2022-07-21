@@ -59,7 +59,7 @@ export default class HomeServiceSlick extends Component {
 
     const renderFilm = (checkFilm) => {
       return arrFilm.map((itemFilm, index) => {
-        if (itemFilm.dangChieu == true && checkFilm == "dangChieu") {
+        if (itemFilm.dangChieu === true && checkFilm === "dangChieu") {
           return (
             <div className="card-film" key={index}>
               <div className="card-item shadow-md shadow-black">
