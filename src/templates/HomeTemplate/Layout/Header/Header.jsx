@@ -52,7 +52,7 @@ function NavBar() {
                             <li key={id} className="px-4 pb-1 relative text-sm cursor-pointer capitalize font-medium text-white hover:scale-105 duration-200 group">
                                 <Link to={link} smooth duration={300}>
                                     {title}
-                                    <span class="absolute right-full group-hover:inset-x-2 bottom-0 bg-red-600 duration-500" style={{ height: "3px" }}></span>
+                                    <span className="absolute right-full group-hover:inset-x-2 bottom-0 bg-red-600 duration-500" style={{ height: "3px" }}></span>
                                 </Link>
                             </li>
                         );
