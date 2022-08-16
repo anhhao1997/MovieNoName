@@ -1,4 +1,4 @@
-import { layDanhSachNguoiDungAction, timNguoiDungAction } from "../../../redux/actions/QuanLyNguoiDungAction";
+import { layDanhSachNguoiDungAction, timNguoiDungAction, xoaNguoiDungAction } from "../../../redux/actions/QuanLyNguoiDungAction";
 import React, { Fragment, useState, useEffect } from "react";
 import { Table, Button, Modal } from "antd";
 import { AudioOutlined } from "@ant-design/icons";
@@ -126,7 +126,7 @@ export default function Manager(props) {
                             className="delete text-red-600 text-2xl mr-3 ml-3"
                             onClick={() => {
                                 if (window.confirm("Bạn có chắc chắn xóa người dùng có tài khoản là: " + user.taiKhoan)) {
-                                    dispatch(user.taiKhoan);
+                                    dispatch(xoaNguoiDungAction(user.taiKhoan));
                                 }
                             }}
                         >

@@ -60,6 +60,9 @@
 
 @media screen and (max-width: 1280px) {
     .admin-manager {
+        .title-manager {
+            width: 50%;
+        }
         .form-user {
             padding: 25px 40px;
             .form-item {

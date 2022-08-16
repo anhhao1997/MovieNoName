@@ -3,6 +3,7 @@ import moment from "moment";
 
 export default function DetailInfoFilm(props) {
   const filmDetail = props.filmDetail;
+  
 
   return (
     <div className="container w-full">

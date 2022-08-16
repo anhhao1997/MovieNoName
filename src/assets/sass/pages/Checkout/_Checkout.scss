@@ -21,18 +21,18 @@
       }
 
       .dropdown-menu {
-        color: #fff;
+        color:#000;
         padding-top: 10px;
         padding-bottom: 10px;
         // background-color: #03213b;
-        background-color: black;
+        background-color: white;
         font-size: 14px;
         min-width: 8rem;
 
         .item-drop-1,
         .item-drop-2 {
           display: block;
-          color: #a0a0a0;
+          
           position: relative;
           padding: 10px 20px;
           margin: 10px 0;
@@ -49,7 +49,7 @@
           }
 
           &:hover {
-            color: #fff;
+            color: $mainColor;
 
             &::after {
               width: 100%;

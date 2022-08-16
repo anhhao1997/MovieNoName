@@ -108,10 +108,10 @@ export const layLoaiNguoiDungAction = () => {
     };
 };
 
-export const xoaNguoiDungAction = () => {
+export const xoaNguoiDungAction = (id) => {
     return async (dispatch) => {
         try {
-            const result = await quanLyNguoiDungService.xoaNguoiDung();
+            const result = await quanLyNguoiDungService.xoaNguoiDung(id);
         } catch (error) {
             console.log("error", error.response.data);
         }
