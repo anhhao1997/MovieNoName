@@ -5,8 +5,9 @@ import * as yup from "yup";
 import { GROUPID } from "../../../../util/settings/config";
 import { useDispatch } from "react-redux/es/exports";
 import { useSelector } from "react-redux";
-import { layThongTinNguoiDungSuaAction, suaNguoiDungAction } from "../../../../redux/actions/QuanLyNguoiDungAction";
+import { layThongTinNguoiDungSuaAction } from "../../../../redux/actions/QuanLyNguoiDungAction";
 import { Tabtitle } from "../../../../util/FunctionTitle";
+import { AdminSuaNguoiDungAction } from './../../../../redux/actions/QuanLyNguoiDungAction';
 
 export default function EdiUser(props) {
 
@@ -53,9 +54,9 @@ export default function EdiUser(props) {
             maNhom: GROUPID,
         },
         validationSchema: signupSchema,
-        onSubmit: (value) => {
-            dispatch(suaNguoiDungAction(value));  
-            console.log("value: ", value);
+        onSubmit: (values) => {
+            dispatch(AdminSuaNguoiDungAction(values)); 
+            console.log("value: ", values);
         },
     });
     // console.log("formikValues", formik.values);

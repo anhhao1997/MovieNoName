@@ -1,21 +1,11 @@
 import { quanLyNguoiDungService } from "../../services/QuanLyNguoiDungService";
-import {
-    DANG_KY_ACTION,
-    DANG_NHAP_ACTION,
-    SET_EDIT_USER,
-    SET_THONG_TIN_NGUOI_DUNG,
-    SET_USERS,
-    SET_USER_TYPE,
-    THEM_NGUOI_DUNG,
-} from "./types/QuanLyNguoiDungType";
+import { DANG_KY_ACTION, DANG_NHAP_ACTION, SET_EDIT_USER, SET_THONG_TIN_NGUOI_DUNG, SET_USERS, SET_USER_TYPE, THEM_NGUOI_DUNG } from "./types/QuanLyNguoiDungType";
 import { history } from "../../App";
 // sử dụng history chuyển hướng nếu đăng nhập thành công
 export const dangNhapAction = (thongTinDangNhap) => {
     return async (dispatch) => {
         try {
-            const result = await quanLyNguoiDungService.layThongTinDangNhap(
-                thongTinDangNhap
-            );
+            const result = await quanLyNguoiDungService.layThongTinDangNhap(thongTinDangNhap);
 
             if (result.data.statusCode === 200) {
                 const action = {
@@ -36,9 +26,7 @@ export const dangNhapAction = (thongTinDangNhap) => {
 export const dangKyAction = (thongTinDangKy) => {
     return async (dispatch) => {
         try {
-            const result = await quanLyNguoiDungService.layThongTinDangKy(
-                thongTinDangKy
-            );
+            const result = await quanLyNguoiDungService.layThongTinDangKy(thongTinDangKy);
 
             if (result.data.statusCode === 200) {
                 const action = {
@@ -46,9 +34,7 @@ export const dangKyAction = (thongTinDangKy) => {
                     thongTinDangKy: result.data.content,
                 };
                 dispatch(action);
-                alert(
-                    "Chúc mừng bạn đăng ký thành công, giờ hãy đăng nhập nhé"
-                );
+                alert("Chúc mừng bạn đăng ký thành công, giờ hãy đăng nhập nhé");
                 history.push("/login");
                 // console.log("result", result.data.content);
             }
@@ -112,6 +98,8 @@ export const xoaNguoiDungAction = (id) => {
     return async (dispatch) => {
         try {
             const result = await quanLyNguoiDungService.xoaNguoiDung(id);
+            alert("Xóa người dùng thành công!");
+            await dispatch(layDanhSachNguoiDungAction());
         } catch (error) {
             console.log("error", error.response.data);
         }
@@ -121,28 +109,20 @@ export const xoaNguoiDungAction = (id) => {
 export const themNguoiDungAction = (thongTinNguoiDung) => {
     return async (dispatch) => {
         try {
-            const result = await quanLyNguoiDungService.themNguoiDung(
-                thongTinNguoiDung
-            );
-            alert(
-                "Thêm người dùng thành công!"
-            );
+            const result = await quanLyNguoiDungService.themNguoiDung(thongTinNguoiDung);
+            alert("Thêm người dùng thành công!");
             history.push("/admin/manager");
             // console.log("result", result.data.content);
-
         } catch (error) {
             console.log("error", error.response.data);
         }
     };
 };
 
-
 export const timNguoiDungAction = (tuKhoa) => {
     return async (dispatch) => {
         try {
-            const result = await quanLyNguoiDungService.timNguoiDung(
-                tuKhoa
-            );
+            const result = await quanLyNguoiDungService.timNguoiDung(tuKhoa);
             const action = {
                 type: SET_USERS,
                 arrUsers: result.data.content,
@@ -157,12 +137,11 @@ export const timNguoiDungAction = (tuKhoa) => {
 export const layThongTinNguoiDungSuaAction = (taiKhoan) => {
     return async (dispatch) => {
         try {
-
             const result = await quanLyNguoiDungService.layNguoiDungSua(taiKhoan);
 
-            await(dispatch(layLoaiNguoiDungAction()))
+            await dispatch(layLoaiNguoiDungAction());
 
-            console.log(result.data.content)
+            console.log(result.data.content);
             const action = {
                 type: SET_EDIT_USER,
                 editUser: result.data.content,
@@ -171,20 +150,27 @@ export const layThongTinNguoiDungSuaAction = (taiKhoan) => {
         } catch (error) {
             console.log("error", error.response.data);
         }
-    }
-}
+    };
+};
 
 export const suaNguoiDungAction = (thongTinNguoiDung) => {
     return async (dispatch) => {
         try {
-            const result = await quanLyNguoiDungService.suaNguoiDung(
-                thongTinNguoiDung
-            );
-            alert(
-                "Cập nhật thông tin người dùng thành công!"
-            );
-            window.location.reload(false);            // console.log("result", result.data.content);
+            const result = await quanLyNguoiDungService.suaNguoiDung(thongTinNguoiDung);
+            alert("Cập nhật thông tin người dùng thành công!");
+            window.location.reload(true); // console.log("result", result.data.content);
+        } catch (error) {
+            console.log("error", error.response.data);
+        }
+    };
+};
 
+export const AdminSuaNguoiDungAction = (thongTinNguoiDung) => {
+    return async (dispatch) => {
+        try {
+            const result = await quanLyNguoiDungService.adminSuaNguoiDung(thongTinNguoiDung);
+            alert("Cập nhật thông tin người dùng thành công!");
+            window.location.reload(true); // console.log("result", result.data.content);
         } catch (error) {
             console.log("error", error.response.data);
         }
