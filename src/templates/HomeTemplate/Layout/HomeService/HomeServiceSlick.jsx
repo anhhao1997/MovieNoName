@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import { Tabs } from "antd";
 import { NavLink } from "react-router-dom";
+
 export default class HomeServiceSlick extends Component {
   state = {
     tenPhim: "",
     trailerFilm: "",
   };
-
+  
   render() {
     let settings = {
       dots: true,

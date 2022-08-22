@@ -59,7 +59,8 @@ export default function EdiUser(props) {
             console.log("value: ", values);
         },
     });
-    // console.log("formikValues", formik.values);
+
+    // console.log('values', formik.values);       
 
     return (
         <div>
